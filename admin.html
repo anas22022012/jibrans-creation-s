@@ -3,409 +3,1003 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Jibran's Creations — Admin</title>
+
+<title>Jibran's Creations | Premium DIY Store</title>
+<meta name="description"
+content="Jibran's Creations — premium kids DIY, art and creative products.">
 
 <style>
-*{box-sizing:border-box}
+:root{
+  --pink:#ffd9e8;
+  --purple:#e7ddff;
+  --blue:#d9efff;
+  --green:#ddf7e7;
+  --dark:#29243b;
+  --muted:#777;
+  --white:#fff;
+  --border:#eee;
+  --shadow:0 10px 30px #00000012;
+}
+
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
   font-family:system-ui,-apple-system,Segoe UI,sans-serif;
-  background:#f7f4fb;
-  color:#29243b
+  background:#faf9fc;
+  color:var(--dark);
 }
-.wrap{max-width:1100px;margin:auto;padding:20px}
-.card{
-  background:#fff;
-  border-radius:20px;
-  padding:20px;
-  margin-bottom:18px;
-  box-shadow:0 10px 30px #0001
+
+button,
+input,
+textarea,
+select{
+  font:inherit;
 }
-.login{
-  max-width:430px;
-  margin:60px auto
-}
-h1,h2{margin-top:0}
-input,select,textarea{
-  width:100%;
-  padding:12px;
-  border:1px solid #ddd;
-  border-radius:10px;
-  margin:6px 0 12px;
-  font-size:15px
-}
-textarea{min-height:90px;resize:vertical}
-label{font-weight:700;font-size:14px}
+
 button{
-  border:0;
-  border-radius:10px;
-  padding:11px 15px;
   cursor:pointer;
-  font-weight:700
 }
-.primary{background:#29243b;color:#fff}
-.green{background:#4f9b76;color:#fff}
-.red{background:#d9534f;color:#fff}
-.blue{background:#587bdc;color:#fff}
 
-.dashboard{display:none}
+a{
+  color:inherit;
+  text-decoration:none;
+}
 
-.top{
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:0 18px;
+}
+
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:#ffffffee;
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #eee;
+}
+
+.nav{
+  min-height:72px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  gap:10px
+  gap:15px;
 }
 
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px
-}
-.stat{
-  background:#fff;
-  border-radius:16px;
-  padding:18px;
-  box-shadow:0 8px 20px #0001
-}
-.stat b{
-  display:block;
-  font-size:27px;
-  margin-top:5px
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px
-}
-
-.photo-upload{
-  border:2px dashed #c9bde5;
-  background:#faf8ff;
-  padding:15px;
-  border-radius:15px;
-  text-align:center;
-  margin-bottom:15px
-}
-
-.preview{
-  width:150px;
-  height:150px;
-  object-fit:cover;
-  border-radius:15px;
-  margin:10px auto;
-  display:none;
-  border:1px solid #ddd
-}
-
-.product{
+.logo{
   display:flex;
-  gap:12px;
   align-items:center;
-  border:1px solid #eee;
+  gap:10px;
+  min-width:max-content;
+}
+
+.logo img{
+  width:46px;
+  height:46px;
   border-radius:14px;
-  padding:12px;
-  margin-top:10px
-}
-
-.product img{
-  width:75px;
-  height:75px;
   object-fit:cover;
-  border-radius:12px;
-  background:#eee
+  background:#eee;
 }
 
-.product-info{flex:1}
-.product-info h3{margin:0 0 4px}
-.product-info p{
-  margin:3px 0;
-  color:#666;
-  font-size:13px
+.logo strong{
+  font-size:18px;
+}
+
+.search{
+  flex:1;
+  display:flex;
+  align-items:center;
+  background:#f5f3f8;
+  border-radius:14px;
+  padding:0 13px;
+}
+
+.search input{
+  width:100%;
+  border:0;
+  outline:0;
+  background:transparent;
+  padding:12px 8px;
 }
 
 .actions{
   display:flex;
-  gap:6px;
-  flex-wrap:wrap
+  gap:8px;
 }
 
-.msg{
-  margin-top:10px;
-  font-weight:700
+.icon-btn{
+  border:0;
+  background:#f5f3f8;
+  width:42px;
+  height:42px;
+  border-radius:12px;
 }
 
-.coupon{
+/* HERO */
+
+.hero{
+  margin:22px 0;
+  border-radius:28px;
+  padding:42px 28px;
+  background:linear-gradient(
+    135deg,
+    var(--pink),
+    var(--purple),
+    var(--blue)
+  );
+}
+
+.hero h1{
+  margin:0 0 10px;
+  font-size:clamp(30px,5vw,52px);
+}
+
+.hero p{
+  max-width:650px;
+  font-size:17px;
+  color:#514b60;
+}
+
+.hero-btn{
+  display:inline-block;
+  margin-top:12px;
+  padding:13px 18px;
+  border:0;
+  border-radius:13px;
+  background:var(--dark);
+  color:white;
+  font-weight:800;
+}
+
+/* CATEGORIES */
+
+.section{
+  margin:28px 0;
+}
+
+.section-head{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  border:1px solid #eee;
-  border-radius:12px;
-  padding:12px;
-  margin-top:8px
+  gap:10px;
 }
 
-.order{
-  border:1px solid #eee;
-  border-radius:12px;
-  padding:12px;
-  margin-top:8px
+.section-head h2{
+  margin:0;
+}
+
+.chips{
+  display:flex;
+  gap:9px;
+  overflow-x:auto;
+  padding:12px 0;
+}
+
+.chip{
+  border:0;
+  background:white;
+  box-shadow:var(--shadow);
+  border-radius:999px;
+  padding:10px 15px;
+  white-space:nowrap;
+}
+
+/* TOOLS */
+
+.tools{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.tool{
+  padding:20px;
+  border-radius:20px;
+  box-shadow:var(--shadow);
+}
+
+.tool:nth-child(1){background:var(--pink)}
+.tool:nth-child(2){background:var(--purple)}
+.tool:nth-child(3){background:var(--green)}
+
+.tool h3{
+  margin:0 0 5px;
+}
+
+/* PRODUCTS */
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.product{
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  position:relative;
+  border:1px solid #f0edf4;
+}
+
+.product-img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  background:#f1eff5;
+}
+
+.wish{
+  position:absolute;
+  right:10px;
+  top:10px;
+  width:38px;
+  height:38px;
+  border:0;
+  border-radius:50%;
+  background:#ffffffdd;
+  font-size:19px;
+}
+
+.product-body{
+  padding:15px;
+}
+
+.category{
+  font-size:12px;
+  color:#8b789c;
+  font-weight:700;
+}
+
+.product h3{
+  margin:6px 0;
+  font-size:17px;
+}
+
+.desc{
+  color:#777;
+  font-size:13px;
+  min-height:38px;
+}
+
+.price{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin:9px 0;
+}
+
+.price strong{
+  font-size:20px;
+}
+
+.price del{
+  color:#999;
+  font-size:13px;
+}
+
+.stock{
+  font-size:12px;
+  color:#4f9b76;
+  margin-bottom:10px;
+}
+
+.add{
+  width:100%;
+  border:0;
+  background:var(--dark);
+  color:white;
+  padding:11px;
+  border-radius:11px;
+  font-weight:800;
 }
 
 .empty{
-  color:#888;
+  grid-column:1/-1;
+  background:white;
+  padding:35px;
   text-align:center;
-  padding:15px
+  border-radius:20px;
+  color:#777;
 }
 
-@media(max-width:750px){
-  .grid{grid-template-columns:1fr}
-  .stats{grid-template-columns:1fr 1fr}
-  .top{flex-direction:column;align-items:flex-start}
+/* REVIEWS */
+
+.reviews{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.review{
+  background:white;
+  padding:18px;
+  border-radius:18px;
+  box-shadow:var(--shadow);
+}
+
+/* FOOTER */
+
+footer{
+  margin-top:45px;
+  background:#29243b;
+  color:white;
+  padding:35px 0;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:25px;
+}
+
+footer p{
+  color:#d8d3e0;
+}
+
+footer a{
+  display:block;
+  margin:8px 0;
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:#0008;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:100;
+  padding:15px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:min(500px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:white;
+  border-radius:22px;
+  padding:22px;
+}
+
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.close{
+  border:0;
+  background:#f3f1f6;
+  width:38px;
+  height:38px;
+  border-radius:10px;
+}
+
+.cart-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 0;
+  border-bottom:1px solid #eee;
+}
+
+.cart-item img{
+  width:60px;
+  height:60px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.cart-info{
+  flex:1;
+}
+
+.qty{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.qty button{
+  border:0;
+  width:28px;
+  height:28px;
+  border-radius:8px;
+  background:#eee;
+}
+
+.remove{
+  border:0;
+  background:#ffe5e5;
+  color:#c33;
+  padding:7px;
+  border-radius:8px;
+}
+
+.total{
+  display:flex;
+  justify-content:space-between;
+  font-size:20px;
+  font-weight:800;
+  padding:15px 0;
+}
+
+.primary{
+  width:100%;
+  border:0;
+  padding:13px;
+  border-radius:12px;
+  background:var(--dark);
+  color:white;
+  font-weight:800;
+}
+
+.form-group{
+  margin:10px 0;
+}
+
+.form-group label{
+  display:block;
+  font-weight:700;
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.form-group input,
+.form-group textarea{
+  width:100%;
+  padding:11px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  outline:0;
+}
+
+.coupon-row{
+  display:flex;
+  gap:8px;
+}
+
+.coupon-row input{
+  flex:1;
+}
+
+.coupon-row button{
+  border:0;
+  border-radius:10px;
+  background:#587bdc;
+  color:white;
+  padding:0 15px;
+  font-weight:800;
+}
+
+.coupon-msg{
+  font-size:13px;
+  margin-top:5px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+  .product-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .tools{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:700px){
+  .nav{
+    flex-wrap:wrap;
+    padding:10px 0;
+  }
+
+  .logo{
+    width:100%;
+  }
+
+  .search{
+    order:3;
+    width:100%;
+  }
+
+  .product-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .product-img{
+    height:180px;
+  }
+
+  .tools,
+  .reviews,
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:430px){
+  .product-grid{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .product-img{
+    height:155px;
+  }
+
+  .product-body{
+    padding:11px;
+  }
+
+  .product h3{
+    font-size:15px;
+  }
+
+  .desc{
+    font-size:12px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= LOGIN ================= -->
+<!-- ================= HEADER ================= -->
 
-<div class="card login" id="loginBox">
+<header>
+<div class="container nav">
 
-  <h1>🔐 Jibran's Creations</h1>
-  <p>Private Admin Panel</p>
+  <a class="logo" href="#">
+    <img src="logo.jpg" alt="Jibran's Creations">
+    <strong>Jibran's Creations</strong>
+  </a>
 
-  <label>Admin Email</label>
-  <input
-    type="email"
-    id="email"
-    placeholder="Admin email"
-  >
+  <div class="search">
+    🔍
+    <input
+      id="searchInput"
+      type="search"
+      placeholder="Search products..."
+      oninput="searchProducts()"
+    >
+  </div>
 
-  <label>Password</label>
-  <input
-    type="password"
-    id="password"
-    placeholder="Password"
-  >
+  <div class="actions">
 
-  <button
-    class="primary"
-    style="width:100%"
-    onclick="login()"
-  >
-    🔐 Login
-  </button>
+    <button
+      class="icon-btn"
+      onclick="openCart()"
+      title="Cart"
+    >
+      🛒
+      <span id="cartCount">0</span>
+    </button>
 
-  <div id="loginMsg" class="msg"></div>
-
-</div>
-
-
-<!-- ================= DASHBOARD ================= -->
-
-<div class="dashboard" id="dashboard">
-
-<div class="wrap">
-
-  <div class="card top">
-
-    <div>
-      <h1>🛍️ Jibran's Creations Admin</h1>
-      <p>Manage your products, photos, coupons and orders.</p>
-    </div>
-
-    <button class="red" onclick="logout()">
-      Logout
+    <button
+      class="icon-btn"
+      onclick="openWishlist()"
+      title="Wishlist"
+    >
+      ❤️
     </button>
 
   </div>
 
+</div>
+</header>
 
-  <!-- STATS -->
 
-  <div class="stats">
+<main class="container">
 
-    <div class="stat">
-      📦 Products
-      <b id="productCount">0</b>
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+  <h1>Create. Paint. Enjoy. 🎨</h1>
+
+  <p>
+    Discover fun DIY painting, art and creative activity products
+    from Jibran's Creations.
+  </p>
+
+  <a href="#products" class="hero-btn">
+    Shop Now →
+  </a>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="section">
+
+  <div class="section-head">
+    <h2>Shop by Category</h2>
+  </div>
+
+  <div class="chips">
+
+    <button class="chip" onclick="filterCategory('All')">
+      ✨ All
+    </button>
+
+    <button class="chip" onclick="filterCategory('Painting')">
+      🎨 Painting
+    </button>
+
+    <button class="chip" onclick="filterCategory('DIY')">
+      🛠️ DIY
+    </button>
+
+    <button class="chip" onclick="filterCategory('Craft')">
+      ✂️ Craft
+    </button>
+
+    <button class="chip" onclick="filterCategory('Kids')">
+      🧸 Kids
+    </button>
+
+    <button class="chip" onclick="filterCategory('Art')">
+      🖌️ Art
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= SMART TOOLS ================= -->
+
+<section class="section">
+
+  <div class="tools">
+
+    <div class="tool">
+      <h3>🚚 All India Delivery</h3>
+      <p>
+        We deliver Jibran's Creations products across India.
+      </p>
     </div>
 
-    <div class="stat">
-      🎟️ Coupons
-      <b id="couponCount">0</b>
+    <div class="tool">
+      <h3>🔄 7-Day Return</h3>
+      <p>
+        Return or replacement available according to our policy.
+      </p>
     </div>
 
-    <div class="stat">
-      🛒 Orders
-      <b id="orderCount">0</b>
+    <div class="tool">
+      <h3>💳 Easy Payment</h3>
+      <p>
+        UPI, Card and Net Banking available.
+      </p>
     </div>
 
   </div>
 
-
-  <div class="grid">
-
-    <!-- ================= PRODUCT FORM ================= -->
-
-    <div class="card">
-
-      <h2>📦 Product</h2>
-
-      <input
-        type="hidden"
-        id="editId"
-      >
-
-      <label>Product Name</label>
-      <input
-        id="pName"
-        placeholder="Product name"
-      >
-
-      <label>MRP</label>
-      <input
-        id="pMrp"
-        type="number"
-        placeholder="299"
-      >
-
-      <label>Selling Price</label>
-      <input
-        id="pPrice"
-        type="number"
-        placeholder="249"
-      >
-
-      <label>Stock</label>
-      <input
-        id="pStock"
-        type="number"
-        placeholder="20"
-      >
-
-      <label>Category</label>
-
-      <select id="pCategory">
-
-        <option>Painting</option>
-        <option>DIY</option>
-        <option>Craft</option>
-        <option>Kids</option>
-        <option>Art</option>
-        <option>Other</option>
-
-      </select>
+</section>
 
 
-      <!-- ================= PHOTO ================= -->
+<!-- ================= PRODUCTS ================= -->
 
-      <label>📷 Product Photo</label>
+<section class="section" id="products">
 
-      <div class="photo-upload">
+  <div class="section-head">
+    <h2>🛍️ Our Products</h2>
+    <span id="productStatus"></span>
+  </div>
 
-        <p>Choose product photo</p>
+  <div
+    id="productGrid"
+    class="product-grid"
+  ></div>
 
-        <input
-          type="file"
-          id="pImage"
-          accept="image/*"
-        >
-
-        <img
-          id="preview"
-          class="preview"
-          alt="Product preview"
-        >
-
-        <small>
-          JPG, PNG or WEBP • Max 3MB
-        </small>
-
-      </div>
+</section>
 
 
-      <label>Description</label>
+<!-- ================= REVIEWS ================= -->
 
-      <textarea
-        id="pDescription"
-        placeholder="Product description"
-      ></textarea>
+<section class="section">
 
+  <div class="section-head">
+    <h2>⭐ Customer Reviews</h2>
+  </div>
 
-      <button
-        class="green"
-        onclick="saveProduct()"
-      >
-        ➕ Save Product
-      </button>
+  <div class="reviews">
 
-      <button
-        onclick="clearForm()"
-      >
-        Clear
-      </button>
-
-      <div
-        id="productMsg"
-        class="msg"
-      ></div>
-
+    <div class="review">
+      ⭐⭐⭐⭐⭐
+      <p>
+        Amazing DIY kit! Very creative and fun.
+      </p>
+      <b>Happy Customer</b>
     </div>
 
-
-    <!-- ================= PRODUCT LIST ================= -->
-
-    <div class="card">
-
-      <h2>🛍️ Your Products</h2>
-
-      <div id="productList"></div>
-
+    <div class="review">
+      ⭐⭐⭐⭐⭐
+      <p>
+        Nice quality and beautiful packaging.
+      </p>
+      <b>Happy Customer</b>
     </div>
 
-
-    <!-- ================= COUPONS ================= -->
-
-    <div class="card">
-
-      <h2>🎟️ Coupons</h2>
-
-      <input
-        id="couponCode"
-        placeholder="Example: WELCOME10"
-      >
-
-      <input
-        id="couponDiscount"
-        type="number"
-        placeholder="Discount %"
-      >
-
-      <button
-        class="green"
-        onclick="addCoupon()"
-      >
-        Add Coupon
-      </button>
-
-      <div id="couponList"></div>
-
-    </div>
-
-
-    <!-- ================= ORDERS ================= -->
-
-    <div class="card">
-
-      <h2>🛒 Orders</h2>
-
-      <div id="orderList"></div>
-
+    <div class="review">
+      ⭐⭐⭐⭐⭐
+      <p>
+        Kids really enjoyed the activity.
+      </p>
+      <b>Happy Customer</b>
     </div>
 
   </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container footer-grid">
+
+  <div>
+    <h2>Jibran's Creations</h2>
+
+    <p>
+      Premium DIY, art and creative products.
+    </p>
+
+    <p>
+      Owner: Jibran Al Shahban
+    </p>
+  </div>
+
+  <div>
+
+    <h3>Customer Care</h3>
+
+    <a href="tel:9150608692">
+      📞 9150608692
+    </a>
+
+    <a href="mailto:jibran.shahban@gmail.com">
+      ✉️ Email Us
+    </a>
+
+    <a
+      href="https://wa.me/919150608692"
+      target="_blank"
+    >
+      💬 WhatsApp
+    </a>
+
+  </div>
+
+  <div>
+
+    <h3>Follow Us</h3>
+
+    <a
+      href="https://www.instagram.com/jibran0215"
+      target="_blank"
+    >
+      📸 Instagram
+    </a>
+
+    <a
+      href="https://youtube.com/@learnwithjibranshahban"
+      target="_blank"
+    >
+      ▶️ YouTube
+    </a>
+
+  </div>
+
+</div>
+
+</footer>
+
+
+<!-- ================= CART MODAL ================= -->
+
+<div
+  class="modal"
+  id="cartModal"
+>
+
+<div class="modal-box">
+
+  <div class="modal-head">
+
+    <h2>🛒 Your Cart</h2>
+
+    <button
+      class="close"
+      onclick="closeModal('cartModal')"
+    >
+      ✕
+    </button>
+
+  </div>
+
+  <div id="cartItems"></div>
+
+  <div class="total">
+
+    <span>Total</span>
+
+    <span id="cartTotal">
+      ₹0
+    </span>
+
+  </div>
+
+
+  <!-- COUPON -->
+
+  <div class="form-group">
+
+    <label>🎟️ Coupon Code</label>
+
+    <div class="coupon-row">
+
+      <input
+        id="couponInput"
+        placeholder="Enter coupon"
+      >
+
+      <button onclick="applyCoupon()">
+        Apply
+      </button>
+
+    </div>
+
+    <div
+      id="couponMsg"
+      class="coupon-msg"
+    ></div>
+
+  </div>
+
+
+  <button
+    class="primary"
+    onclick="openCheckout()"
+  >
+    Proceed to Order →
+  </button>
+
+</div>
+
+</div>
+
+
+<!-- ================= CHECKOUT MODAL ================= -->
+
+<div
+  class="modal"
+  id="checkoutModal"
+>
+
+<div class="modal-box">
+
+  <div class="modal-head">
+
+    <h2>📦 Place Your Order</h2>
+
+    <button
+      class="close"
+      onclick="closeModal('checkoutModal')"
+    >
+      ✕
+    </button>
+
+  </div>
+
+  <div class="form-group">
+
+    <label>Full Name</label>
+
+    <input
+      id="customerName"
+      placeholder="Your name"
+    >
+
+  </div>
+
+  <div class="form-group">
+
+    <label>Mobile Number</label>
+
+    <input
+      id="customerPhone"
+      type="tel"
+      placeholder="Your mobile number"
+    >
+
+  </div>
+
+  <div class="form-group">
+
+    <label>Delivery Address</label>
+
+    <textarea
+      id="customerAddress"
+      placeholder="Complete delivery address"
+    ></textarea>
+
+  </div>
+
+  <div class="form-group">
+
+    <label>Payment</label>
+
+    <select id="paymentMethod">
+      <option>UPI</option>
+      <option>Card</option>
+      <option>Net Banking</option>
+    </select>
+
+  </div>
+
+  <div
+    id="checkoutMsg"
+    class="coupon-msg"
+  ></div>
+
+  <button
+    class="primary"
+    onclick="placeOrder()"
+  >
+    ✅ Place Order
+  </button>
+
+</div>
+
+</div>
+
+
+<!-- ================= WISHLIST MODAL ================= -->
+
+<div
+  class="modal"
+  id="wishlistModal"
+>
+
+<div class="modal-box">
+
+  <div class="modal-head">
+
+    <h2>❤️ Wishlist</h2>
+
+    <button
+      class="close"
+      onclick="closeModal('wishlistModal')"
+    >
+      ✕
+    </button>
+
+  </div>
+
+  <div id="wishlistItems"></div>
 
 </div>
 
@@ -414,102 +1008,107 @@ button{
 
 <script>
 
-/* =========================================
-   ADMIN LOGIN
-========================================= */
+/* ==================================================
+   SHARED KEYS
+================================================== */
 
-const ADMIN_EMAIL =
-"jibran.shahban@gmail.com";
-
-const ADMIN_PASSWORD =
-"AnasAdmin@2026";
-
-
-function login(){
-
-  const email =
-    document.getElementById("email")
-    .value.trim();
-
-  const password =
-    document.getElementById("password")
-    .value;
-
-  const msg =
-    document.getElementById("loginMsg");
+const PRODUCT_KEY = "jcProductsV1";
+const COUPON_KEY = "jcCouponsV1";
+const ORDER_KEY = "jcOrders";
+const CART_KEY = "jcCart";
+const WISH_KEY = "jcWishlist";
 
 
-  if(
-    email === ADMIN_EMAIL &&
-    password === ADMIN_PASSWORD
-  ){
+/* ==================================================
+   DATA
+================================================== */
 
-    sessionStorage.setItem(
-      "jcAdminLoggedIn",
-      "true"
-    );
-
-    showDashboard();
-
-  }else{
-
-    msg.style.color="#d9534f";
-
-    msg.textContent =
-      "❌ Wrong email or password";
-
-  }
-
-}
-
-
-function logout(){
-
-  sessionStorage.removeItem(
-    "jcAdminLoggedIn"
+let cart =
+  JSON.parse(
+    localStorage.getItem(CART_KEY) || "[]"
   );
 
-  location.reload();
+let wishlist =
+  JSON.parse(
+    localStorage.getItem(WISH_KEY) || "[]"
+  );
 
-}
+let allProducts = [];
 
+let activeCategory = "All";
 
-function showDashboard(){
-
-  document.getElementById(
-    "loginBox"
-  ).style.display="none";
-
-  document.getElementById(
-    "dashboard"
-  ).style.display="block";
-
-  loadAll();
-
-}
+let appliedCoupon = null;
 
 
-/* =========================================
-   STORAGE
-========================================= */
+/* ==================================================
+   DEFAULT PRODUCTS
+================================================== */
 
-const PRODUCT_KEY =
-"jcProductsV1";
+const defaultProducts = [
 
-const COUPON_KEY =
-"jcCouponsV1";
+  {
+    id:"default-1",
+    name:"DIY Painting Kit",
+    price:299,
+    mrp:319,
+    stock:50,
+    category:"Painting",
+    description:"Fun DIY painting activity kit.",
+    image:""
+  },
 
-const ORDER_KEY =
-"jcOrders";
+  {
+    id:"default-2",
+    name:"Creative Craft Kit",
+    price:349,
+    mrp:369,
+    stock:40,
+    category:"Craft",
+    description:"Creative craft activity for kids.",
+    image:""
+  },
+
+  {
+    id:"default-3",
+    name:"Mini Building Set",
+    price:399,
+    mrp:419,
+    stock:35,
+    category:"DIY",
+    description:"Fun creative building activity.",
+    image:""
+  },
+
+  {
+    id:"default-4",
+    name:"DIY Gift Activity Box",
+    price:449,
+    mrp:469,
+    stock:30,
+    category:"Kids",
+    description:"Creative activity gift box.",
+    image:""
+  }
+
+];
 
 
-function getProducts(){
+/* ==================================================
+   GET ADMIN PRODUCTS
+================================================== */
+
+function getAdminProducts(){
 
   try{
 
-    return JSON.parse(
-      localStorage.getItem(PRODUCT_KEY)
-    ) || [];
+    const saved =
+      JSON.parse(
+        localStorage.getItem(PRODUCT_KEY) || "[]"
+      );
+
+    return Array.isArray(saved)
+      ? saved
+      : [];
 
   }catch(e){
 
@@ -520,841 +1119,296 @@ function getProducts(){
 }
 
 
-function saveProducts(products){
+/* ==================================================
+   LOAD PRODUCTS
+================================================== */
 
-  localStorage.setItem(
-    PRODUCT_KEY,
-    JSON.stringify(products)
-  );
+function loadProducts(){
+
+  const adminProducts =
+    getAdminProducts();
+
+  /*
+    IMPORTANT:
+    If admin has added products,
+    show admin products.
+
+    Otherwise show default products.
+  */
+
+  allProducts =
+    adminProducts.length
+      ? adminProducts
+      : defaultProducts;
+
+  renderProducts(allProducts);
 
 }
 
 
-/* =========================================
-   PHOTO UPLOAD
-========================================= */
-
-let selectedImage="";
-
-
-document
-.getElementById("pImage")
-.addEventListener(
-"change",
-function(){
-
-  const file =
-    this.files[0];
-
-  if(!file)return;
-
-
-  if(!file.type.startsWith("image/")){
-
-    alert(
-      "Please choose an image."
-    );
-
-    this.value="";
-
-    return;
-
-  }
-
-
-  if(file.size > 3*1024*1024){
-
-    alert(
-      "Photo must be below 3MB."
-    );
-
-    this.value="";
-
-    return;
-
-  }
-
-
-  const reader =
-    new FileReader();
-
-
-  reader.onload=function(e){
-
-    selectedImage =
-      e.target.result;
-
-    const preview =
-      document.getElementById(
-        "preview"
-      );
-
-    preview.src =
-      selectedImage;
-
-    preview.style.display =
-      "block";
-
-  };
-
-
-  reader.readAsDataURL(file);
-
-});
-
-
-/* =========================================
-   SAVE PRODUCT
-========================================= */
-
-function saveProduct(){
-
-  const name =
-    document.getElementById(
-      "pName"
-    ).value.trim();
-
-  const mrp =
-    Number(
-      document.getElementById(
-        "pMrp"
-      ).value
-    );
-
-  const price =
-    Number(
-      document.getElementById(
-        "pPrice"
-      ).value
-    );
-
-  const stock =
-    Number(
-      document.getElementById(
-        "pStock"
-      ).value
-    );
-
-  const category =
-    document.getElementById(
-      "pCategory"
-    ).value;
-
-  const description =
-    document.getElementById(
-      "pDescription"
-    ).value.trim();
-
-  const editId =
-    document.getElementById(
-      "editId"
-    ).value;
-
-
-  if(!name){
-
-    alert(
-      "Product name डालो."
-    );
-
-    return;
-
-  }
-
-
-  if(!price){
-
-    alert(
-      "Selling price डालो."
-    );
-
-    return;
-
-  }
-
-
-  let products =
-    getProducts();
-
-
-  /* EDIT */
-
-  if(editId){
-
-    const index =
-      products.findIndex(
-        p =>
-        String(p.id) ===
-        String(editId)
-      );
-
-
-    if(index !== -1){
-
-      products[index] = {
-
-        ...products[index],
-
-        name:name,
-
-        mrp:mrp,
-
-        price:price,
-
-        stock:stock,
-
-        category:category,
-
-        description:description,
-
-        image:
-          selectedImage ||
-          products[index].image ||
-          ""
-
-      };
-
-    }
-
-  }
-
-
-  /* NEW */
-
-  else{
-
-    products.unshift({
-
-      id:Date.now(),
-
-      name:name,
-
-      mrp:mrp,
-
-      price:price,
-
-      stock:stock,
-
-      category:category,
-
-      description:description,
-
-      image:
-        selectedImage || ""
-
-    });
-
-  }
-
-
-  try{
-
-    saveProducts(products);
-
-  }catch(error){
-
-    alert(
-      "Storage full. छोटी photo use करो."
-    );
-
-    return;
-
-  }
-
-
-  document.getElementById(
-    "productMsg"
-  ).style.color="#4f9b76";
-
-  document.getElementById(
-    "productMsg"
-  ).textContent =
-    editId
-    ? "✅ Product updated!"
-    : "✅ Product added!";
-
-
-  clearForm();
-
-  renderProducts();
-
-  updateStats();
-
-}
-
-
-/* =========================================
-   CLEAR
-========================================= */
-
-function clearForm(){
-
-  document.getElementById(
-    "editId"
-  ).value="";
-
-  document.getElementById(
-    "pName"
-  ).value="";
-
-  document.getElementById(
-    "pMrp"
-  ).value="";
-
-  document.getElementById(
-    "pPrice"
-  ).value="";
-
-  document.getElementById(
-    "pStock"
-  ).value="";
-
-  document.getElementById(
-    "pCategory"
-  ).value="Painting";
-
-  document.getElementById(
-    "pDescription"
-  ).value="";
-
-  document.getElementById(
-    "pImage"
-  ).value="";
-
-  selectedImage="";
-
-
-  const preview =
-    document.getElementById(
-      "preview"
-    );
-
-  preview.src="";
-
-  preview.style.display="none";
-
-}
-
-
-/* =========================================
+/* ==================================================
    RENDER PRODUCTS
-========================================= */
+================================================== */
 
-function renderProducts(){
+function renderProducts(products){
 
-  const box =
+  const grid =
     document.getElementById(
-      "productList"
+      "productGrid"
     );
-
-  const products =
-    getProducts();
-
 
   if(!products.length){
 
-    box.innerHTML =
-      '<div class="empty">No products yet.</div>';
+    grid.innerHTML =
+      `
+      <div class="empty">
+        😔 No products found.
+      </div>
+      `;
 
     return;
 
   }
 
 
-  box.innerHTML =
-    products.map(
-      p => `
+  grid.innerHTML =
+    products.map(p => {
 
-      <div class="product">
+      const liked =
+        wishlist.includes(
+          String(p.id)
+        );
+
+
+      const image =
+        p.image ||
+        "https://via.placeholder.com/600x500?text=Jibran%27s+Creations";
+
+
+      return `
+
+      <article class="product">
+
+        <button
+          class="wish"
+          onclick="toggleWishlist('${safeAttr(p.id)}')"
+        >
+          ${liked ? "❤️" : "♡"}
+        </button>
 
         <img
-          src="${p.image || ''}"
-          alt=""
+          class="product-img"
+          src="${safeAttr(image)}"
+          alt="${safeAttr(p.name)}"
         >
 
-        <div class="product-info">
+        <div class="product-body">
+
+          <div class="category">
+            ${safe(p.category || "Other")}
+          </div>
 
           <h3>
             ${safe(p.name)}
           </h3>
 
-          <p>
-            ₹${Number(p.price || 0)}
+          <div class="desc">
+            ${safe(
+              p.description ||
+              "Creative product from Jibran's Creations."
+            )}
+          </div>
+
+          <div class="price">
+
+            <strong>
+              ₹${Number(p.price || 0)}
+            </strong>
+
             ${
               p.mrp
               ? `<del>₹${Number(p.mrp)}</del>`
               : ""
             }
-          </p>
 
-          <p>
-            📦 Stock: ${Number(p.stock || 0)}
-          </p>
+          </div>
 
-          <p>
-            🏷️ ${safe(
-              p.category || "Other"
-            )}
-          </p>
+          <div class="stock">
+
+            ${
+              Number(p.stock || 0) > 0
+              ? `📦 ${Number(p.stock)} in stock`
+              : "❌ Out of stock"
+            }
+
+          </div>
+
+          <button
+            class="add"
+            ${
+              Number(p.stock || 0) <= 0
+              ? "disabled"
+              : ""
+            }
+            onclick="addCartById('${safeAttr(p.id)}')"
+          >
+            ${
+              Number(p.stock || 0) > 0
+              ? "🛒 Add to Cart"
+              : "Out of Stock"
+            }
+          </button>
 
         </div>
 
-        <div class="actions">
+      </article>
 
-          <button
-            class="blue"
-            onclick="editProduct('${p.id}')"
-          >
-            Edit
-          </button>
+      `;
 
-          <button
-            class="red"
-            onclick="deleteProduct('${p.id}')"
-          >
-            Delete
-          </button>
-
-        </div>
-
-      </div>
-
-      `
-    ).join("");
+    }).join("");
 
 }
 
 
-/* =========================================
-   EDIT
-========================================= */
+/* ==================================================
+   ADD TO CART
+================================================== */
 
-function editProduct(id){
+function addCartById(id){
 
-  const products =
-    getProducts();
+  const product =
+    allProducts.find(
+      p =>
+      String(p.id) ===
+      String(id)
+    );
 
-  const p =
-    products.find(
+  if(!product)return;
+
+
+  if(Number(product.stock || 0) <= 0){
+
+    alert("This product is out of stock.");
+
+    return;
+
+  }
+
+
+  const existing =
+    cart.find(
       x =>
       String(x.id) ===
       String(id)
     );
 
 
-  if(!p)return;
+  if(existing){
 
+    if(
+      existing.qty >=
+      Number(product.stock)
+    ){
 
-  document.getElementById(
-    "editId"
-  ).value=p.id;
-
-  document.getElementById(
-    "pName"
-  ).value=p.name || "";
-
-  document.getElementById(
-    "pMrp"
-  ).value=p.mrp || "";
-
-  document.getElementById(
-    "pPrice"
-  ).value=p.price || "";
-
-  document.getElementById(
-    "pStock"
-  ).value=p.stock || "";
-
-  document.getElementById(
-    "pCategory"
-  ).value=p.category || "Other";
-
-  document.getElementById(
-    "pDescription"
-  ).value=p.description || "";
-
-
-  selectedImage =
-    p.image || "";
-
-
-  if(p.image){
-
-    const preview =
-      document.getElementById(
-        "preview"
+      alert(
+        "You cannot add more than available stock."
       );
 
-    preview.src=p.image;
+      return;
 
-    preview.style.display="block";
+    }
 
-  }
+    existing.qty++;
 
+  }else{
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+    cart.push({
 
-}
+      id:product.id,
 
+      name:product.name,
 
-/* =========================================
-   DELETE
-========================================= */
+      price:Number(product.price || 0),
 
-function deleteProduct(id){
+      image:product.image || "",
 
-  if(
-    !confirm(
-      "क्या इस product को delete करना है?"
-    )
-  )return;
+      qty:1
 
-
-  let products =
-    getProducts();
-
-
-  products =
-    products.filter(
-      p =>
-      String(p.id) !==
-      String(id)
-    );
-
-
-  saveProducts(products);
-
-  renderProducts();
-
-  updateStats();
-
-}
-
-
-/* =========================================
-   COUPONS
-========================================= */
-
-function getCoupons(){
-
-  try{
-
-    return JSON.parse(
-      localStorage.getItem(
-        COUPON_KEY
-      )
-    ) || [];
-
-  }catch(e){
-
-    return [];
+    });
 
   }
 
+
+  saveCart();
+
+  updateCartCount();
+
+  alert("✅ Added to cart!");
+
 }
 
 
-function saveCoupons(c){
+/* ==================================================
+   CART STORAGE
+================================================== */
+
+function saveCart(){
 
   localStorage.setItem(
-    COUPON_KEY,
-    JSON.stringify(c)
+    CART_KEY,
+    JSON.stringify(cart)
   );
 
 }
 
 
-function addCoupon(){
+function updateCartCount(){
 
-  const code =
-    document.getElementById(
-      "couponCode"
-    ).value.trim().toUpperCase();
-
-  const discount =
-    Number(
-      document.getElementById(
-        "couponDiscount"
-      ).value
+  const count =
+    cart.reduce(
+      (sum,item) =>
+      sum + Number(item.qty || 0),
+      0
     );
 
-
-  if(!code || !discount){
-
-    alert(
-      "Coupon code और discount डालो."
-    );
-
-    return;
-
-  }
-
-
-  const coupons =
-    getCoupons();
-
-
-  coupons.push({
-
-    id:Date.now(),
-
-    code:code,
-
-    discount:discount
-
-  });
-
-
-  saveCoupons(coupons);
-
-
   document.getElementById(
-    "couponCode"
-  ).value="";
-
-  document.getElementById(
-    "couponDiscount"
-  ).value="";
-
-
-  renderCoupons();
-
-  updateStats();
+    "cartCount"
+  ).textContent=count;
 
 }
 
 
-function renderCoupons(){
+/* ==================================================
+   CART MODAL
+================================================== */
+
+function openCart(){
+
+  renderCart();
+
+  document
+    .getElementById("cartModal")
+    .classList.add("show");
+
+}
+
+
+function renderCart(){
 
   const box =
     document.getElementById(
-      "couponList"
+      "cartItems"
     );
 
-  const coupons =
-    getCoupons();
-
-
-  if(!coupons.length){
+  if(!cart.length){
 
     box.innerHTML =
-      '<div class="empty">No coupons.</div>';
-
-    return;
-
-  }
-
-
-  box.innerHTML =
-    coupons.map(
-      c => `
-
-      <div class="coupon">
-
-        <div>
-          <b>${safe(c.code)}</b>
-          <br>
-          <small>
-            ${Number(c.discount)}% OFF
-          </small>
-        </div>
-
-        <button
-          class="red"
-          onclick="deleteCoupon('${c.id}')"
-        >
-          Delete
-        </button>
-
-      </div>
-
       `
-    ).join("");
+      <div class="empty">
+        🛒 Your cart is empty.
+      </div>
+      `;
 
-}
-
-
-function deleteCoupon(id){
-
-  let coupons =
-    getCoupons();
-
-
-  coupons =
-    coupons.filter(
-      c =>
-      String(c.id) !==
-      String(id)
-    );
-
-
-  saveCoupons(coupons);
-
-  renderCoupons();
-
-  updateStats();
-
-}
-
-
-/* =========================================
-   ORDERS
-========================================= */
-
-function getOrders(){
-
-  try{
-
-    return JSON.parse(
-      localStorage.getItem(
-        ORDER_KEY
-      )
-    ) || [];
-
-  }catch(e){
-
-    return [];
-
-  }
-
-}
-
-
-function renderOrders(){
-
-  const box =
     document.getElementById(
-      "orderList"
-    );
-
-  const orders =
-    getOrders();
-
-
-  if(!orders.length){
-
-    box.innerHTML =
-      '<div class="empty">No orders yet.</div>';
-
-    return;
-
-  }
-
-
-  box.innerHTML =
-    orders.map(
-      (o,i) => `
-
-      <div class="order">
-
-        <b>Order #${i+1}</b>
-
-        <p>
-          ${safe(
-            o.name ||
-            o.customerName ||
-            "Customer"
-          )}
-        </p>
-
-        <p>
-          ₹${Number(
-            o.total ||
-            o.amount ||
-            0
-          )}
-        </p>
-
-        <small>
-          ${safe(
-            o.status ||
-            "Pending"
-          )}
-        </small>
-
-      </div>
-
-      `
-    ).join("");
-
-}
-
-
-/* =========================================
-   STATS
-========================================= */
-
-function updateStats(){
-
-  document.getElementById(
-    "productCount"
-  ).textContent =
-    getProducts().length;
-
-  document.getElementById(
-    "couponCount"
-  ).textContent =
-    getCoupons().length;
-
-  document.getElementById(
-    "orderCount"
-  ).textContent =
-    getOrders().length;
-
-}
-
-
-/* =========================================
-   SAFE TEXT
-========================================= */
-
-function safe(value){
-
-  return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-
-/* =========================================
-   LOAD
-========================================= */
-
-function loadAll(){
-
-  renderProducts();
-
-  renderCoupons();
-
-  renderOrders();
-
-  updateStats();
-
-}
-
-
-/* =========================================
-   AUTO LOGIN
-========================================= */
-
-if(
-  sessionStorage.getItem(
-    "jcAdminLoggedIn"
-  ) === "true"
-){
-
-  showDashboard();
-
-}
-
-</script>
-
-</body>
-</html>
+      "cartTotal"
+    )
