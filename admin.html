@@ -1,5 +1,183 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jibran's Creations — Admin</title>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jibran's Creations — Admin</title>
+
 <style>
-body{margin:0;font-family:system-ui;background:#f7f4fb;color:#29243b}.wrap{max-width:1100px;margin:auto;padding:25px}.head{background:white;padding:20px;border-radius:20px;box-shadow:0 10px 30px #0001}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:18px}.card{background:white;border-radius:18px;padding:20px;box-shadow:0 10px 25px #0001}.btn{padding:11px 15px;border:0;border-radius:10px;background:#29243b;color:white;font-weight:700}input{padding:11px;border:1px solid #ddd;border-radius:10px;width:100%;box-sizing:border-box;margin:6px 0}@media(max-width:700px){.grid{grid-template-columns:1fr}}
-</style></head><body><div class="wrap"><div class="head"><h1>🔐 Jibran's Creations Admin</h1><p>Private management dashboard foundation.</p><input type="email" id="email" placeholder="Authorized admin email"><input type="password" placeholder="Password"><button class="btn" onclick="login()">Secure Login</button><p id="msg"></p></div><div class="grid"><div class="card"><h2>📦 Products</h2><p>Add/edit/delete products, photos, prices and stock.</p></div><div class="card"><h2>🎟️ Coupons</h2><p>Create coupon codes, percentage or fixed discounts and limits.</p></div><div class="card"><h2>🛍️ Orders</h2><p>View order status, customer delivery details and payment status.</p></div><div class="card"><h2>⭐ Reviews</h2><p>Moderate customer reviews and ratings.</p></div><div class="card"><h2>🎨 Banners</h2><p>Manage homepage banners and offers.</p></div><div class="card"><h2>🔔 Notifications</h2><p>Prepare order, offer and delivery notifications.</p></div></div></div><script>function login(){document.getElementById('msg').textContent='Demo UI only — connect secure authentication/backend before production use.'}</script></body></html>
+body{
+    margin:0;
+    font-family:system-ui;
+    background:#f7f4fb;
+    color:#29243b;
+}
+
+.wrap{
+    max-width:1100px;
+    margin:auto;
+    padding:25px;
+}
+
+.head{
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 10px 30px #0001;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:18px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 10px 25px #0001;
+}
+
+.btn{
+    padding:11px 15px;
+    border:0;
+    border-radius:10px;
+    background:#29243b;
+    color:white;
+    font-weight:700;
+    cursor:pointer;
+}
+
+input{
+    padding:11px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    width:100%;
+    box-sizing:border-box;
+    margin:6px 0;
+}
+
+#msg{
+    font-weight:600;
+}
+
+@media(max-width:700px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+    <div class="head">
+
+        <h1>🔐 Jibran's Creations Admin</h1>
+
+        <p>Private management dashboard foundation.</p>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Authorized admin email"
+        >
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+        >
+
+        <button class="btn" onclick="login()">
+            Secure Login
+        </button>
+
+        <p id="msg"></p>
+
+    </div>
+
+
+    <div class="grid">
+
+        <div class="card">
+            <h2>📦 Products</h2>
+            <p>Add/edit/delete products, photos, prices and stock.</p>
+        </div>
+
+        <div class="card">
+            <h2>🎟️ Coupons</h2>
+            <p>Create coupon codes, percentage or fixed discounts and limits.</p>
+        </div>
+
+        <div class="card">
+            <h2>🛍️ Orders</h2>
+            <p>View order status, customer delivery details and payment status.</p>
+        </div>
+
+        <div class="card">
+            <h2>⭐ Reviews</h2>
+            <p>Moderate customer reviews and ratings.</p>
+        </div>
+
+        <div class="card">
+            <h2>🎨 Banners</h2>
+            <p>Manage homepage banners and offers.</p>
+        </div>
+
+        <div class="card">
+            <h2>🔔 Notifications</h2>
+            <p>Prepare order, offer and delivery notifications.</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const ADMIN_EMAIL = "jibran.shahban@gmail.com";
+const ADMIN_PASSWORD = "AnasAdmin@2026";
+
+
+function login(){
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const password =
+        document.getElementById("password").value;
+
+    const msg =
+        document.getElementById("msg");
+
+
+    if(
+        email.toLowerCase() === ADMIN_EMAIL.toLowerCase()
+        &&
+        password === ADMIN_PASSWORD
+    ){
+
+        sessionStorage.setItem("jcAdmin","1");
+
+        msg.textContent =
+            "✅ Login successful! Admin Panel unlocked.";
+
+    }else{
+
+        msg.textContent =
+            "❌ Wrong admin email or password.";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
