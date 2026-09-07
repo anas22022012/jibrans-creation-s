@@ -2,527 +2,563 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Jibran's Creations | Premium DIY Store</title>
-<meta name="description" content="Jibran's Creations — premium kids DIY, art and creative toys.">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Jibran's Creations</title>
 
 <style>
-:root{
-  --pink:#ffd9e8;
-  --purple:#e7ddff;
-  --blue:#d9f1ff;
-  --green:#dcf8e7;
-  --ink:#27223a;
-  --muted:#77718a;
-  --white:#fff;
-  --shadow:0 12px 35px rgba(65,48,90,.12);
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
 }
-
-*{box-sizing:border-box}
 
 body{
-  margin:0;
-  font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
-  background:#fbf9ff;
-  color:var(--ink);
+  background:linear-gradient(135deg,#fff8fc,#f5f0ff,#f0fbff);
+  color:#333;
 }
 
-button,input,select,textarea{font:inherit}
-button{cursor:pointer;border:0}
-
-.top{
-  background:linear-gradient(90deg,var(--pink),var(--purple),var(--blue));
-  text-align:center;
-  padding:8px;
-  font-size:13px;
-  font-weight:700;
+button,input,textarea,select{
+  font:inherit;
 }
 
+button{
+  cursor:pointer;
+  border:0;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+/* HEADER */
 header{
   position:sticky;
   top:0;
-  z-index:20;
+  z-index:1000;
   background:rgba(255,255,255,.94);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid #eee8f5;
+  backdrop-filter:blur(15px);
+  box-shadow:0 2px 15px rgba(0,0,0,.08);
+  padding:12px 5%;
 }
 
 .nav{
-  max-width:1200px;
+  max-width:1300px;
   margin:auto;
-  padding:14px 18px;
   display:flex;
   align-items:center;
-  gap:18px;
+  gap:15px;
 }
 
 .logo{
-  width:58px;
-  height:58px;
-  border-radius:16px;
-  object-fit:cover;
-  box-shadow:var(--shadow);
-}
-
-.brand{
-  font-weight:900;
-  font-size:20px;
+  font-size:22px;
+  font-weight:800;
+  color:#9b55c9;
   white-space:nowrap;
 }
 
-.brand small{
-  display:block;
-  font-size:10px;
-  color:var(--muted);
-}
-
-.search{
+.searchBox{
   flex:1;
   display:flex;
-  background:#f5f2fa;
-  border-radius:18px;
-  padding:5px 8px;
-  gap:5px;
+  align-items:center;
+  background:#f5f5f8;
+  border-radius:30px;
+  padding:5px 8px 5px 18px;
 }
 
-.search input{
+.searchBox input{
   flex:1;
   border:0;
-  background:transparent;
   outline:0;
+  background:transparent;
   padding:10px;
 }
 
-.search button{
-  background:white;
-  border-radius:12px;
-  padding:8px 10px;
-}
-
-.actions{
-  display:flex;
-  gap:8px;
-}
-
-.icon{
-  background:#f6f3fb;
-  border-radius:14px;
-  padding:10px;
-  min-width:44px;
-}
-
-.wishBtn{
-  position:absolute;
-  right:10px;
-  top:10px;
+.iconBtn{
   width:42px;
   height:42px;
   border-radius:50%;
-  background:rgba(255,255,255,.94);
-  box-shadow:0 8px 20px rgba(50,35,70,.15);
-  font-size:24px;
-  color:#6b5b76;
-}
-
-.wishBtn.active{
-  background:#fff7fb;
-  color:#e05286;
-}
-
-.hero{
-  max-width:1200px;
-  margin:25px auto;
-  padding:0 18px;
-}
-
-.heroBox{
-  min-height:360px;
-  border-radius:30px;
-  padding:45px;
-  background:linear-gradient(
-    125deg,
-    var(--pink),
-    var(--purple) 48%,
-    var(--blue)
-  );
-  position:relative;
-  overflow:hidden;
-  box-shadow:var(--shadow);
-}
-
-.heroBox:after{
-  content:"";
-  position:absolute;
-  width:300px;
-  height:300px;
-  border-radius:50%;
-  background:rgba(255,255,255,.45);
-  right:-70px;
-  top:-70px;
-}
-
-.badge{
-  display:inline-block;
   background:white;
-  padding:8px 13px;
-  border-radius:999px;
-  font-size:12px;
-  font-weight:800;
+  margin-left:4px;
+  font-size:18px;
+}
+
+.iconBtn:hover{
+  background:#eee4ff;
+}
+
+.navActions{
+  display:flex;
+  gap:6px;
+}
+
+/* HERO */
+.hero{
+  max-width:1300px;
+  margin:25px auto;
+  padding:55px 7%;
+  border-radius:30px;
+  background:linear-gradient(120deg,#ffd9ec,#e8ddff,#d9f6ff);
+  text-align:center;
 }
 
 .hero h1{
-  font-size:clamp(38px,6vw,72px);
-  line-height:.95;
-  margin:18px 0 12px;
-  max-width:650px;
-}
-
-.hero p{
-  max-width:600px;
-  color:#5d566c;
-  font-size:17px;
-}
-
-.cta{
-  background:var(--ink);
-  color:#fff;
-  padding:14px 22px;
-  border-radius:14px;
-  font-weight:800;
-  margin-top:12px;
-}
-
-.section{
-  max-width:1200px;
-  margin:35px auto;
-  padding:0 18px;
-}
-
-.title{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
+  font-size:clamp(32px,6vw,65px);
+  color:#74409c;
   margin-bottom:15px;
 }
 
-.title h2{
-  margin:0;
-  font-size:25px;
+.hero p{
+  font-size:18px;
+  color:#555;
+  margin-bottom:25px;
 }
 
-.title span{
-  color:var(--muted);
-  font-size:13px;
+.hero button{
+  padding:14px 25px;
+  border-radius:30px;
+  background:#9b55c9;
+  color:white;
+  font-weight:bold;
 }
 
-.chips{
+/* CONTAINER */
+.container{
+  max-width:1300px;
+  margin:auto;
+  padding:20px;
+}
+
+.sectionTitle{
+  font-size:28px;
+  margin:25px 0 15px;
+  color:#653c82;
+}
+
+/* CATEGORY */
+.categories{
   display:flex;
   gap:10px;
-  overflow:auto;
-  padding-bottom:4px;
+  overflow-x:auto;
+  padding:8px 0 15px;
 }
 
-.chip{
-  padding:12px 17px;
-  border-radius:999px;
+.cat{
+  flex:none;
+  padding:11px 18px;
+  border-radius:25px;
   background:white;
-  box-shadow:0 6px 18px rgba(65,48,90,.08);
-  white-space:nowrap;
+  border:1px solid #eadcf3;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
+.cat.active,
+.cat:hover{
+  background:#9b55c9;
+  color:white;
 }
 
-.card{
-  background:white;
-  border-radius:22px;
-  padding:12px;
-  box-shadow:var(--shadow);
-  transition:.2s;
-  overflow:hidden;
-}
-
-.card:hover{
-  transform:translateY(-4px);
-}
-
-.pic{
-  height:190px;
-  border-radius:17px;
-  display:grid;
-  place-items:center;
-  font-size:62px;
-  background:linear-gradient(135deg,var(--pink),var(--blue));
-  overflow:hidden;
-}
-
-.pic img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.card h3{
-  font-size:15px;
-  margin:12px 3px 6px;
-}
-
-.rating{
-  font-size:12px;
-  color:#7b6c27;
-}
-
-.price{
-  font-size:18px;
-  font-weight:900;
-  margin:7px 3px;
-}
-
-.old{
-  text-decoration:line-through;
-  color:#aaa;
-  font-size:12px;
-  margin-left:5px;
-}
-
-.stock{
-  font-size:12px;
-  color:#5d566c;
-  margin:5px 3px 8px;
-}
-
-.buy{
-  width:100%;
-  padding:11px;
-  border-radius:12px;
-  background:var(--ink);
-  color:#fff;
-  font-weight:800;
-}
-
-.buy:disabled{
-  opacity:.5;
-  cursor:not-allowed;
-}
-
+/* SMART TOOLS */
 .tools{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:12px;
+  gap:15px;
 }
 
 .tool{
-  padding:18px;
+  background:white;
   border-radius:20px;
-  min-height:105px;
-  box-shadow:var(--shadow);
-  background:white;
+  padding:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,.07);
+  cursor:pointer;
 }
 
-.tool:nth-child(1){background:var(--pink)}
-.tool:nth-child(2){background:var(--purple)}
-.tool:nth-child(3){background:var(--blue)}
-.tool:nth-child(4){background:var(--green)}
-
-.emptyProducts{
-  grid-column:1/-1;
-  background:white;
-  padding:45px 20px;
-  border-radius:22px;
-  text-align:center;
-  box-shadow:var(--shadow);
+.tool .emoji{
+  font-size:32px;
+  margin-bottom:10px;
 }
 
+.tool h3{
+  color:#70428d;
+  margin-bottom:5px;
+}
+
+.tool p{
+  color:#777;
+  font-size:14px;
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.product{
+  position:relative;
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+  transition:.2s;
+}
+
+.product:hover{
+  transform:translateY(-4px);
+}
+
+.productImg{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  background:#f5f5f5;
+}
+
+.productBody{
+  padding:15px;
+}
+
+.productBody h3{
+  font-size:18px;
+  margin-bottom:8px;
+}
+
+.desc{
+  color:#777;
+  font-size:13px;
+  min-height:35px;
+}
+
+.price{
+  margin:10px 0;
+}
+
+.mrp{
+  color:#999;
+  text-decoration:line-through;
+  margin-right:6px;
+}
+
+.sale{
+  color:#8a42ba;
+  font-size:21px;
+  font-weight:bold;
+}
+
+.stock{
+  color:#39955a;
+  font-size:13px;
+  margin-bottom:10px;
+}
+
+.addBtn{
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  background:#9b55c9;
+  color:white;
+  font-weight:bold;
+}
+
+.heart{
+  position:absolute;
+  right:10px;
+  top:10px;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:white;
+  font-size:19px;
+  z-index:2;
+}
+
+/* REVIEWS */
+.reviews{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.review{
+  background:white;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 4px 15px rgba(0,0,0,.06);
+}
+
+/* FOOTER */
 footer{
   margin-top:50px;
-  background:#29243b;
-  color:#fff;
-  padding:40px 18px;
+  padding:35px 20px;
+  background:#30213b;
+  color:white;
 }
 
-.foot{
+.footerGrid{
   max-width:1200px;
   margin:auto;
   display:grid;
-  grid-template-columns:2fr 1fr 1fr 1fr;
+  grid-template-columns:repeat(3,1fr);
   gap:25px;
 }
 
-.foot a{
-  display:block;
-  color:#ddd5ea;
-  margin:9px 0;
-  text-decoration:none;
+footer h3{
+  margin-bottom:12px;
 }
 
-.chat{
+footer p{
+  color:#ddd;
+  margin:6px 0;
+}
+
+/* FLOAT CHAT */
+.chatFloat{
   position:fixed;
-  right:18px;
-  bottom:18px;
-  z-index:30;
-  background:#29243b;
-  color:#fff;
-  border-radius:50%;
+  right:20px;
+  bottom:20px;
   width:60px;
   height:60px;
-  box-shadow:0 10px 30px #0003;
-  font-size:24px;
+  border-radius:50%;
+  background:#9b55c9;
+  color:white;
+  font-size:25px;
+  box-shadow:0 5px 20px rgba(0,0,0,.25);
+  z-index:2000;
 }
 
+/* MODAL */
 .modal{
   display:none;
   position:fixed;
   inset:0;
-  background:#0006;
-  z-index:50;
-  padding:20px;
+  background:rgba(0,0,0,.5);
+  z-index:3000;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+}
+
+.modal.show{
+  display:flex;
 }
 
 .modalBox{
-  max-width:520px;
-  margin:7vh auto;
+  width:min(600px,100%);
+  max-height:90vh;
+  overflow:auto;
   background:white;
   border-radius:25px;
-  padding:22px;
-  max-height:86vh;
-  overflow:auto;
+  padding:25px;
+  position:relative;
 }
 
 .close{
-  float:right;
-  background:#f2eef8;
-  border-radius:10px;
-  padding:7px 10px;
+  position:absolute;
+  right:15px;
+  top:12px;
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  background:#eee;
+  font-size:20px;
 }
 
-.modalBox input,
-.modalBox textarea,
-.modalBox select{
+/* CART */
+.cartItem{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 0;
+  border-bottom:1px solid #eee;
+}
+
+.cartItem img{
+  width:65px;
+  height:65px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.cartInfo{
+  flex:1;
+}
+
+.qty{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.qty button{
+  width:28px;
+  height:28px;
+  border-radius:8px;
+  background:#eee;
+}
+
+.total{
+  font-size:22px;
+  font-weight:bold;
+  color:#7a42a0;
+  margin:18px 0;
+}
+
+/* FORMS */
+.formGroup{
+  margin-bottom:14px;
+}
+
+.formGroup label{
+  display:block;
+  margin-bottom:6px;
+  font-weight:bold;
+}
+
+.formGroup input,
+.formGroup textarea,
+.formGroup select{
   width:100%;
   padding:12px;
-  margin:6px 0 10px;
-  border:1px solid #ddd3e8;
+  border:1px solid #ddd;
   border-radius:12px;
+  outline:none;
 }
 
-.row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
+.formGroup textarea{
+  min-height:100px;
+  resize:vertical;
 }
 
-.sitePopup{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(39,34,58,.42);
-  backdrop-filter:blur(7px);
-  z-index:100;
-  padding:18px;
-  align-items:center;
-  justify-content:center;
-}
-
-.popupCard{
-  position:relative;
-  width:min(430px,100%);
-  background:linear-gradient(145deg,#fff,#fff8fc);
-  border:1px solid #f0dced;
-  border-radius:28px;
-  padding:28px;
-  box-shadow:0 25px 80px rgba(39,34,58,.28);
-  text-align:center;
-}
-
-.popupClose{
-  position:absolute;
-  right:14px;
-  top:14px;
-  background:#f5edf8;
-  border-radius:50%;
-  width:34px;
-  height:34px;
-}
-
-.popupLogo{
-  width:64px;
-  height:64px;
-  margin:0 auto 12px;
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 8px 20px rgba(70,45,80,.14);
-}
-
-.popupLogo img{
+.primary{
   width:100%;
-  height:100%;
-  object-fit:cover;
+  padding:13px;
+  border-radius:12px;
+  background:#9b55c9;
+  color:white;
+  font-weight:bold;
 }
 
-.popupCard h2{
+/* CHAT */
+.chatMessages{
+  height:350px;
+  overflow-y:auto;
+  background:#f7f5fa;
+  border-radius:15px;
+  padding:15px;
+  margin:15px 0;
+}
+
+.msg{
+  max-width:85%;
+  padding:10px 13px;
+  border-radius:15px;
   margin:8px 0;
+  line-height:1.4;
 }
 
-.popupCard p{
-  color:#6d657b;
-  line-height:1.5;
+.bot{
+  background:white;
+  border:1px solid #eee;
 }
 
-.popupBtn{
-  width:100%;
-  padding:12px 15px;
-  border-radius:13px;
-  background:#29243b;
-  color:#fff;
-  font-weight:800;
-  margin-top:8px;
+.user{
+  background:#9b55c9;
+  color:white;
+  margin-left:auto;
 }
 
-@media(max-width:850px){
-  .grid{grid-template-columns:repeat(2,1fr)}
-  .tools{grid-template-columns:repeat(2,1fr)}
-  .foot{grid-template-columns:1fr 1fr}
-  .brand{display:none}
+.chatQuick{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
 }
 
-@media(max-width:560px){
+.chatQuick button{
+  padding:8px 12px;
+  border-radius:20px;
+  background:#eee3fa;
+}
+
+/* POPUP */
+.toast{
+  position:fixed;
+  bottom:90px;
+  left:50%;
+  transform:translateX(-50%) translateY(30px);
+  background:#30213b;
+  color:white;
+  padding:13px 20px;
+  border-radius:30px;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:5000;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* EMPTY */
+.empty{
+  text-align:center;
+  padding:40px;
+  color:#777;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .products{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .tools{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:650px){
   .nav{
-    gap:8px;
     flex-wrap:wrap;
   }
 
   .logo{
-    width:46px;
-    height:46px;
+    width:100%;
+    text-align:center;
   }
 
-  .search{
-    order:5;
-    flex-basis:100%;
+  .searchBox{
+    order:2;
+    width:100%;
   }
 
-  .heroBox{
-    padding:30px 24px;
+  .navActions{
+    width:100%;
+    justify-content:center;
   }
 
-  .grid{
+  .products{
     grid-template-columns:repeat(2,1fr);
-    gap:10px;
   }
 
-  .pic{
-    height:145px;
+  .reviews,
+  .footerGrid{
+    grid-template-columns:1fr;
   }
 
-  .hero h1{
-    font-size:42px;
+  .productImg{
+    height:170px;
   }
 
-  .row{
+  .hero{
+    padding:35px 20px;
+  }
+}
+
+@media(max-width:400px){
+  .products{
     grid-template-columns:1fr;
   }
 }
@@ -531,811 +567,811 @@ footer{
 
 <body>
 
-<div class="top">
-✨ Welcome to Jibran's Creations — Premium DIY Creativity for Kids ✨
-</div>
-
+<!-- HEADER -->
 <header>
-<div class="nav">
+  <div class="nav">
 
-<img class="logo" src="logo.jpg" alt="Jibran's Creations logo">
+    <div class="logo">
+      Jibran's Creations
+    </div>
 
-<div class="brand">
-Jibran's Creations
-<small>KayB Enterprises</small>
-</div>
+    <div class="searchBox">
+      <input
+        id="search"
+        type="text"
+        placeholder="Search products..."
+        oninput="searchProducts()"
+      >
 
-<div class="search">
-<input
-  id="search"
-  placeholder="Search DIY kits, art, building toys..."
->
-<button onclick="voiceSearch()">🎙️</button>
-<button onclick="cameraSearch()">📷</button>
-</div>
+      <button class="iconBtn" onclick="voiceSearch()" title="Voice Search">
+        🎙️
+      </button>
 
-<div class="actions">
-<button class="icon" onclick="openModal('wishlist')">
-♡ <b id="wishCount">0</b>
-</button>
+      <button class="iconBtn" onclick="cameraSearch()" title="Camera Search">
+        📷
+      </button>
+    </div>
 
-<button class="icon" onclick="openModal('cart')">
-🛒 <b id="cartCount">0</b>
-</button>
+    <div class="navActions">
 
-<button class="icon" onclick="openModal('account')">
-👤
-</button>
-</div>
+      <button
+        class="iconBtn"
+        onclick="openWishlist()"
+        title="Wishlist">
+        ❤️
+      </button>
 
-</div>
+      <button
+        class="iconBtn"
+        onclick="openCart()"
+        title="Cart">
+        🛒
+      </button>
+
+      <button
+        class="iconBtn"
+        onclick="openAccount()"
+        title="Account">
+        👤
+      </button>
+
+    </div>
+
+  </div>
 </header>
 
-<main>
 
+<!-- HERO -->
 <section class="hero">
-<div class="heroBox">
 
-<span class="badge">
-NEW • CREATIVE COLLECTION
-</span>
+  <h1>Jibran's Creations</h1>
 
-<h1>
-Create. Play. Imagine.
-</h1>
+  <p>
+    Cute • Creative • Premium DIY Creations for Everyone ✨
+  </p>
 
-<p>
-Discover premium DIY kits, art activities and creative toys
-made for curious young minds.
-</p>
-
-<button
-class="cta"
-onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
-Shop Now →
-</button>
-
-</div>
-</section>
-
-
-<section class="section">
-
-<div class="title">
-<h2>Shop by Category</h2>
-<span>Explore all</span>
-</div>
-
-<div class="chips">
-
-<button class="chip" onclick="filterCategory('DIY Kits')">
-🎨 DIY Kits
-</button>
-
-<button class="chip" onclick="filterCategory('Art & Craft')">
-🖍️ Art & Craft
-</button>
-
-<button class="chip" onclick="filterCategory('Building Toys')">
-🧱 Building Toys
-</button>
-
-<button class="chip" onclick="filterCategory('Creative Toys')">
-🧩 Creative Toys
-</button>
-
-<button class="chip" onclick="filterCategory('Gift Ideas')">
-🎁 Gift Ideas
-</button>
-
-<button class="chip" onclick="loadProducts()">
-⭐ Best Sellers
-</button>
-
-</div>
+  <button onclick="scrollProducts()">
+    Shop Now 🛍️
+  </button>
 
 </section>
 
 
-<section class="section">
+<main class="container">
 
-<div class="title">
-<h2>Smart Shopping</h2>
-<span>AI-powered features</span>
-</div>
+  <!-- CATEGORIES -->
+  <h2 class="sectionTitle">
+    Categories
+  </h2>
 
-<div class="tools">
+  <div class="categories">
 
-<div class="tool">
-<b>🤖 AI Suggestions</b>
-<p>Personalized product ideas based on shopping.</p>
-</div>
+    <button class="cat active" onclick="filterCategory('All',this)">
+      All
+    </button>
 
-<div class="tool">
-<b>🎙️ Voice Search</b>
-<p>Search products using your voice.</p>
-</div>
+    <button class="cat" onclick="filterCategory('DIY',this)">
+      🎨 DIY
+    </button>
 
-<div class="tool">
-<b>📷 Camera Search</b>
-<p>Visual-search interface ready for AI image matching.</p>
-</div>
+    <button class="cat" onclick="filterCategory('Painting',this)">
+      🖌️ Painting
+    </button>
 
-<div class="tool">
-<b>💬 AI Assistant</b>
-<p>Get product and order help anytime.</p>
-</div>
+    <button class="cat" onclick="filterCategory('Craft',this)">
+      ✂️ Craft
+    </button>
 
-</div>
+    <button class="cat" onclick="filterCategory('Kids',this)">
+      🧸 Kids
+    </button>
 
-</section>
+    <button class="cat" onclick="filterCategory('Gift',this)">
+      🎁 Gifts
+    </button>
 
-
-<section class="section" id="products">
-
-<div class="title">
-<h2>Best Sellers</h2>
-<span id="productStatus">Products</span>
-</div>
-
-<div class="grid" id="productGrid"></div>
-
-</section>
+  </div>
 
 
-<section class="section">
+  <!-- SMART TOOLS -->
+  <h2 class="sectionTitle">
+    Smart Shopping
+  </h2>
 
-<div class="title">
-<h2>Customer Reviews</h2>
-<span>Verified-style review UI</span>
-</div>
+  <div class="tools">
 
-<div class="tools">
+    <div class="tool" onclick="smartSuggestions()">
+      <div class="emoji">✨</div>
+      <h3>Suggestions</h3>
+      <p>Find products you may like.</p>
+    </div>
 
-<div class="tool">
-<b>⭐ 4.9/5</b>
-<p>Excellent creative experience.</p>
-</div>
+    <div class="tool" onclick="voiceSearch()">
+      <div class="emoji">🎙️</div>
+      <h3>Voice Search</h3>
+      <p>Search products using your voice.</p>
+    </div>
 
-<div class="tool">
-<b>💖 Loved by families</b>
-<p>Easy ordering and fun activities.</p>
-</div>
+    <div class="tool" onclick="cameraSearch()">
+      <div class="emoji">📷</div>
+      <h3>Camera Search</h3>
+      <p>Take or choose a product photo.</p>
+    </div>
 
-<div class="tool">
-<b>📦 Order updates</b>
-<p>Track delivery from your account.</p>
-</div>
+    <div class="tool" onclick="openModal('chat')">
+      <div class="emoji">💬</div>
+      <h3>Support Assistant</h3>
+      <p>Get quick text support.</p>
+    </div>
 
-<div class="tool">
-<b>💬 Share feedback</b>
-<p>Your reviews help improve the store.</p>
-</div>
+  </div>
 
-</div>
 
-</section>
+  <!-- PRODUCTS -->
+  <h2 class="sectionTitle" id="productsTitle">
+    Our Products
+  </h2>
+
+  <div id="products" class="products"></div>
+
+
+  <!-- REVIEWS -->
+  <h2 class="sectionTitle">
+    Customer Reviews
+  </h2>
+
+  <div class="reviews">
+
+    <div class="review">
+      ⭐⭐⭐⭐⭐
+      <p>Very cute and creative products!</p>
+      <b>— Customer</b>
+    </div>
+
+    <div class="review">
+      ⭐⭐⭐⭐⭐
+      <p>Good quality and beautiful packaging.</p>
+      <b>— Customer</b>
+    </div>
+
+    <div class="review">
+      ⭐⭐⭐⭐⭐
+      <p>Loved the DIY kit. Very enjoyable.</p>
+      <b>— Customer</b>
+    </div>
+
+  </div>
 
 </main>
 
 
-<button class="chat" onclick="openModal('chat')">
-🤖
-</button>
-
-
+<!-- FOOTER -->
 <footer>
 
-<div class="foot">
+  <div class="footerGrid">
 
-<div>
-<h2>Jibran's Creations</h2>
-<p>Premium DIY creativity for kids.</p>
+    <div>
+      <h3>Jibran's Creations</h3>
+      <p>Owner: Jibran Al Shahban</p>
+      <p>All India Shipping 🇮🇳</p>
+    </div>
 
-<p>
-📞
-<a href="tel:+919150608692">
-9150608692
-</a>
+    <div>
+      <h3>Customer Care</h3>
 
-✉️
-<a href="mailto:jibran.shahban@gmail.com">
-jibran.shahban@gmail.com
-</a>
-</p>
+      <p>
+        <a href="tel:9150608692">
+          📞 9150608692
+        </a>
+      </p>
 
-<p>
-19, Selli Amman Koil Street,<br>
-Periya Kalapet,<br>
-Pondicherry 605014
-</p>
+      <p>
+        <a href="mailto:jibran.shahban@gmail.com">
+          ✉️ jibran.shahban@gmail.com
+        </a>
+      </p>
 
-</div>
+      <p>
+        7-day return/replacement
+      </p>
 
+    </div>
 
-<div>
+    <div>
+      <h3>Follow Us</h3>
 
-<h3>Shop</h3>
+      <p>
+        <a
+          href="https://www.instagram.com/jibran0215"
+          target="_blank">
+          Instagram
+        </a>
+      </p>
 
-<a href="#products">Products</a>
-<a href="#products">Best Sellers</a>
-<a href="#products">New Arrivals</a>
-<a href="#products">Offers</a>
+      <p>
+        <a
+          href="https://youtube.com/@learnwithjibranshahban"
+          target="_blank">
+          YouTube
+        </a>
+      </p>
 
-</div>
+    </div>
 
-
-<div>
-
-<h3>Help</h3>
-
-<a href="tel:+919150608692">
-Call Customer Care
-</a>
-
-<a
-href="https://wa.me/919150608692"
-target="_blank">
-WhatsApp
-</a>
-
-<a href="#products">
-Order Tracking
-</a>
-
-<a href="#">
-Return Policy
-</a>
-
-<a href="#">
-Privacy Policy
-</a>
-
-</div>
-
-
-<div>
-
-<h3>Social</h3>
-
-<a
-href="https://www.instagram.com/jibran0215"
-target="_blank">
-Instagram
-</a>
-
-<a
-href="https://youtube.com/@learnwithjibranshahban"
-target="_blank">
-YouTube
-</a>
-
-<a
-href="https://wa.me/919150608692"
-target="_blank">
-WhatsApp
-</a>
-
-</div>
-
-</div>
+  </div>
 
 </footer>
 
 
-<div class="modal" id="modal">
-
-<div class="modalBox">
-
-<button class="close" onclick="closeModal()">
-✕
-</button>
-
-<div id="modalContent"></div>
-
-</div>
-
-</div>
-
-
-<div
-class="sitePopup"
-id="sitePopup"
-aria-hidden="true">
-
-<div class="popupCard">
-
-<div class="popupLogo">
-<img src="logo.jpg" alt="Jibran's Creations">
-</div>
-
+<!-- FLOATING CHAT -->
 <button
-class="popupClose"
-onclick="closeSitePopup()">
-✕
+  class="chatFloat"
+  onclick="openModal('chat')">
+  💬
 </button>
 
-<div id="sitePopupContent"></div>
+
+<!-- TOAST -->
+<div id="toast" class="toast"></div>
+
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+
+  <div class="modalBox">
+
+    <button
+      class="close"
+      onclick="closeModal()">
+      ×
+    </button>
+
+    <div id="modalContent"></div>
+
+  </div>
 
 </div>
 
-</div>
+
+<!-- CAMERA INPUT -->
+<input
+  id="cameraInput"
+  type="file"
+  accept="image/*"
+  capture="environment"
+  style="display:none"
+  onchange="cameraSelected(event)"
+>
 
 
 <script>
 
-/* ==============================
-   STORAGE
-============================== */
+/* ==========================================
+   STORAGE KEYS
+========================================== */
 
-const CART_KEY = 'jcCart';
-const WISH_KEY = 'jcWishlist';
-const PRODUCT_KEY = 'jcProductsV1';
-const COUPON_KEY = 'jcCouponsV1';
-
-let cart = JSON.parse(
-  localStorage.getItem(CART_KEY) || '[]'
-);
-
-let wishlist = JSON.parse(
-  localStorage.getItem(WISH_KEY) || '[]'
-);
-
-let allProducts = [];
+const PRODUCT_KEY = "jcProductsV1";
+const CART_KEY = "jcCart";
+const WISHLIST_KEY = "jcWishlist";
+const COUPON_KEY = "jcCouponsV1";
+const ORDER_KEY = "jcOrders";
+const TICKET_KEY = "jcSupportTickets";
 
 
-/* ==============================
-   HELPERS
-============================== */
-
-function money(v){
-  return Number(v || 0);
-}
-
-function escapeHTML(str){
-  return String(str || '')
-    .replace(/&/g,'&amp;')
-    .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;')
-    .replace(/'/g,'&#039;');
-}
-
-function persist(){
-
-  localStorage.setItem(
-    CART_KEY,
-    JSON.stringify(cart)
-  );
-
-  localStorage.setItem(
-    WISH_KEY,
-    JSON.stringify(wishlist)
-  );
-
-  updateCounts();
-}
-
-
-/* ==============================
-   CART / WISHLIST COUNTS
-============================== */
-
-function updateCounts(){
-
-  document.getElementById('wishCount').textContent =
-    wishlist.length;
-
-  document.getElementById('cartCount').textContent =
-    cart.reduce(
-      (n,x)=>n+(x.qty||1),
-      0
-    );
-
-  syncWishlistButtons();
-}
-
-
-/* ==============================
-   LOAD ADMIN PRODUCTS
-============================== */
-
-function getAdminProducts(){
-
-  try{
-
-    const saved =
-      JSON.parse(
-        localStorage.getItem(PRODUCT_KEY) || '[]'
-      );
-
-    if(!Array.isArray(saved)){
-      return [];
-    }
-
-    return saved;
-
-  }catch(e){
-
-    console.error(e);
-
-    return [];
-  }
-}
-
-
-/* ==============================
+/* ==========================================
    DEFAULT PRODUCTS
-============================== */
+========================================== */
 
 const defaultProducts = [
 
   {
-    id:'default-1',
-    name:'DIY Painting Kit',
-    price:299,
-    mrp:319,
-    stock:50,
-    category:'DIY Kits',
-    image:'',
-    description:'Creative DIY painting activity kit.',
-    rating:'4.9',
-    reviews:128
+    id:"p1",
+    name:"DIY Painting Kit",
+    mrp:149,
+    price:99,
+    stock:20,
+    category:"Painting",
+    image:"",
+    description:"Creative DIY painting kit for kids and beginners."
   },
 
   {
-    id:'default-2',
-    name:'Creative Craft Kit',
-    price:349,
-    mrp:369,
-    stock:40,
-    category:'Art & Craft',
-    image:'',
-    description:'Fun creative craft activity.',
-    rating:'4.8',
-    reviews:94
+    id:"p2",
+    name:"Creative Craft Kit",
+    mrp:199,
+    price:149,
+    stock:15,
+    category:"Craft",
+    image:"",
+    description:"Fun craft materials for creative projects."
   },
 
   {
-    id:'default-3',
-    name:'Mini Building Set',
-    price:399,
-    mrp:419,
-    stock:35,
-    category:'Building Toys',
-    image:'',
-    description:'Creative mini building set.',
-    rating:'4.7',
-    reviews:76
+    id:"p3",
+    name:"Kids Art Kit",
+    mrp:249,
+    price:199,
+    stock:12,
+    category:"Kids",
+    image:"",
+    description:"Colorful art kit for creative kids."
   },
 
   {
-    id:'default-4',
-    name:'DIY Gift Activity Box',
-    price:449,
-    mrp:469,
-    stock:30,
-    category:'Gift Ideas',
-    image:'',
-    description:'Fun DIY activity gift box.',
-    rating:'4.9',
-    reviews:61
+    id:"p4",
+    name:"DIY Gift Kit",
+    mrp:299,
+    price:249,
+    stock:10,
+    category:"Gift",
+    image:"",
+    description:"Make your own creative gift."
   }
 
 ];
 
 
-/* ==============================
-   RENDER PRODUCTS
-============================== */
+/* ==========================================
+   SAFE STORAGE
+========================================== */
 
-function loadProducts(){
+function getJSON(key, fallback){
 
-  const adminProducts =
-    getAdminProducts();
+  try{
 
-  /*
-    Admin products first.
-    If admin has no products yet,
-    default products remain visible.
-  */
+    const value = localStorage.getItem(key);
 
-  allProducts =
-    adminProducts.length
-      ? adminProducts
-      : defaultProducts;
+    return value
+      ? JSON.parse(value)
+      : fallback;
 
-  renderProducts(allProducts);
+  }catch(e){
+
+    return fallback;
+
+  }
 
 }
 
 
-/* ==============================
-   PRODUCT CARD
-============================== */
+function setJSON(key,value){
 
-function renderProducts(products){
+  localStorage.setItem(
+    key,
+    JSON.stringify(value)
+  );
 
-  const grid =
-    document.getElementById('productGrid');
+}
+
+
+/* ==========================================
+   PRODUCTS
+========================================== */
+
+function getProducts(){
+
+  const adminProducts =
+    getJSON(PRODUCT_KEY,null);
+
+  if(
+    Array.isArray(adminProducts) &&
+    adminProducts.length
+  ){
+
+    return adminProducts;
+
+  }
+
+  return defaultProducts;
+
+}
+
+
+let allProducts = getProducts();
+let selectedCategory = "All";
+
+
+function renderProducts(){
+
+  allProducts = getProducts();
+
+  const search =
+    document
+      .getElementById("search")
+      .value
+      .toLowerCase()
+      .trim();
+
+  let products = allProducts.filter(product => {
+
+    const categoryMatch =
+      selectedCategory === "All" ||
+      product.category === selectedCategory;
+
+    const searchMatch =
+      !search ||
+      String(product.name)
+        .toLowerCase()
+        .includes(search) ||
+      String(product.description || "")
+        .toLowerCase()
+        .includes(search) ||
+      String(product.category || "")
+        .toLowerCase()
+        .includes(search);
+
+    return categoryMatch && searchMatch;
+
+  });
+
+
+  const box =
+    document.getElementById("products");
+
 
   if(!products.length){
 
-    grid.innerHTML = `
-      <div class="emptyProducts">
-        <div style="font-size:55px">🛍️</div>
-        <h3>No products found</h3>
-        <p>Try another search or category.</p>
+    box.innerHTML = `
+      <div class="empty" style="grid-column:1/-1">
+        <h3>No products found 😔</h3>
+        <p>Try another search.</p>
       </div>
     `;
 
-    document.getElementById(
-      'productStatus'
-    ).textContent = '0 products';
-
     return;
+
   }
 
 
-  document.getElementById(
-    'productStatus'
-  ).textContent =
-    products.length + ' products';
+  const wishlist =
+    getJSON(WISHLIST_KEY,[]);
 
 
-  grid.innerHTML =
-    products.map((p,index)=>{
+  box.innerHTML =
+    products.map(product => {
 
-      const name =
-        escapeHTML(p.name || 'Product');
+      const liked =
+        wishlist.includes(product.id);
 
-      const price =
-        money(p.price);
-
-      const mrp =
-        money(p.mrp || p.oldPrice || 0);
-
-      const stock =
-        Number(p.stock ?? 0);
-
-      const category =
-        escapeHTML(p.category || 'Creative Toys');
 
       const image =
-        String(p.image || '').trim();
-
-      const rating =
-        escapeHTML(p.rating || '4.9');
-
-      const reviews =
-        escapeHTML(p.reviews || '0');
-
-      let picture = '🎨';
-
-      if(category === 'Building Toys'){
-        picture = '🧱';
-      }
-
-      if(category === 'Creative Toys'){
-        picture = '🧩';
-      }
-
-      if(category === 'Gift Ideas'){
-        picture = '🎁';
-      }
-
-      if(category === 'Art & Craft'){
-        picture = '🖍️';
-      }
-
-
-      const pictureHTML =
-        image
-          ? `<img src="${escapeHTML(image)}"
-                 alt="${name}"
-                 onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<span>🎨</span>')">`
-          : picture;
-
-
-      const disabled =
-        stock <= 0
-          ? 'disabled'
-          : '';
-
-
-      const stockText =
-        stock <= 0
-          ? 'Out of Stock'
-          : 'In Stock • ' + stock + ' available';
+        product.image ||
+        "https://via.placeholder.com/600x450?text=Jibran%27s+Creations";
 
 
       return `
 
-        <div
-          class="card"
-          data-name="${name}"
-          data-category="${category}"
-        >
+        <div class="product">
 
-          <div style="position:relative">
+          <button
+            class="heart"
+            onclick="toggleWishlist('${product.id}')">
+            ${liked ? "❤️" : "♡"}
+          </button>
 
-            <div class="pic">
-              ${pictureHTML}
+          <img
+            class="productImg"
+            src="${image}"
+            alt="${escapeHTML(product.name)}"
+          >
+
+          <div class="productBody">
+
+            <h3>
+              ${escapeHTML(product.name)}
+            </h3>
+
+            <p class="desc">
+              ${escapeHTML(product.description || "")}
+            </p>
+
+            <div class="price">
+
+              <span class="mrp">
+                ₹${Number(product.mrp || product.price)}
+              </span>
+
+              <span class="sale">
+                ₹${Number(product.price)}
+              </span>
+
+            </div>
+
+            <div class="stock">
+              ${
+                Number(product.stock) > 0
+                ? "✓ In Stock"
+                : "Out of Stock"
+              }
             </div>
 
             <button
-              class="wishBtn"
-              data-name="${name}"
-              data-price="${price}"
-              data-id="${escapeHTML(p.id || index)}"
-              onclick="toggleWishlist(this)">
-              ♡
+              class="addBtn"
+              ${
+                Number(product.stock) <= 0
+                ? "disabled"
+                : ""
+              }
+              onclick="addToCart('${product.id}')">
+
+              ${
+                Number(product.stock) > 0
+                ? "Add to Cart 🛒"
+                : "Out of Stock"
+              }
+
             </button>
 
           </div>
-
-
-          <h3>
-            ${name}
-          </h3>
-
-
-          <div class="rating">
-            ★★★★★ ${rating}
-            • ${reviews} reviews
-          </div>
-
-
-          <div class="price">
-            ₹${price.toLocaleString('en-IN')}
-
-            ${
-              mrp > price
-              ? `<span class="old">
-                   ₹${mrp.toLocaleString('en-IN')}
-                 </span>`
-              : ''
-            }
-
-          </div>
-
-
-          <div class="stock">
-            ${stockText}
-          </div>
-
-
-          <button
-            class="buy"
-            ${disabled}
-            onclick="addCartById('${escapeHTML(p.id || index)}')">
-
-            ${
-              stock <= 0
-              ? 'Out of Stock'
-              : 'Add to Cart'
-            }
-
-          </button>
 
         </div>
 
       `;
 
-    }).join('');
-
-
-  syncWishlistButtons();
+    }).join("");
 
 }
 
 
-/* ==============================
-   ADD PRODUCT TO CART
-============================== */
+function escapeHTML(text){
 
-function addCartById(id){
+  return String(text ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* ==========================================
+   SEARCH
+========================================== */
+
+function searchProducts(){
+
+  renderProducts();
+
+}
+
+
+function filterCategory(category,button){
+
+  selectedCategory = category;
+
+  document
+    .querySelectorAll(".cat")
+    .forEach(btn =>
+      btn.classList.remove("active")
+    );
+
+  button.classList.add("active");
+
+  renderProducts();
+
+}
+
+
+/* ==========================================
+   CART
+========================================== */
+
+function getCart(){
+
+  return getJSON(CART_KEY,[]);
+
+}
+
+
+function saveCart(cart){
+
+  setJSON(CART_KEY,cart);
+
+}
+
+
+function addToCart(id){
 
   const product =
-    allProducts.find(
-      p => String(p.id) === String(id)
-    );
+    getProducts().find(p => p.id === id);
 
   if(!product){
 
-    showSitePopup(
-      'Product',
-      'Product could not be found.'
-    );
+    showToast("Product not found");
 
     return;
+
   }
 
 
-  if(Number(product.stock || 0) <= 0){
+  if(Number(product.stock) <= 0){
 
-    showSitePopup(
-      'Out of Stock',
-      product.name + ' is currently out of stock.'
-    );
+    showToast("Product is out of stock");
 
     return;
+
   }
 
 
-  addCart(
-    product.name,
-    money(product.price),
-    product.id
-  );
+  const cart = getCart();
 
-}
+  const existing =
+    cart.find(item => item.id === id);
 
 
-/* ==============================
-   CART
-============================== */
+  if(existing){
 
-function addCart(name,price,id){
+    if(
+      existing.qty <
+      Number(product.stock)
+    ){
 
-  const i =
-    cart.findIndex(
-      x => x.name === name
-    );
+      existing.qty++;
 
-  if(i >= 0){
+    }else{
 
-    cart[i].qty =
-      (cart[i].qty || 1) + 1;
+      showToast("Maximum stock reached");
+
+      return;
+
+    }
 
   }else{
 
     cart.push({
-      id:id || '',
-      name:name,
-      price:money(price),
+      id:id,
       qty:1
     });
 
   }
 
-  persist();
 
-  showSitePopup(
-    '🛒 Added to Cart',
-    name + ' has been added to your cart.',
-    'View Cart'
-  );
+  saveCart(cart);
+
+  showToast("Added to cart 🛒");
 
 }
 
 
-function removeCart(i){
+function removeFromCart(id){
 
-  cart.splice(i,1);
+  const cart =
+    getCart()
+      .filter(item => item.id !== id);
 
-  persist();
+  saveCart(cart);
 
-  renderCart();
+  openCart();
 
 }
 
 
-function changeQty(i,d){
+function changeQty(id,amount){
 
-  cart[i].qty =
-    Math.max(
-      1,
-      (cart[i].qty || 1) + d
+  const cart = getCart();
+
+  const item =
+    cart.find(x => x.id === id);
+
+  const product =
+    getProducts().find(x => x.id === id);
+
+  if(!item || !product) return;
+
+
+  item.qty += amount;
+
+
+  if(item.qty <= 0){
+
+    removeFromCart(id);
+
+    return;
+
+  }
+
+
+  if(
+    item.qty >
+    Number(product.stock)
+  ){
+
+    item.qty =
+      Number(product.stock);
+
+    showToast("Only available stock can be ordered.");
+
+  }
+
+
+  saveCart(cart);
+
+  openCart();
+
+}
+
+
+function cartDetails(){
+
+  const products =
+    getProducts();
+
+  const cart =
+    getCart();
+
+
+  return cart.map(item => {
+
+    const product =
+      products.find(p => p.id === item.id);
+
+    if(!product) return null;
+
+    return {
+      ...product,
+      qty:item.qty,
+      subtotal:
+        Number(product.price) *
+        Number(item.qty)
+    };
+
+  }).filter(Boolean);
+
+}
+
+
+function cartTotal(){
+
+  return cartDetails()
+    .reduce(
+      (sum,item) =>
+        sum + item.subtotal,
+      0
     );
 
-  persist();
-
-  renderCart();
-
 }
 
 
-/* ==============================
+/* ==========================================
    CART MODAL
-===========
+========================================== */
+
+function openCart(){
+
+  const items =
+    cartDetails();
+
+
+  if(!items.length){
+
+    openModalContent(`
+      <h2>Your Cart 🛒</h2>
+
+      <div class="empty">
+        <h3>Your cart is empty.</h3>
+        <p>Add some products to continue.</p>
+      </div>
+    `);
+
+    return;
+
+  }
+
+
+  openModalContent(`
+
+    <h2>Your Cart 🛒</h2>
+
+    ${items.map(item => `
+
+      <div class="cartItem">
+
+        <img
+          src="${
+            item.image ||
+            "https://via.placeholder.com/100"
+          }"
+        >
+
+      
