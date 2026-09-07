@@ -2,203 +2,111 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Jibran's Creations — Admin Panel</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jibran's Creations — Admin</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
-
+*{box-sizing:border-box}
 body{
   margin:0;
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
   background:#f7f4fb;
-  color:#29243b;
+  color:#29243b
 }
-
-.wrap{
-  max-width:1200px;
-  margin:auto;
+.wrap{max-width:1100px;margin:auto;padding:20px}
+.card{
+  background:#fff;
+  border-radius:20px;
   padding:20px;
+  margin-bottom:18px;
+  box-shadow:0 10px 30px #0001
 }
-
-.login-box{
+.login{
   max-width:430px;
-  margin:60px auto;
-  background:white;
-  padding:28px;
-  border-radius:24px;
-  box-shadow:0 15px 45px #0002;
+  margin:60px auto
 }
-
-.logo{
-  text-align:center;
-  font-size:28px;
-  font-weight:900;
-  margin-bottom:8px;
-}
-
-.subtitle{
-  text-align:center;
-  color:#777;
-  margin-bottom:25px;
-}
-
-input,
-select,
-textarea{
+h1,h2{margin-top:0}
+input,select,textarea{
   width:100%;
-  padding:13px;
+  padding:12px;
   border:1px solid #ddd;
-  border-radius:12px;
-  margin:6px 0 14px;
-  font-size:15px;
-  outline:none;
+  border-radius:10px;
+  margin:6px 0 12px;
+  font-size:15px
 }
-
-input:focus,
-select:focus,
-textarea:focus{
-  border-color:#9b7bea;
-}
-
-textarea{
-  min-height:90px;
-  resize:vertical;
-}
-
-label{
-  font-weight:700;
-  font-size:14px;
-}
-
-.btn{
+textarea{min-height:90px;resize:vertical}
+label{font-weight:700;font-size:14px}
+button{
   border:0;
-  border-radius:12px;
-  padding:12px 17px;
-  background:#29243b;
-  color:white;
-  font-weight:800;
+  border-radius:10px;
+  padding:11px 15px;
   cursor:pointer;
+  font-weight:700
 }
+.primary{background:#29243b;color:#fff}
+.green{background:#4f9b76;color:#fff}
+.red{background:#d9534f;color:#fff}
+.blue{background:#587bdc;color:#fff}
 
-.btn:hover{
-  opacity:.9;
-}
+.dashboard{display:none}
 
-.btn-pink{
-  background:#d86ca5;
-}
-
-.btn-green{
-  background:#4f9b76;
-}
-
-.btn-red{
-  background:#d9534f;
-}
-
-.btn-blue{
-  background:#587bdc;
-}
-
-.dashboard{
-  display:none;
-}
-
-.header{
-  background:white;
-  border-radius:22px;
-  padding:20px;
-  box-shadow:0 10px 30px #0001;
+.top{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:15px;
-  margin-bottom:20px;
-}
-
-.header h1{
-  margin:0;
-  font-size:25px;
-}
-
-.header p{
-  margin:5px 0 0;
-  color:#777;
+  gap:10px
 }
 
 .stats{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-  margin-bottom:20px;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px
 }
-
 .stat{
-  background:white;
-  padding:20px;
-  border-radius:18px;
-  box-shadow:0 8px 25px #0001;
+  background:#fff;
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 8px 20px #0001
 }
-
-.stat strong{
+.stat b{
   display:block;
-  font-size:28px;
-  margin-top:5px;
+  font-size:27px;
+  margin-top:5px
 }
 
 .grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:20px;
+  gap:18px
 }
 
-.card{
-  background:white;
-  padding:22px;
-  border-radius:20px;
-  box-shadow:0 10px 30px #0001;
-}
-
-.card h2{
-  margin-top:0;
-}
-
-.photo-box{
-  border:2px dashed #cfc5e9;
-  border-radius:15px;
-  padding:15px;
-  text-align:center;
+.photo-upload{
+  border:2px dashed #c9bde5;
   background:#faf8ff;
-  margin-bottom:15px;
+  padding:15px;
+  border-radius:15px;
+  text-align:center;
+  margin-bottom:15px
 }
 
-.photo-preview{
+.preview{
   width:150px;
   height:150px;
   object-fit:cover;
   border-radius:15px;
-  display:none;
   margin:10px auto;
-  border:1px solid #ddd;
-}
-
-.product-list{
-  display:grid;
-  gap:12px;
-  margin-top:15px;
+  display:none;
+  border:1px solid #ddd
 }
 
 .product{
   display:flex;
-  gap:15px;
+  gap:12px;
   align-items:center;
-  padding:12px;
   border:1px solid #eee;
-  border-radius:15px;
+  border-radius:14px;
+  padding:12px;
+  margin-top:10px
 }
 
 .product img{
@@ -206,45 +114,26 @@ label{
   height:75px;
   object-fit:cover;
   border-radius:12px;
-  background:#f2f2f2;
+  background:#eee
 }
 
-.product-info{
-  flex:1;
-}
-
-.product-info h3{
-  margin:0 0 5px;
-}
-
+.product-info{flex:1}
+.product-info h3{margin:0 0 4px}
 .product-info p{
   margin:3px 0;
   color:#666;
-  font-size:14px;
+  font-size:13px
 }
 
 .actions{
   display:flex;
-  gap:7px;
-  flex-wrap:wrap;
+  gap:6px;
+  flex-wrap:wrap
 }
 
-.small-btn{
-  padding:8px 10px;
-  border:0;
-  border-radius:9px;
-  color:white;
-  font-weight:700;
-  cursor:pointer;
-}
-
-.coupon-row{
-  display:flex;
-  gap:8px;
-}
-
-.coupon-row input{
-  margin:0;
+.msg{
+  margin-top:10px;
+  font-weight:700
 }
 
 .coupon{
@@ -252,62 +141,28 @@ label{
   justify-content:space-between;
   align-items:center;
   border:1px solid #eee;
-  padding:12px;
   border-radius:12px;
-  margin-top:10px;
+  padding:12px;
+  margin-top:8px
 }
 
 .order{
   border:1px solid #eee;
-  padding:14px;
-  border-radius:14px;
-  margin-top:10px;
+  border-radius:12px;
+  padding:12px;
+  margin-top:8px
 }
 
 .empty{
   color:#888;
   text-align:center;
-  padding:20px;
+  padding:15px
 }
 
-.msg{
-  text-align:center;
-  margin-top:10px;
-  font-weight:700;
-}
-
-@media(max-width:800px){
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .stats{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .header{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-}
-
-@media(max-width:500px){
-  .wrap{
-    padding:12px;
-  }
-
-  .stats{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .product{
-    align-items:flex-start;
-  }
-
-  .product img{
-    width:60px;
-    height:60px;
-  }
+@media(max-width:750px){
+  .grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .top{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
@@ -316,33 +171,34 @@ label{
 
 <!-- ================= LOGIN ================= -->
 
-<div class="login-box" id="loginBox">
+<div class="card login" id="loginBox">
 
-  <div class="logo">🛍️ Jibran's Creations</div>
-
-  <div class="subtitle">
-    🔐 Private Admin Panel
-  </div>
+  <h1>🔐 Jibran's Creations</h1>
+  <p>Private Admin Panel</p>
 
   <label>Admin Email</label>
   <input
     type="email"
-    id="loginEmail"
-    placeholder="Enter admin email"
+    id="email"
+    placeholder="Admin email"
   >
 
   <label>Password</label>
   <input
     type="password"
-    id="loginPassword"
-    placeholder="Enter password"
+    id="password"
+    placeholder="Password"
   >
 
-  <button class="btn" style="width:100%" onclick="login()">
-    🔐 Secure Login
+  <button
+    class="primary"
+    style="width:100%"
+    onclick="login()"
+  >
+    🔐 Login
   </button>
 
-  <div class="msg" id="loginMsg"></div>
+  <div id="loginMsg" class="msg"></div>
 
 </div>
 
@@ -353,14 +209,14 @@ label{
 
 <div class="wrap">
 
-  <div class="header">
+  <div class="card top">
 
     <div>
-      <h1>🔐 Jibran's Creations Admin</h1>
-      <p>Manage products, coupons and orders</p>
+      <h1>🛍️ Jibran's Creations Admin</h1>
+      <p>Manage your products, photos, coupons and orders.</p>
     </div>
 
-    <button class="btn btn-red" onclick="logout()">
+    <button class="red" onclick="logout()">
       Logout
     </button>
 
@@ -373,22 +229,17 @@ label{
 
     <div class="stat">
       📦 Products
-      <strong id="productCount">0</strong>
+      <b id="productCount">0</b>
     </div>
 
     <div class="stat">
       🎟️ Coupons
-      <strong id="couponCount">0</strong>
+      <b id="couponCount">0</b>
     </div>
 
     <div class="stat">
-      🛍️ Orders
-      <strong id="orderCount">0</strong>
-    </div>
-
-    <div class="stat">
-      ⭐ Status
-      <strong>Active</strong>
+      🛒 Orders
+      <b id="orderCount">0</b>
     </div>
 
   </div>
@@ -396,82 +247,65 @@ label{
 
   <div class="grid">
 
-
-    <!-- ================= ADD PRODUCT ================= -->
+    <!-- ================= PRODUCT FORM ================= -->
 
     <div class="card">
 
-      <h2>📦 Add / Edit Product</h2>
+      <h2>📦 Product</h2>
 
-      <input type="hidden" id="editId">
+      <input
+        type="hidden"
+        id="editId"
+      >
 
       <label>Product Name</label>
       <input
-        type="text"
         id="pName"
-        placeholder="Example: DIY Painting Kit"
+        placeholder="Product name"
       >
 
       <label>MRP</label>
       <input
-        type="number"
         id="pMrp"
-        placeholder="Example: 299"
+        type="number"
+        placeholder="299"
       >
 
       <label>Selling Price</label>
       <input
-        type="number"
         id="pPrice"
-        placeholder="Example: 249"
+        type="number"
+        placeholder="249"
       >
 
       <label>Stock</label>
       <input
-        type="number"
         id="pStock"
-        placeholder="Example: 20"
+        type="number"
+        placeholder="20"
       >
 
       <label>Category</label>
+
       <select id="pCategory">
 
-        <option value="Painting">
-          Painting
-        </option>
-
-        <option value="DIY">
-          DIY
-        </option>
-
-        <option value="Craft">
-          Craft
-        </option>
-
-        <option value="Kids">
-          Kids
-        </option>
-
-        <option value="Art">
-          Art
-        </option>
-
-        <option value="Other">
-          Other
-        </option>
+        <option>Painting</option>
+        <option>DIY</option>
+        <option>Craft</option>
+        <option>Kids</option>
+        <option>Art</option>
+        <option>Other</option>
 
       </select>
 
 
-      <!-- ================= PHOTO UPLOAD ================= -->
+      <!-- ================= PHOTO ================= -->
 
       <label>📷 Product Photo</label>
 
-      <div class="photo-box">
+      <div class="photo-upload">
 
-        <div>
-          Choose product image
-        </div>
+        <p>Choose product photo</p>
 
         <input
           type="file"
@@ -480,14 +314,14 @@ label{
         >
 
         <img
-          id="imagePreview"
-          class="photo-preview"
-          alt="Product Preview"
+          id="preview"
+          class="preview"
+          alt="Product preview"
         >
 
-        <div style="font-size:12px;color:#888">
-          JPG / PNG / WEBP recommended
-        </div>
+        <small>
+          JPG, PNG or WEBP • Max 3MB
+        </small>
 
       </div>
 
@@ -496,46 +330,38 @@ label{
 
       <textarea
         id="pDescription"
-        placeholder="Write product description..."
+        placeholder="Product description"
       ></textarea>
 
 
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button
+        class="green"
+        onclick="saveProduct()"
+      >
+        ➕ Save Product
+      </button>
 
-        <button
-          class="btn btn-pink"
-          onclick="saveProduct()"
-        >
-          ➕ Save Product
-        </button>
-
-        <button
-          class="btn"
-          onclick="clearProductForm()"
-        >
-          Clear
-        </button>
-
-      </div>
+      <button
+        onclick="clearForm()"
+      >
+        Clear
+      </button>
 
       <div
-        class="msg"
         id="productMsg"
+        class="msg"
       ></div>
 
     </div>
 
 
-    <!-- ================= PRODUCTS ================= -->
+    <!-- ================= PRODUCT LIST ================= -->
 
     <div class="card">
 
-      <h2>🛍️ Products</h2>
+      <h2>🛍️ Your Products</h2>
 
-      <div
-        id="productList"
-        class="product-list"
-      ></div>
+      <div id="productList"></div>
 
     </div>
 
@@ -544,31 +370,25 @@ label{
 
     <div class="card">
 
-      <h2>🎟️ Coupons / Discounts</h2>
+      <h2>🎟️ Coupons</h2>
 
-      <div class="coupon-row">
+      <input
+        id="couponCode"
+        placeholder="Example: WELCOME10"
+      >
 
-        <input
-          type="text"
-          id="couponCode"
-          placeholder="Coupon code"
-        >
+      <input
+        id="couponDiscount"
+        type="number"
+        placeholder="Discount %"
+      >
 
-        <input
-          type="number"
-          id="couponDiscount"
-          placeholder="%"
-          style="max-width:100px"
-        >
-
-        <button
-          class="btn btn-green"
-          onclick="addCoupon()"
-        >
-          Add
-        </button>
-
-      </div>
+      <button
+        class="green"
+        onclick="addCoupon()"
+      >
+        Add Coupon
+      </button>
 
       <div id="couponList"></div>
 
@@ -579,12 +399,11 @@ label{
 
     <div class="card">
 
-      <h2>📋 Orders</h2>
+      <h2>🛒 Orders</h2>
 
       <div id="orderList"></div>
 
     </div>
-
 
   </div>
 
@@ -595,22 +414,26 @@ label{
 
 <script>
 
-/* =====================================================
+/* =========================================
    ADMIN LOGIN
-===================================================== */
+========================================= */
 
-const ADMIN_EMAIL = "jibran.shahban@gmail.com";
+const ADMIN_EMAIL =
+"jibran.shahban@gmail.com";
 
-const ADMIN_PASSWORD = "AnasAdmin@2026";
+const ADMIN_PASSWORD =
+"AnasAdmin@2026";
 
 
 function login(){
 
   const email =
-    document.getElementById("loginEmail").value.trim();
+    document.getElementById("email")
+    .value.trim();
 
   const password =
-    document.getElementById("loginPassword").value;
+    document.getElementById("password")
+    .value;
 
   const msg =
     document.getElementById("loginMsg");
@@ -630,10 +453,10 @@ function login(){
 
   }else{
 
+    msg.style.color="#d9534f";
+
     msg.textContent =
       "❌ Wrong email or password";
-
-    msg.style.color = "#d9534f";
 
   }
 
@@ -655,26 +478,29 @@ function showDashboard(){
 
   document.getElementById(
     "loginBox"
-  ).style.display = "none";
+  ).style.display="none";
 
   document.getElementById(
     "dashboard"
-  ).style.display = "block";
+  ).style.display="block";
 
   loadAll();
 
 }
 
 
-/* =====================================================
-   PRODUCT DATA
-===================================================== */
+/* =========================================
+   STORAGE
+========================================= */
 
-const PRODUCT_KEY = "jcProductsV1";
+const PRODUCT_KEY =
+"jcProductsV1";
 
-const COUPON_KEY = "jcCouponsV1";
+const COUPON_KEY =
+"jcCouponsV1";
 
-const ORDER_KEY = "jcOrders";
+const ORDER_KEY =
+"jcOrders";
 
 
 function getProducts(){
@@ -704,124 +530,132 @@ function saveProducts(products){
 }
 
 
-/* =====================================================
-   IMAGE UPLOAD
-===================================================== */
+/* =========================================
+   PHOTO UPLOAD
+========================================= */
 
-let selectedImage = "";
+let selectedImage="";
 
 
 document
-  .getElementById("pImage")
-  .addEventListener("change", function(e){
+.getElementById("pImage")
+.addEventListener(
+"change",
+function(){
 
-    const file = e.target.files[0];
+  const file =
+    this.files[0];
 
-    if(!file){
-      return;
-    }
-
-
-    if(!file.type.startsWith("image/")){
-
-      alert("Please select an image file.");
-
-      this.value = "";
-
-      return;
-
-    }
+  if(!file)return;
 
 
-    /*
-      Image size limit
-    */
+  if(!file.type.startsWith("image/")){
 
-    if(file.size > 3 * 1024 * 1024){
+    alert(
+      "Please choose an image."
+    );
 
-      alert(
-        "Image is too large. Please choose an image below 3MB."
+    this.value="";
+
+    return;
+
+  }
+
+
+  if(file.size > 3*1024*1024){
+
+    alert(
+      "Photo must be below 3MB."
+    );
+
+    this.value="";
+
+    return;
+
+  }
+
+
+  const reader =
+    new FileReader();
+
+
+  reader.onload=function(e){
+
+    selectedImage =
+      e.target.result;
+
+    const preview =
+      document.getElementById(
+        "preview"
       );
 
-      this.value = "";
+    preview.src =
+      selectedImage;
 
-      return;
+    preview.style.display =
+      "block";
 
-    }
-
-
-    const reader = new FileReader();
-
-
-    reader.onload = function(event){
-
-      selectedImage =
-        event.target.result;
+  };
 
 
-      const preview =
-        document.getElementById(
-          "imagePreview"
-        );
+  reader.readAsDataURL(file);
 
-      preview.src =
-        selectedImage;
-
-      preview.style.display =
-        "block";
-
-    };
+});
 
 
-    reader.readAsDataURL(file);
-
-  });
-
-
-/* =====================================================
+/* =========================================
    SAVE PRODUCT
-===================================================== */
+========================================= */
 
 function saveProduct(){
 
   const name =
-    document.getElementById("pName")
-    .value.trim();
+    document.getElementById(
+      "pName"
+    ).value.trim();
 
   const mrp =
     Number(
-      document.getElementById("pMrp")
-      .value
+      document.getElementById(
+        "pMrp"
+      ).value
     );
 
   const price =
     Number(
-      document.getElementById("pPrice")
-      .value
+      document.getElementById(
+        "pPrice"
+      ).value
     );
 
   const stock =
     Number(
-      document.getElementById("pStock")
-      .value
+      document.getElementById(
+        "pStock"
+      ).value
     );
 
   const category =
-    document.getElementById("pCategory")
-    .value;
+    document.getElementById(
+      "pCategory"
+    ).value;
 
   const description =
-    document.getElementById("pDescription")
-    .value.trim();
+    document.getElementById(
+      "pDescription"
+    ).value.trim();
 
   const editId =
-    document.getElementById("editId")
-    .value;
+    document.getElementById(
+      "editId"
+    ).value;
 
 
   if(!name){
 
-    alert("Please enter product name.");
+    alert(
+      "Product name डालो."
+    );
 
     return;
 
@@ -830,7 +664,9 @@ function saveProduct(){
 
   if(!price){
 
-    alert("Please enter selling price.");
+    alert(
+      "Selling price डालो."
+    );
 
     return;
 
@@ -841,15 +677,15 @@ function saveProduct(){
     getProducts();
 
 
-  /*
-    EDIT PRODUCT
-  */
+  /* EDIT */
 
   if(editId){
 
     const index =
       products.findIndex(
-        p => String(p.id) === String(editId)
+        p =>
+        String(p.id) ===
+        String(editId)
       );
 
 
@@ -883,16 +719,13 @@ function saveProduct(){
   }
 
 
-  /*
-    ADD NEW PRODUCT
-  */
+  /* NEW */
 
   else{
 
-    const product = {
+    products.unshift({
 
-      id:
-        Date.now(),
+      id:Date.now(),
 
       name:name,
 
@@ -909,10 +742,7 @@ function saveProduct(){
       image:
         selectedImage || ""
 
-    };
-
-
-    products.unshift(product);
+    });
 
   }
 
@@ -921,10 +751,10 @@ function saveProduct(){
 
     saveProducts(products);
 
-  }catch(e){
+  }catch(error){
 
     alert(
-      "Storage full. Please use a smaller product image."
+      "Storage full. छोटी photo use करो."
     );
 
     return;
@@ -934,19 +764,17 @@ function saveProduct(){
 
   document.getElementById(
     "productMsg"
-  ).textContent =
-    editId
-      ? "✅ Product updated successfully!"
-      : "✅ Product added successfully!";
-
+  ).style.color="#4f9b76";
 
   document.getElementById(
     "productMsg"
-  ).style.color =
-    "#4f9b76";
+  ).textContent =
+    editId
+    ? "✅ Product updated!"
+    : "✅ Product added!";
 
 
-  clearProductForm();
+  clearForm();
 
   renderProducts();
 
@@ -955,62 +783,62 @@ function saveProduct(){
 }
 
 
-/* =====================================================
-   CLEAR FORM
-===================================================== */
+/* =========================================
+   CLEAR
+========================================= */
 
-function clearProductForm(){
+function clearForm(){
 
   document.getElementById(
     "editId"
-  ).value = "";
+  ).value="";
 
   document.getElementById(
     "pName"
-  ).value = "";
+  ).value="";
 
   document.getElementById(
     "pMrp"
-  ).value = "";
+  ).value="";
 
   document.getElementById(
     "pPrice"
-  ).value = "";
+  ).value="";
 
   document.getElementById(
     "pStock"
-  ).value = "";
+  ).value="";
 
   document.getElementById(
     "pCategory"
-  ).value = "Painting";
+  ).value="Painting";
 
   document.getElementById(
     "pDescription"
-  ).value = "";
+  ).value="";
 
   document.getElementById(
     "pImage"
-  ).value = "";
+  ).value="";
 
-  selectedImage = "";
+  selectedImage="";
+
 
   const preview =
     document.getElementById(
-      "imagePreview"
+      "preview"
     );
 
-  preview.src = "";
+  preview.src="";
 
-  preview.style.display =
-    "none";
+  preview.style.display="none";
 
 }
 
 
-/* =====================================================
+/* =========================================
    RENDER PRODUCTS
-===================================================== */
+========================================= */
 
 function renderProducts(){
 
@@ -1026,7 +854,7 @@ function renderProducts(){
   if(!products.length){
 
     box.innerHTML =
-      '<div class="empty">No products added yet.</div>';
+      '<div class="empty">No products yet.</div>';
 
     return;
 
@@ -1034,26 +862,27 @@ function renderProducts(){
 
 
   box.innerHTML =
-    products.map(p => `
+    products.map(
+      p => `
 
       <div class="product">
 
         <img
           src="${p.image || ''}"
-          onerror="this.style.visibility='hidden'"
           alt=""
         >
 
         <div class="product-info">
 
           <h3>
-            ${escapeHtml(p.name)}
+            ${safe(p.name)}
           </h3>
 
           <p>
             ₹${Number(p.price || 0)}
-            ${p.mrp
-              ? ` <del>₹${Number(p.mrp)}</del>`
+            ${
+              p.mrp
+              ? `<del>₹${Number(p.mrp)}</del>`
               : ""
             }
           </p>
@@ -1063,7 +892,9 @@ function renderProducts(){
           </p>
 
           <p>
-            🏷️ ${escapeHtml(p.category || "Other")}
+            🏷️ ${safe(
+              p.category || "Other"
+            )}
           </p>
 
         </div>
@@ -1071,14 +902,14 @@ function renderProducts(){
         <div class="actions">
 
           <button
-            class="small-btn btn-blue"
+            class="blue"
             onclick="editProduct('${p.id}')"
           >
             Edit
           </button>
 
           <button
-            class="small-btn btn-red"
+            class="red"
             onclick="deleteProduct('${p.id}')"
           >
             Delete
@@ -1088,84 +919,75 @@ function renderProducts(){
 
       </div>
 
-    `).join("");
+      `
+    ).join("");
 
 }
 
 
-/* =====================================================
-   EDIT PRODUCT
-===================================================== */
+/* =========================================
+   EDIT
+========================================= */
 
 function editProduct(id){
 
   const products =
     getProducts();
 
-  const product =
+  const p =
     products.find(
-      p => String(p.id) === String(id)
+      x =>
+      String(x.id) ===
+      String(id)
     );
 
 
-  if(!product){
-    return;
-  }
+  if(!p)return;
 
 
   document.getElementById(
     "editId"
-  ).value =
-    product.id;
+  ).value=p.id;
 
   document.getElementById(
     "pName"
-  ).value =
-    product.name || "";
+  ).value=p.name || "";
 
   document.getElementById(
     "pMrp"
-  ).value =
-    product.mrp || "";
+  ).value=p.mrp || "";
 
   document.getElementById(
     "pPrice"
-  ).value =
-    product.price || "";
+  ).value=p.price || "";
 
   document.getElementById(
     "pStock"
-  ).value =
-    product.stock || "";
+  ).value=p.stock || "";
 
   document.getElementById(
     "pCategory"
-  ).value =
-    product.category || "Other";
+  ).value=p.category || "Other";
 
   document.getElementById(
     "pDescription"
-  ).value =
-    product.description || "";
+  ).value=p.description || "";
 
 
   selectedImage =
-    product.image || "";
+    p.image || "";
 
 
-  const preview =
-    document.getElementById(
-      "imagePreview"
-    );
+  if(p.image){
 
+    const preview =
+      document.getElementById(
+        "preview"
+      );
 
-  if(selectedImage){
+    preview.src=p.image;
 
-    preview.src =
-      selectedImage;
-
-    preview.style.display =
-      "block";
+    preview.style.display="block";
 
   }
 
@@ -1178,19 +1000,17 @@ function editProduct(id){
 }
 
 
-/* =====================================================
-   DELETE PRODUCT
-===================================================== */
+/* =========================================
+   DELETE
+========================================= */
 
 function deleteProduct(id){
 
   if(
     !confirm(
-      "Delete this product?"
+      "क्या इस product को delete करना है?"
     )
-  ){
-    return;
-  }
+  )return;
 
 
   let products =
@@ -1200,7 +1020,8 @@ function deleteProduct(id){
   products =
     products.filter(
       p =>
-        String(p.id) !== String(id)
+      String(p.id) !==
+      String(id)
     );
 
 
@@ -1213,16 +1034,18 @@ function deleteProduct(id){
 }
 
 
-/* =====================================================
+/* =========================================
    COUPONS
-===================================================== */
+========================================= */
 
 function getCoupons(){
 
   try{
 
     return JSON.parse(
-      localStorage.getItem(COUPON_KEY)
+      localStorage.getItem(
+        COUPON_KEY
+      )
     ) || [];
 
   }catch(e){
@@ -1234,11 +1057,11 @@ function getCoupons(){
 }
 
 
-function saveCoupons(coupons){
+function saveCoupons(c){
 
   localStorage.setItem(
     COUPON_KEY,
-    JSON.stringify(coupons)
+    JSON.stringify(c)
   );
 
 }
@@ -1249,9 +1072,7 @@ function addCoupon(){
   const code =
     document.getElementById(
       "couponCode"
-    ).value
-    .trim()
-    .toUpperCase();
+    ).value.trim().toUpperCase();
 
   const discount =
     Number(
@@ -1264,7 +1085,7 @@ function addCoupon(){
   if(!code || !discount){
 
     alert(
-      "Enter coupon code and discount."
+      "Coupon code और discount डालो."
     );
 
     return;
@@ -1292,11 +1113,11 @@ function addCoupon(){
 
   document.getElementById(
     "couponCode"
-  ).value = "";
+  ).value="";
 
   document.getElementById(
     "couponDiscount"
-  ).value = "";
+  ).value="";
 
 
   renderCoupons();
@@ -1320,7 +1141,7 @@ function renderCoupons(){
   if(!coupons.length){
 
     box.innerHTML =
-      '<div class="empty">No coupons added.</div>';
+      '<div class="empty">No coupons.</div>';
 
     return;
 
@@ -1328,26 +1149,21 @@ function renderCoupons(){
 
 
   box.innerHTML =
-    coupons.map(c => `
+    coupons.map(
+      c => `
 
       <div class="coupon">
 
         <div>
-
-          <strong>
-            ${escapeHtml(c.code)}
-          </strong>
-
+          <b>${safe(c.code)}</b>
           <br>
-
           <small>
             ${Number(c.discount)}% OFF
           </small>
-
         </div>
 
         <button
-          class="small-btn btn-red"
+          class="red"
           onclick="deleteCoupon('${c.id}')"
         >
           Delete
@@ -1355,7 +1171,8 @@ function renderCoupons(){
 
       </div>
 
-    `).join("");
+      `
+    ).join("");
 
 }
 
@@ -1369,7 +1186,8 @@ function deleteCoupon(id){
   coupons =
     coupons.filter(
       c =>
-        String(c.id) !== String(id)
+      String(c.id) !==
+      String(id)
     );
 
 
@@ -1382,16 +1200,18 @@ function deleteCoupon(id){
 }
 
 
-/* =====================================================
+/* =========================================
    ORDERS
-===================================================== */
+========================================= */
 
 function getOrders(){
 
   try{
 
     return JSON.parse(
-      localStorage.getItem(ORDER_KEY)
+      localStorage.getItem(
+        ORDER_KEY
+      )
     ) || [];
 
   }catch(e){
@@ -1425,16 +1245,15 @@ function renderOrders(){
 
 
   box.innerHTML =
-    orders.map((o,i) => `
+    orders.map(
+      (o,i) => `
 
       <div class="order">
 
-        <strong>
-          Order #${i+1}
-        </strong>
+        <b>Order #${i+1}</b>
 
         <p>
-          ${escapeHtml(
+          ${safe(
             o.name ||
             o.customerName ||
             "Customer"
@@ -1450,5 +1269,92 @@ function renderOrders(){
         </p>
 
         <small>
-          ${escapeHtml(
-         
+          ${safe(
+            o.status ||
+            "Pending"
+          )}
+        </small>
+
+      </div>
+
+      `
+    ).join("");
+
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+function updateStats(){
+
+  document.getElementById(
+    "productCount"
+  ).textContent =
+    getProducts().length;
+
+  document.getElementById(
+    "couponCount"
+  ).textContent =
+    getCoupons().length;
+
+  document.getElementById(
+    "orderCount"
+  ).textContent =
+    getOrders().length;
+
+}
+
+
+/* =========================================
+   SAFE TEXT
+========================================= */
+
+function safe(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================
+   LOAD
+========================================= */
+
+function loadAll(){
+
+  renderProducts();
+
+  renderCoupons();
+
+  renderOrders();
+
+  updateStats();
+
+}
+
+
+/* =========================================
+   AUTO LOGIN
+========================================= */
+
+if(
+  sessionStorage.getItem(
+    "jcAdminLoggedIn"
+  ) === "true"
+){
+
+  showDashboard();
+
+}
+
+</script>
+
+</body>
+</html>
