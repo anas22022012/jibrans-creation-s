@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jibran's Creations | Premium DIY Store</title>
+<meta name="description" content="Jibran's Creations — premium kids DIY, art and creative toys.">
+<style>
+:root{--pink:#ffd9e8;--purple:#e7ddff;--blue:#d9f1ff;--green:#dcf8e7;--ink:#27223a;--muted:#77718a;--white:#fff;--shadow:0 12px 35px rgba(65,48,90,.12)}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:#fbf9ff;color:var(--ink)}
+button,input,select{font:inherit}button{cursor:pointer;border:0}
+.top{background:linear-gradient(90deg,var(--pink),var(--purple),var(--blue));text-align:center;padding:8px;font-size:13px;font-weight:700}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);border-bottom:1px solid #eee8f5}
+.nav{max-width:1200px;margin:auto;padding:14px 18px;display:flex;align-items:center;gap:18px}
+.logo{width:58px;height:58px;border-radius:16px;object-fit:cover;box-shadow:var(--shadow)}
+.brand{font-weight:900;font-size:20px;white-space:nowrap}.brand small{display:block;font-size:10px;color:var(--muted)}
+.search{flex:1;display:flex;background:#f5f2fa;border-radius:18px;padding:5px 8px;gap:5px}.search input{flex:1;border:0;background:transparent;outline:0;padding:10px}.search button{background:white;border-radius:12px;padding:8px 10px}
+.actions{display:flex;gap:8px}.icon{background:#f6f3fb;border-radius:14px;padding:10px;min-width:44px}.wishBtn{position:absolute;right:10px;top:10px;width:42px;height:42px;border:0;border-radius:50%;background:rgba(255,255,255,.94);box-shadow:0 8px 20px rgba(50,35,70,.15);font-size:24px;cursor:pointer;color:#6b5b76}.wishBtn.active{background:#29243b;color:#fff}
+.hero{max-width:1200px;margin:25px auto;padding:0 18px}.heroBox{min-height:360px;border-radius:30px;padding:45px;background:linear-gradient(125deg,var(--pink),var(--purple) 48%,var(--blue));position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.heroBox:after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.45);right:-70px;top:-70px}
+.badge{display:inline-block;background:white;padding:8px 13px;border-radius:999px;font-size:12px;font-weight:800}.hero h1{font-size:clamp(38px,6vw,72px);line-height:.95;margin:18px 0 12px;max-width:650px}.hero p{max-width:600px;color:#5d566c;font-size:17px}.cta{background:var(--ink);color:#fff;padding:14px 22px;border-radius:14px;font-weight:800;margin-top:12px}
+.section{max-width:1200px;margin:35px auto;padding:0 18px}.title{display:flex;justify-content:space-between;align-items:end;margin-bottom:15px}.title h2{margin:0;font-size:25px}.title span{color:var(--muted);font-size:13px}
+.chips{display:flex;gap:10px;overflow:auto;padding-bottom:4px}.chip{padding:12px 17px;border-radius:999px;background:white;box-shadow:0 6px 18px rgba(65,48,90,.08);white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:white;border-radius:22px;padding:12px;box-shadow:var(--shadow);transition:.2s}.card:hover{transform:translateY(-4px)}.pic{height:190px;border-radius:17px;display:grid;place-items:center;font-size:62px;background:linear-gradient(135deg,var(--pink),var(--blue))}.card h3{font-size:15px;margin:12px 3px 6px}.rating{font-size:12px;color:#7b6c27}.price{font-size:18px;font-weight:900;margin:7px 3px}.old{text-decoration:line-through;color:#aaa;font-size:12px;margin-left:5px}.buy{width:100%;padding:11px;border-radius:12px;background:var(--ink);color:#fff;font-weight:800}.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.tool{padding:18px;border-radius:20px;min-height:105px;box-shadow:var(--shadow);background:white}.tool:nth-child(1){background:var(--pink)}.tool:nth-child(2){background:var(--purple)}.tool:nth-child(3){background:var(--blue)}.tool:nth-child(4){background:var(--green)}
+footer{margin-top:50px;background:#29243b;color:#fff;padding:40px 18px}.foot{max-width:1200px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:25px}.foot a{display:block;color:#ddd5ea;margin:9px 0;text-decoration:none}.chat{position:fixed;right:18px;bottom:18px;z-index:30;background:#29243b;color:#fff;border-radius:50%;width:60px;height:60px;box-shadow:0 10px 30px #0003;font-size:24px}
+.modal{display:none;position:fixed;inset:0;background:#0006;z-index:50;padding:20px}.modalBox{max-width:520px;margin:7vh auto;background:white;border-radius:25px;padding:22px;max-height:86vh;overflow:auto}.close{float:right;background:#f2eef8;border-radius:10px;padding:7px 10px}.modalBox input,.modalBox textarea,.modalBox select{width:100%;padding:12px;margin:6px 0 10px;border:1px solid #ddd3e8;border-radius:12px}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.tools{grid-template-columns:repeat(2,1fr)}.foot{grid-template-columns:1fr 1fr}.brand{display:none}.actions .hide{display:none}}
+.sitePopup{display:none;position:fixed;inset:0;background:rgba(39,34,58,.42);backdrop-filter:blur(7px);z-index:100;padding:18px;align-items:center;justify-content:center}.popupCard{position:relative;width:min(430px,100%);background:linear-gradient(145deg,#fff,#fff8fc);border:1px solid #f0dced;border-radius:28px;padding:28px;box-shadow:0 25px 80px rgba(39,34,58,.28);text-align:center;animation:popupIn .22s ease-out}.popupClose{position:absolute;right:14px;top:14px;background:#f5edf8;border-radius:50%;width:34px;height:34px;color:#49405b}.popupLogo{width:64px;height:64px;margin:0 auto 12px;border-radius:18px;overflow:hidden;box-shadow:0 8px 20px rgba(70,45,80,.14)}.popupLogo img{width:100%;height:100%;object-fit:cover}.popupCard h2{margin:8px 0;color:#29243b}.popupCard p{color:#6d657b;line-height:1.5}.popupBtn{width:100%;padding:12px 15px;border-radius:13px;background:#29243b;color:#fff;font-weight:800;margin-top:8px}@keyframes popupIn{from{transform:scale(.94);opacity:0}to{transform:scale(1);opacity:1}}
+@media(max-width:560px){.nav{gap:8px}.logo{width:46px;height:46px}.search{order:5;flex-basis:100%}.nav{flex-wrap:wrap}.heroBox{padding:30px 24px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.pic{height:145px}.hero h1{font-size:42px}.row{grid-template-columns:1fr}}
+</style>
+
+
+
+
+<style id="jc-final-brand-wishlist">
+.wishlist-btn,.wishlist-button,.heart-btn,[data-wishlist],[aria-label*="Wishlist"],[aria-label*="wishlist"]{
+  color:#ffffff !important;
+  background:var(--pink, #f7c7dc) !important;
+  border-color:var(--pink-dark, #d96b9b) !important;
+}
+.wishlist-btn.is-liked,.wishlist-button.is-liked,.heart-btn.is-liked,[data-wishlist].is-liked,[aria-label*="Wishlist"].is-liked,[aria-label*="wishlist"].is-liked{
+  color:#e05286 !important;
+  background:#fff7fb !important;
+  border-color:#e05286 !important;
+}
+.wishlist-btn.is-liked svg,.wishlist-btn.is-liked i,.wishlist-btn.is-liked span,
+.wishlist-button.is-liked svg,.wishlist-button.is-liked i,.wishlist-button.is-liked span,
+.heart-btn.is-liked svg,.heart-btn.is-liked i,.heart-btn.is-liked span{
+  color:#e05286 !important;
+  fill:#e05286 !important;
+}
+</style>
+
+<style id="jc-final-brand">button{color:var(--text,#4b3d4b)}.wishBtn{color:#fff!important;background:var(--pink)!important;border:1px solid var(--pink-dark)!important}.wishBtn.active{color:#e05286!important;background:#fff7fb!important;border-color:#e05286!important}.wishBtn.active{font-size:0}.wishBtn.active:after{content:'♥';font-size:20px}.wishBtn:not(.active){font-size:0}.wishBtn:not(.active):after{content:'♡';font-size:20px}a{color:var(--purple-dark,#8b6fc0)}</style></head>
+<body>
+<div class="top">✨ Welcome to Jibran's Creations — Premium DIY Creativity for Kids ✨</div>
+<header><div class="nav">
+<img class="logo" src="logo.jpg" alt="Jibran's Creations logo">
+<div class="brand">Jibran's Creations<small>KayB Enterprises</small></div>
+<div class="search"><input id="search" placeholder="Search DIY kits, art, building toys..."><button onclick="voiceSearch()">🎙️</button><button onclick="cameraSearch()">📷</button></div>
+<div class="actions"><button class="icon" onclick="openModal('wishlist')">♡ <b id="wishCount">0</b></button><button class="icon" onclick="openModal('cart')">🛒 <b id="cartCount">0</b></button><button class="icon" onclick="openModal('account')">👤</button></div>
+</div></header>
+
+<main>
+<section class="hero"><div class="heroBox"><span class="badge">NEW • CREATIVE COLLECTION</span><h1>Create. Play. Imagine.</h1><p>Discover premium DIY kits, art activities and creative toys made for curious young minds.</p><button class="cta" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now →</button></div></section>
+
+<section class="section"><div class="title"><h2>Shop by Category</h2><span>Explore all</span></div><div class="chips"><button class="chip">🎨 DIY Kits</button><button class="chip">🖍️ Art & Craft</button><button class="chip">🧱 Building Toys</button><button class="chip">🧩 Creative Toys</button><button class="chip">🎁 Gift Ideas</button><button class="chip">⭐ Best Sellers</button></div></section>
+
+<section class="section"><div class="title"><h2>Smart Shopping</h2><span>AI-powered features</span></div><div class="tools">
+<div class="tool"><b>🤖 AI Suggestions</b><p>Personalized product ideas based on shopping.</p></div>
+<div class="tool"><b>🎙️ Voice Search</b><p>Search products using your voice.</p></div>
+<div class="tool"><b>📷 Camera Search</b><p>Visual-search interface ready for AI image matching.</p></div>
+<div class="tool"><b>💬 AI Assistant</b><p>Get product and order help anytime.</p></div>
+</div></section>
+
+<section class="section" id="products"><div class="title"><h2>Best Sellers</h2><span>Top picks</span></div><div class="grid">
+<div class="card"><div style="position:relative"><div class="pic">🎨</div><button class="wishBtn" data-name="DIY Painting Kit" data-price="299" onclick="toggleWishlist(this)">♡</button></div><h3>DIY Painting Kit</h3><div class="rating">★★★★★ 4.9 • 128 reviews</div><div class="price">₹299 <span class="old">₹319</span></div><button class="buy" onclick="addCart('DIY Painting Kit',299)">Add to Cart</button></div>
+<div class="card"><div style="position:relative"><div class="pic" style="background:linear-gradient(135deg,var(--purple),var(--green))">🧩</div><button class="wishBtn" data-name="Creative Craft Kit" data-price="349" onclick="toggleWishlist(this)">♡</button></div><h3>Creative Craft Kit</h3><div class="rating">★★★★★ 4.8 • 94 reviews</div><div class="price">₹349 <span class="old">₹369</span></div><button class="buy" onclick="addCart('Creative Craft Kit',349)">Add to Cart</button></div>
+<div class="card"><div style="position:relative"><div class="pic" style="background:linear-gradient(135deg,var(--blue),var(--purple))">🧱</div><button class="wishBtn" data-name="Mini Building Set" data-price="399" onclick="toggleWishlist(this)">♡</button></div><h3>Mini Building Set</h3><div class="rating">★★★★☆ 4.7 • 76 reviews</div><div class="price">₹399 <span class="old">₹419</span></div><button class="buy" onclick="addCart('Mini Building Set',399)">Add to Cart</button></div>
+<div class="card"><div style="position:relative"><div class="pic" style="background:linear-gradient(135deg,var(--green),var(--pink))">🎁</div><button class="wishBtn" data-name="DIY Gift Activity Box" data-price="449" onclick="toggleWishlist(this)">♡</button></div><h3>DIY Gift Activity Box</h3><div class="rating">★★★★★ 4.9 • 61 reviews</div><div class="price">₹449 <span class="old">₹469</span></div><button class="buy" onclick="addCart('DIY Gift Activity Box',449)">Add to Cart</button></div>
+</div></section>
+
+<section class="section"><div class="title"><h2>Customer Reviews</h2><span>Verified-style review UI</span></div><div class="tools"><div class="tool"><b>⭐ 4.9/5</b><p>Excellent creative experience.</p></div><div class="tool"><b>💖 Loved by families</b><p>Easy ordering and fun activities.</p></div><div class="tool"><b>📦 Order updates</b><p>Track delivery from your account.</p></div><div class="tool"><b>💬 Share feedback</b><p>Your reviews help improve the store.</p></div></div></section>
+</main>
+
+<button class="chat" onclick="openModal('chat')">🤖</button>
+
+<footer><div class="foot"><div><h2>Jibran's Creations</h2><p>Premium DIY creativity for kids.</p><p>📞 <a href="tel:+919150608692">9150608692</a><br>✉️ <a href="mailto:jibran.shahban@gmail.com">jibran.shahban@gmail.com</a></p></div><div><h3>Shop</h3><a href="#products">Products</a><a href="#">Best Sellers</a><a href="#">New Arrivals</a><a href="#">Offers</a></div><div><h3>Help</h3><a href="tel:+919150608692">Call Customer Care</a><a href="https://wa.me/919150608692" target="_blank">WhatsApp</a><a href="#">Order Tracking</a><a href="#">Return Policy</a><a href="#">Privacy Policy</a></div><div><h3>Social</h3><a href="https://www.instagram.com/jibran0215" target="_blank">Instagram</a><a href="https://youtube.com/@learnwithjibranshahban" target="_blank">YouTube</a><a href="https://wa.me/919150608692" target="_blank">WhatsApp</a></div></div></footer>
+
+<div class="modal" id="modal"><div class="modalBox"><button class="close" onclick="closeModal()">✕</button><div id="modalContent"></div></div></div>
+<div class="sitePopup" id="sitePopup" aria-hidden="true">
+  <div class="popupCard">
+    <div class="popupLogo"><img src="logo.jpg" alt="Jibran's Creations"></div>
+    <button class="popupClose" onclick="closeSitePopup()">✕</button>
+    <div id="sitePopupContent"></div>
+  </div>
+</div>
+<script>
+const CART_KEY='jcCart';
+const WISH_KEY='jcWishlist';
+let cart=JSON.parse(localStorage.getItem(CART_KEY)||'[]');
+let wishlist=JSON.parse(localStorage.getItem(WISH_KEY)||'[]');
+function money(v){return Number(v||0)}
+function persist(){localStorage.setItem(CART_KEY,JSON.stringify(cart));localStorage.setItem(WISH_KEY,JSON.stringify(wishlist));updateCounts()}
+function updateCounts(){document.getElementById('wishCount').textContent=wishlist.length;document.getElementById('cartCount').textContent=cart.reduce((n,x)=>n+(x.qty||1),0);syncWishlistButtons()}
+function productFrom(btn){return {name:btn.dataset.name||'Product',price:money(btn.dataset.price||0)}}
+function toggleWishlist(btn){const item=productFrom(btn),i=wishlist.findIndex(x=>x.name===item.name);if(i>=0){wishlist.splice(i,1);btn.classList.remove('active');btn.textContent='♡';showSitePopup('♡ Removed from Wishlist',item.name+' has been removed from your wishlist.')}else{wishlist.push(item);btn.classList.add('active');btn.textContent='♥';showSitePopup('♥ Added to Wishlist',item.name+' is now in your wishlist.','View Wishlist')}persist()}
+function syncWishlistButtons(){document.querySelectorAll('.wishBtn').forEach(b=>{const yes=wishlist.some(x=>x.name===b.dataset.name);b.classList.toggle('active',yes);b.textContent=yes?'♥':'♡'})}
+function addCart(name,price){const i=cart.findIndex(x=>x.name===name);if(i>=0)cart[i].qty=(cart[i].qty||1)+1;else cart.push({name,price:money(price),qty:1});persist();showSitePopup('🛒 Added to Cart',name+' has been added to your cart.','View Cart')}
+function removeCart(i){cart.splice(i,1);persist();renderCart()}
+function changeQty(i,d){cart[i].qty=Math.max(1,(cart[i].qty||1)+d);persist();renderCart()}
+function renderCart(){const c=document.getElementById('modalContent');if(!cart.length){c.innerHTML='<h2>🛒 Your Cart</h2><div style="text-align:center;padding:28px"><div style="font-size:54px">🛒</div><p>Your cart is empty.</p></div>';return}let total=0;const rows=cart.map((x,i)=>{total+=x.price*(x.qty||1);return `<div style="display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #eee"><div style="flex:1"><b>${x.name}</b><div>₹${x.price}</div><div><button onclick="changeQty(${i},-1)">−</button> ${x.qty||1} <button onclick="changeQty(${i},1)">+</button></div></div><button class="close" onclick="removeCart(${i})">✕</button></div>`}).join('');c.innerHTML=`<h2>🛒 Your Cart</h2>${rows}<hr><h3>Total: ₹${total}</h3><input id="coupon" placeholder="Enter coupon code"><button class="buy" onclick="applyCoupon()">Apply Coupon</button><button class="cta" style="width:100%" onclick="checkout()">Buy Now →</button>`}
+function applyCoupon(){const v=document.getElementById('coupon').value.trim();showSitePopup(v?'🎟️ Coupon':'🎟️ Coupon',v?'Coupon '+v+' is entered. Final discount will apply after the admin coupon system is connected.':'Please enter a coupon code.')} 
+function renderWishlist(){const c=document.getElementById('modalContent');if(!wishlist.length){c.innerHTML='<h2>♥ My Wishlist</h2><div style="text-align:center;padding:28px"><div style="font-size:54px">♡</div><p>Your wishlist is empty.<br>Tap ♥ on any product to save it here.</p></div>';return}c.innerHTML='<h2>♥ My Wishlist <span style="font-size:13px">'+wishlist.length+' saved</span></h2>'+wishlist.map((x,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #eee"><div style="flex:1"><b>${x.name}</b><div style="font-weight:800">₹${x.price}</div></div><button class="buy" style="width:auto;padding:9px 12px" onclick="addCart('${x.name.replace(/'/g,"\\'")}',${x.price})">Add to Cart</button><button class="close" onclick="removeWishlist(${i})">✕</button></div>`).join('')}
+function removeWishlist(i){wishlist.splice(i,1);persist();renderWishlist()}
+function openModal(type){const m=document.getElementById('modal'),c=document.getElementById('modalContent');m.style.display='block';if(type==='cart')renderCart();if(type==='wishlist')renderWishlist();if(type==='account')c.innerHTML='<h2>👤 My Account</h2><p>Login/register and order tracking will be connected to the secure backend.</p><input placeholder="Email"><input type="password" placeholder="Password"><button class="buy" onclick="showSitePopup(\'👤 Account\',\'Account login will be connected when the secure backend is enabled.\')">Login</button>';if(type==='chat')c.innerHTML='<h2>🤖 Jibran AI Assistant</h2><p>Ask about products, categories or ordering.</p><input id="aiq" placeholder="Ask something..."><button class="buy" onclick="aiReply()">Ask AI</button><p id="air"></p>'}
+function closeModal(){document.getElementById('modal').style.display='none'}
+function showSitePopup(title,message,buttonText='OK'){document.getElementById('sitePopupContent').innerHTML=`<h2>${title}</h2><p>${message}</p><button class="popupBtn" onclick="closeSitePopup();if('${buttonText}'==='View Cart')openModal('cart');if('${buttonText}'==='View Wishlist')openModal('wishlist')">${buttonText}</button>`;const el=document.getElementById('sitePopup');el.style.display='flex';el.setAttribute('aria-hidden','false')}
+function closeSitePopup(){const el=document.getElementById('sitePopup');el.style.display='none';el.setAttribute('aria-hidden','true')}
+function checkout(){let total=cart.reduce((s,x)=>s+x.price*(x.qty||1),0);document.getElementById('modalContent').innerHTML=`<h2>Checkout</h2><p>Total: <b>₹${total}</b></p><input placeholder="Full Name"><input placeholder="Mobile Number"><textarea placeholder="Complete Address"></textarea><div class="row"><input placeholder="City"><input placeholder="PIN Code"></div><select><option>UPI</option><option>Card</option><option>Net Banking</option></select><button class="buy" onclick="showSitePopup('💳 Payment','Payment gateway is ready for integration, but real payments require your merchant credentials.')">Continue to Payment</button>`}
+function aiReply(){document.getElementById('air').textContent='AI Assistant: Tell me the product or category you want help with.'}
+function voiceSearch(){showSitePopup('🎙️ Voice Search','Use your device microphone after the live voice-search service is connected.')}
+function cameraSearch(){showSitePopup('📷 Camera Search','Use your camera after the live visual-search service is connected.')}
+function doSearch(){const q=document.getElementById('search').value.trim().toLowerCase();document.querySelectorAll('.card').forEach(c=>{c.style.display=(!q||c.textContent.toLowerCase().includes(q))?'':'none'});if(q)document.getElementById('products').scrollIntoView({behavior:'smooth'})}
+document.addEventListener('DOMContentLoaded',()=>{const s=document.getElementById('search');s.addEventListener('input',doSearch);s.addEventListener('keydown',e=>{if(e.key==='Enter')doSearch()});updateCounts()})
+</script>
+
+
+
+</body></html>
+<script>
+(function(){
+  function brandWishlistButtons(){
+    document.querySelectorAll('[onclick*="wishlist"], [class*="wishlist"], [aria-label*="Wishlist"], [aria-label*="wishlist"]').forEach(function(el){
+      if(el.tagName==='BUTTON' || el.tagName==='A' || el.getAttribute('role')==='button'){
+        el.classList.add('jc-wishlist-btn');
+      }
+    });
+  }
+  brandWishlistButtons();
+  new MutationObserver(brandWishlistButtons).observe(document.body,{childList:true,subtree:true});
+})();
+</script>
