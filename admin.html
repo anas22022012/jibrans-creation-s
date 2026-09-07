@@ -6,209 +6,491 @@
 <title>Jibran's Creations — Admin</title>
 
 <style>
+:root{
+  --pink:#ffd9e8;
+  --purple:#e7ddff;
+  --blue:#d9f1ff;
+  --green:#dcf8e7;
+  --ink:#27223a;
+  --muted:#77718a;
+  --white:#fff;
+}
+
 *{box-sizing:border-box}
+
 body{
-margin:0;
-font-family:system-ui,Arial;
-background:#f7f4fb;
-color:#29243b
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
+  background:#fbf9ff;
+  color:var(--ink);
 }
-.wrap{max-width:1100px;margin:auto;padding:20px}
-.box{
-background:#fff;
-padding:22px;
-border-radius:20px;
-box-shadow:0 10px 30px #0001;
-margin-bottom:18px
+
+button,input,textarea,select{
+  font:inherit;
 }
-input,textarea,select{
-width:100%;
-padding:12px;
-margin:6px 0;
-border:1px solid #ddd;
-border-radius:10px;
-font:inherit
-}
-textarea{min-height:90px}
+
 button{
-border:0;
-border-radius:10px;
-padding:11px 16px;
-font-weight:700;
-cursor:pointer;
-margin:4px
+  cursor:pointer;
+  border:0;
 }
-.primary{background:#29243b;color:white}
-.pink{background:#e88bb6;color:white}
-.red{background:#e5484d;color:white}
-.gray{background:#eee}
+
+.top{
+  background:linear-gradient(
+    90deg,
+    var(--pink),
+    var(--purple),
+    var(--blue)
+  );
+  text-align:center;
+  padding:10px;
+  font-size:13px;
+  font-weight:800;
+}
+
+.wrap{
+  max-width:1100px;
+  margin:auto;
+  padding:22px;
+}
+
+.box{
+  background:#fff;
+  border-radius:22px;
+  padding:22px;
+  margin-bottom:18px;
+  box-shadow:0 12px 35px rgba(65,48,90,.12);
+}
+
+h1,h2,h3{
+  margin-top:0;
+}
+
+.small{
+  color:var(--muted);
+  font-size:13px;
+}
+
+input,
+textarea,
+select{
+  width:100%;
+  padding:12px;
+  margin:6px 0 10px;
+  border:1px solid #ddd3e8;
+  border-radius:12px;
+  outline:none;
+  background:white;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  border-color:#b79ad9;
+}
+
+textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+.btn{
+  padding:12px 18px;
+  border-radius:13px;
+  font-weight:800;
+  margin:4px;
+}
+
+.primary{
+  background:var(--ink);
+  color:white;
+}
+
+.soft{
+  background:var(--purple);
+  color:var(--ink);
+}
+
+.pink{
+  background:var(--pink);
+}
+
+.danger{
+  background:#ffe0e0;
+  color:#9c2222;
+}
+
+.hidden{
+  display:none!important;
+}
+
+.login-box{
+  max-width:460px;
+  margin:70px auto;
+}
+
+.msg{
+  min-height:22px;
+  color:#b32626;
+  font-size:14px;
+}
+
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
 }
+
 .product{
-border:1px solid #eee;
-border-radius:16px;
-padding:15px
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px 0;
+  border-top:1px solid #eee;
 }
-.product img{
-width:100%;
-height:180px;
-object-fit:cover;
-border-radius:12px
+
+.productEmoji{
+  width:60px;
+  height:60px;
+  border-radius:16px;
+  display:grid;
+  place-items:center;
+  font-size:32px;
+  background:linear-gradient(
+    135deg,
+    var(--pink),
+    var(--blue)
+  );
 }
-.price{font-size:22px;font-weight:800}
-.hidden{display:none}
-.actions{display:flex;gap:5px}
+
+.productInfo{
+  flex:1;
+}
+
+.productName{
+  font-weight:900;
+  font-size:16px;
+}
+
+.productMeta{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:4px;
+}
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
+}
+
+.empty{
+  text-align:center;
+  padding:30px;
+  color:var(--muted);
+}
+
+.statGrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.stat{
+  border-radius:18px;
+  padding:18px;
+}
+
+.stat:nth-child(1){
+  background:var(--pink);
+}
+
+.stat:nth-child(2){
+  background:var(--purple);
+}
+
+.stat:nth-child(3){
+  background:var(--blue);
+}
+
+.stat b{
+  display:block;
+  font-size:28px;
+}
+
+@media(max-width:700px){
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .statGrid{
+    grid-template-columns:1fr;
+  }
+
+  .product{
+    align-items:flex-start;
+    flex-wrap:wrap;
+  }
+
+  .productInfo{
+    min-width:200px;
+  }
+
+}
 </style>
 </head>
 
 <body>
 
+<div class="top">
+  🎨 Jibran's Creations — Admin Panel
+</div>
+
 <div class="wrap">
 
 <!-- LOGIN -->
-<div id="loginBox" class="box">
 
-<h1>🔐 Jibran's Creations</h1>
-<p>Authorized Admin Login</p>
+<div id="loginBox" class="box login-box">
 
-<input id="email"
-type="email"
-placeholder="Admin Email">
+  <h1>🔐 Admin Login</h1>
 
-<input id="password"
-type="password"
-placeholder="Admin Password">
+  <p class="small">
+    Authorized admin area of Jibran's Creations.
+  </p>
 
-<button class="primary" onclick="login()">
-Secure Login
-</button>
+  <label>Admin Email</label>
+  <input
+    id="adminEmail"
+    type="email"
+    placeholder="Enter admin email"
+  >
 
-<p id="loginMsg"></p>
+  <label>Password</label>
+  <input
+    id="adminPassword"
+    type="password"
+    placeholder="Enter password"
+  >
 
-</div>
+  <button
+    class="btn primary"
+    onclick="adminLogin()"
+  >
+    🔓 Login
+  </button>
 
-
-<!-- ADMIN -->
-<div id="adminPanel" class="hidden">
-
-<div class="box">
-
-<h1>🛠️ Admin Panel</h1>
-
-<p>Welcome to Jibran's Creations.</p>
-
-<button class="red" onclick="logout()">
-Logout
-</button>
+  <p id="loginMessage" class="msg"></p>
 
 </div>
 
 
-<!-- PRODUCTS -->
+<!-- ADMIN DASHBOARD -->
 
-<div class="box">
+<div id="dashboard" class="hidden">
 
-<h2>📦 Products</h2>
+  <div class="box">
 
-<input id="name"
-placeholder="Product Name">
+    <h1>🎨 Jibran's Creations</h1>
 
-<input id="mrp"
-type="number"
-placeholder="MRP ₹">
+    <p class="small">
+      Welcome to your Admin Panel.
+    </p>
 
-<input id="price"
-type="number"
-placeholder="Selling Price ₹">
+    <button
+      class="btn soft"
+      onclick="openWebsite()"
+    >
+      🌐 Open Website
+    </button>
 
-<input id="stock"
-type="number"
-placeholder="Stock">
+    <button
+      class="btn danger"
+      onclick="adminLogout()"
+    >
+      🚪 Logout
+    </button>
 
-<select id="category">
-<option value="">Category</option>
-<option>DIY Kit</option>
-<option>Painting</option>
-<option>Craft</option>
-<option>Kids</option>
-<option>Other</option>
-</select>
-
-<input id="image"
-placeholder="Product Image URL">
-
-<textarea id="description"
-placeholder="Product Description"></textarea>
-
-<button class="pink"
-onclick="addProduct()">
-➕ Add Product
-</button>
-
-<button class="gray"
-onclick="clearForm()">
-Clear
-</button>
-
-<p id="productMsg"></p>
-
-</div>
+  </div>
 
 
-<!-- PRODUCT LIST -->
+  <!-- STATS -->
 
-<div class="box">
+  <div class="box">
 
-<h2>🛍️ Your Products</h2>
+    <div class="statGrid">
 
-<div id="products"
-class="grid"></div>
+      <div class="stat">
+        <span>📦 Products</span>
+        <b id="productCount">0</b>
+      </div>
 
-</div>
+      <div class="stat">
+        <span>🎟️ Coupons</span>
+        <b id="couponCount">0</b>
+      </div>
 
+      <div class="stat">
+        <span>🛒 Orders</span>
+        <b id="orderCount">0</b>
+      </div>
 
-<!-- COUPONS -->
+    </div>
 
-<div class="box">
-
-<h2>🎟️ Coupons / Redeem</h2>
-
-<input id="couponCode"
-placeholder="Coupon Code">
-
-<select id="couponType">
-<option value="percent">Percentage %</option>
-<option value="fixed">Fixed ₹</option>
-</select>
-
-<input id="couponValue"
-type="number"
-placeholder="Discount Value">
-
-<button class="pink"
-onclick="addCoupon()">
-➕ Add Coupon
-</button>
-
-<div id="coupons"></div>
-
-</div>
+  </div>
 
 
-<!-- REVIEWS -->
+  <!-- PRODUCT + COUPON -->
 
-<div class="box">
+  <div class="grid">
 
-<h2>⭐ Customer Reviews</h2>
+    <!-- PRODUCT -->
 
-<div id="reviews">
-<p>No reviews yet.</p>
-</div>
+    <div class="box">
 
-</div>
+      <h2>📦 Add Product</h2>
+
+      <input
+        id="productId"
+        type="hidden"
+      >
+
+      <label>Product Name</label>
+
+      <input
+        id="productName"
+        placeholder="e.g. DIY Painting Kit"
+      >
+
+      <label>Selling Price</label>
+
+      <input
+        id="productPrice"
+        type="number"
+        placeholder="299"
+      >
+
+      <label>MRP / Old Price</label>
+
+      <input
+        id="productOldPrice"
+        type="number"
+        placeholder="319"
+      >
+
+      <label>Stock</label>
+
+      <input
+        id="productStock"
+        type="number"
+        placeholder="20"
+      >
+
+      <label>Category</label>
+
+      <input
+        id="productCategory"
+        placeholder="DIY Kits"
+      >
+
+      <label>Emoji</label>
+
+      <input
+        id="productEmoji"
+        placeholder="🎨"
+      >
+
+      <label>Description</label>
+
+      <textarea
+        id="productDescription"
+        placeholder="Write product description..."
+      ></textarea>
+
+      <button
+        class="btn primary"
+        onclick="saveProduct()"
+      >
+        💾 Save Product
+      </button>
+
+      <button
+        class="btn soft"
+        onclick="clearProductForm()"
+      >
+        Clear
+      </button>
+
+      <p
+        id="productMessage"
+        class="small"
+      ></p>
+
+    </div>
+
+
+    <!-- COUPON -->
+
+    <div class="box">
+
+      <h2>🎟️ Add Coupon</h2>
+
+      <label>Coupon Code</label>
+
+      <input
+        id="couponCode"
+        placeholder="WELCOME10"
+      >
+
+      <label>Discount %</label>
+
+      <input
+        id="couponDiscount"
+        type="number"
+        placeholder="10"
+      >
+
+      <label>Minimum Order</label>
+
+      <input
+        id="couponMinimum"
+        type="number"
+        placeholder="299"
+      >
+
+      <button
+        class="btn primary"
+        onclick="saveCoupon()"
+      >
+        🎟️ Save Coupon
+      </button>
+
+      <div id="couponList"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- PRODUCTS -->
+
+  <div class="box">
+
+    <h2>📦 Products</h2>
+
+    <div id="productList"></div>
+
+  </div>
+
+
+  <!-- ORDERS -->
+
+  <div class="box">
+
+    <h2>🛍️ Orders</h2>
+
+    <div id="orderList"></div>
+
+  </div>
 
 </div>
 
@@ -228,222 +510,531 @@ const ADMIN_PASSWORD =
 "AnasAdmin@2026";
 
 
-function login(){
+/* =========================
+   STORAGE KEYS
+========================= */
 
-const email =
-document.getElementById("email").value.trim();
+const PRODUCT_KEY =
+"jcProductsV1";
 
-const password =
-document.getElementById("password").value;
+const COUPON_KEY =
+"jcCouponsV1";
 
-if(
-email.toLowerCase() === ADMIN_EMAIL.toLowerCase()
-&&
-password === ADMIN_PASSWORD
-){
+const ORDER_KEY =
+"jcOrdersV1";
 
-sessionStorage.setItem(
-"JC_ADMIN",
-"true"
-);
 
-openAdmin();
+/* =========================
+   DEFAULT PRODUCTS
+========================= */
 
-}else{
+const DEFAULT_PRODUCTS = [
 
-document.getElementById("loginMsg").textContent =
-"❌ Wrong email or password.";
+  {
+    id:"p1",
+    name:"DIY Painting Kit",
+    price:299,
+    oldPrice:319,
+    stock:20,
+    category:"DIY Kits",
+    emoji:"🎨",
+    description:"Creative DIY painting activity kit."
+  },
+
+  {
+    id:"p2",
+    name:"Creative Craft Kit",
+    price:349,
+    oldPrice:369,
+    stock:20,
+    category:"Art & Craft",
+    emoji:"🧩",
+    description:"Fun creative craft activity kit."
+  },
+
+  {
+    id:"p3",
+    name:"Mini Building Set",
+    price:399,
+    oldPrice:419,
+    stock:20,
+    category:"Building Toys",
+    emoji:"🧱",
+    description:"Creative mini building set."
+  },
+
+  {
+    id:"p4",
+    name:"DIY Gift Activity Box",
+    price:449,
+    oldPrice:469,
+    stock:20,
+    category:"Gift Ideas",
+    emoji:"🎁",
+    description:"Fun DIY activity gift box."
+  }
+
+];
+
+
+/* =========================
+   STORAGE HELPERS
+========================= */
+
+function getProducts(){
+
+  const data =
+    localStorage.getItem(PRODUCT_KEY);
+
+  if(!data){
+
+    localStorage.setItem(
+      PRODUCT_KEY,
+      JSON.stringify(DEFAULT_PRODUCTS)
+    );
+
+    return DEFAULT_PRODUCTS;
+  }
+
+  try{
+    return JSON.parse(data);
+  }catch(e){
+    return DEFAULT_PRODUCTS;
+  }
 
 }
 
-}
 
+function setProducts(products){
 
-function openAdmin(){
-
-document.getElementById("loginBox")
-.classList.add("hidden");
-
-document.getElementById("adminPanel")
-.classList.remove("hidden");
-
-loadProducts();
-loadCoupons();
-loadReviews();
-
-}
-
-
-function logout(){
-
-sessionStorage.removeItem("JC_ADMIN");
-
-location.reload();
+  localStorage.setItem(
+    PRODUCT_KEY,
+    JSON.stringify(products)
+  );
 
 }
 
 
 /* =========================
-   PRODUCTS
+   LOGIN
 ========================= */
 
-function getProducts(){
+function adminLogin(){
 
-return JSON.parse(
-localStorage.getItem("JC_PRODUCTS") || "[]"
-);
+  const email =
+    document
+    .getElementById("adminEmail")
+    .value
+    .trim()
+    .toLowerCase();
 
-}
+  const password =
+    document
+    .getElementById("adminPassword")
+    .value;
 
+  if(
+    email === ADMIN_EMAIL.toLowerCase()
+    &&
+    password === ADMIN_PASSWORD
+  ){
 
-function saveProducts(data){
+    sessionStorage.setItem(
+      "jcAdminLoggedIn",
+      "1"
+    );
 
-localStorage.setItem(
-"JC_PRODUCTS",
-JSON.stringify(data)
-);
+    showDashboard();
 
-}
+  }else{
 
+    document
+    .getElementById("loginMessage")
+    .textContent =
+      "❌ Wrong admin email or password.";
 
-function addProduct(){
-
-const product={
-
-id:Date.now(),
-
-name:
-document.getElementById("name").value.trim(),
-
-mrp:
-Number(document.getElementById("mrp").value),
-
-price:
-Number(document.getElementById("price").value),
-
-stock:
-Number(document.getElementById("stock").value),
-
-category:
-document.getElementById("category").value,
-
-image:
-document.getElementById("image").value.trim(),
-
-description:
-document.getElementById("description").value.trim()
-
-};
-
-
-if(!product.name || !product.price){
-
-alert("Product name और price डालना जरूरी है.");
-
-return;
+  }
 
 }
 
 
-const products=getProducts();
+function showDashboard(){
 
-products.push(product);
+  document
+  .getElementById("loginBox")
+  .classList
+  .add("hidden");
 
-saveProducts(products);
+  document
+  .getElementById("dashboard")
+  .classList
+  .remove("hidden");
 
-clearForm();
-
-loadProducts();
-
-document.getElementById("productMsg").textContent =
-"✅ Product added successfully.";
-
-}
-
-
-function loadProducts(){
-
-const products=getProducts();
-
-const box=
-document.getElementById("products");
-
-if(!products.length){
-
-box.innerHTML="<p>No products added yet.</p>";
-
-return;
+  renderProducts();
+  renderCoupons();
+  renderOrders();
+  updateStats();
 
 }
 
 
-box.innerHTML=products.map(p=>`
+function adminLogout(){
 
-<div class="product">
+  sessionStorage.removeItem(
+    "jcAdminLoggedIn"
+  );
 
-<img src="${escapeHTML(p.image || '')}"
-onerror="this.style.display='none'">
-
-<h3>${escapeHTML(p.name)}</h3>
-
-<p>${escapeHTML(p.description || '')}</p>
-
-<p>
-MRP:
-<del>₹${p.mrp || p.price}</del>
-</p>
-
-<div class="price">
-₹${p.price}
-</div>
-
-<p>
-📦 Stock: ${p.stock}
-</p>
-
-<p>
-🏷️ ${escapeHTML(p.category || 'Other')}
-</p>
-
-<div class="actions">
-
-<button class="red"
-onclick="deleteProduct(${p.id})">
-Delete
-</button>
-
-</div>
-
-</div>
-
-`).join("");
+  location.reload();
 
 }
 
+
+function openWebsite(){
+
+  window.location.href =
+    "index.html";
+
+}
+
+
+/* =========================
+   PRODUCT FORM
+========================= */
+
+function saveProduct(){
+
+  const name =
+    document
+    .getElementById("productName")
+    .value
+    .trim();
+
+  if(!name){
+
+    alert(
+      "Please enter product name."
+    );
+
+    return;
+  }
+
+
+  let products =
+    getProducts();
+
+  const existingId =
+    document
+    .getElementById("productId")
+    .value;
+
+
+  const product = {
+
+    id:
+      existingId ||
+      "p_" + Date.now(),
+
+    name:name,
+
+    price:
+      Number(
+        document
+        .getElementById("productPrice")
+        .value
+      ) || 0,
+
+    oldPrice:
+      Number(
+        document
+        .getElementById("productOldPrice")
+        .value
+      ) || 0,
+
+    stock:
+      Number(
+        document
+        .getElementById("productStock")
+        .value
+      ) || 0,
+
+    category:
+      document
+      .getElementById("productCategory")
+      .value
+      .trim() ||
+      "Products",
+
+    emoji:
+      document
+      .getElementById("productEmoji")
+      .value
+      .trim() ||
+      "🎨",
+
+    description:
+      document
+      .getElementById("productDescription")
+      .value
+      .trim()
+
+  };
+
+
+  const index =
+    products.findIndex(
+      p => p.id === product.id
+    );
+
+
+  if(index >= 0){
+
+    products[index] =
+      product;
+
+  }else{
+
+    products.push(product);
+
+  }
+
+
+  setProducts(products);
+
+  clearProductForm();
+
+  renderProducts();
+
+  updateStats();
+
+  document
+  .getElementById("productMessage")
+  .textContent =
+    "✅ Product saved successfully.";
+
+}
+
+
+/* =========================
+   EDIT PRODUCT
+========================= */
+
+function editProduct(id){
+
+  const product =
+    getProducts()
+    .find(p => p.id === id);
+
+  if(!product) return;
+
+
+  document
+  .getElementById("productId")
+  .value =
+    product.id;
+
+  document
+  .getElementById("productName")
+  .value =
+    product.name;
+
+  document
+  .getElementById("productPrice")
+  .value =
+    product.price;
+
+  document
+  .getElementById("productOldPrice")
+  .value =
+    product.oldPrice;
+
+  document
+  .getElementById("productStock")
+  .value =
+    product.stock;
+
+  document
+  .getElementById("productCategory")
+  .value =
+    product.category;
+
+  document
+  .getElementById("productEmoji")
+  .value =
+    product.emoji;
+
+  document
+  .getElementById("productDescription")
+  .value =
+    product.description || "";
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =========================
+   DELETE PRODUCT
+========================= */
 
 function deleteProduct(id){
 
-if(!confirm("Delete this product?")) return;
+  if(
+    !confirm(
+      "Delete this product?"
+    )
+  ){
 
-const products=
-getProducts().filter(p=>p.id!==id);
+    return;
 
-saveProducts(products);
+  }
 
-loadProducts();
+
+  const products =
+    getProducts()
+    .filter(
+      p => p.id !== id
+    );
+
+  setProducts(products);
+
+  renderProducts();
+
+  updateStats();
 
 }
 
 
-function clearForm(){
+/* =========================
+   CLEAR PRODUCT
+========================= */
 
-document.getElementById("name").value="";
-document.getElementById("mrp").value="";
-document.getElementById("price").value="";
-document.getElementById("stock").value="";
-document.getElementById("category").value="";
-document.getElementById("image").value="";
-document.getElementById("description").value="";
+function clearProductForm(){
+
+  document
+  .getElementById("productId")
+  .value = "";
+
+  document
+  .getElementById("productName")
+  .value = "";
+
+  document
+  .getElementById("productPrice")
+  .value = "";
+
+  document
+  .getElementById("productOldPrice")
+  .value = "";
+
+  document
+  .getElementById("productStock")
+  .value = "";
+
+  document
+  .getElementById("productCategory")
+  .value = "";
+
+  document
+  .getElementById("productEmoji")
+  .value = "";
+
+  document
+  .getElementById("productDescription")
+  .value = "";
+
+}
+
+
+/* =========================
+   RENDER PRODUCTS
+========================= */
+
+function renderProducts(){
+
+  const products =
+    getProducts();
+
+  const list =
+    document
+    .getElementById("productList");
+
+
+  if(!products.length){
+
+    list.innerHTML =
+      '<div class="empty">No products added.</div>';
+
+    return;
+
+  }
+
+
+  list.innerHTML =
+    products
+    .map(product => `
+
+      <div class="product">
+
+        <div class="productEmoji">
+          ${product.emoji || "🎨"}
+        </div>
+
+        <div class="productInfo">
+
+          <div class="productName">
+            ${escapeHTML(product.name)}
+          </div>
+
+          <div class="productMeta">
+
+            ₹${product.price}
+
+            ${
+              product.oldPrice
+              ?
+              " • MRP ₹" +
+              product.oldPrice
+              :
+              ""
+            }
+
+            • Stock:
+            ${product.stock}
+
+          </div>
+
+          <div class="productMeta">
+            ${escapeHTML(product.category)}
+          </div>
+
+        </div>
+
+        <div class="actions">
+
+          <button
+            class="btn soft"
+            onclick="editProduct('${product.id}')"
+          >
+            ✏️ Edit
+          </button>
+
+          <button
+            class="btn danger"
+            onclick="deleteProduct('${product.id}')"
+          >
+            🗑️ Delete
+          </button>
+
+        </div>
+
+      </div>
+
+    `)
+    .join("");
 
 }
 
@@ -454,206 +1045,324 @@ document.getElementById("description").value="";
 
 function getCoupons(){
 
-return JSON.parse(
-localStorage.getItem("JC_COUPONS") || "[]"
-);
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(
+        COUPON_KEY
+      ) || "[]"
+    );
+
+  }catch(e){
+
+    return [];
+
+  }
 
 }
 
 
-function addCoupon(){
+function saveCoupon(){
 
-const code=
-document.getElementById("couponCode")
-.value.trim().toUpperCase();
+  const code =
+    document
+    .getElementById("couponCode")
+    .value
+    .trim()
+    .toUpperCase();
 
-const type=
-document.getElementById("couponType").value;
+  if(!code){
 
-const value=
-Number(document.getElementById("couponValue").value);
+    alert(
+      "Enter coupon code."
+    );
 
-if(!code || !value){
+    return;
 
-alert("Coupon code और discount डालो.");
-
-return;
-
-}
-
-const coupons=getCoupons();
-
-coupons.push({
-id:Date.now(),
-code,
-type,
-value
-});
-
-localStorage.setItem(
-"JC_COUPONS",
-JSON.stringify(coupons)
-);
-
-document.getElementById("couponCode").value="";
-document.getElementById("couponValue").value="";
-
-loadCoupons();
-
-}
+  }
 
 
-function loadCoupons(){
+  const discount =
+    Number(
+      document
+      .getElementById("couponDiscount")
+      .value
+    ) || 0;
 
-const coupons=getCoupons();
 
-const box=
-document.getElementById("coupons");
+  const minimum =
+    Number(
+      document
+      .getElementById("couponMinimum")
+      .value
+    ) || 0;
 
-if(!coupons.length){
 
-box.innerHTML="<p>No coupons.</p>";
+  const coupons =
+    getCoupons();
 
-return;
 
-}
+  coupons.push({
 
-box.innerHTML=coupons.map(c=>`
+    code:code,
 
-<div style="
-padding:10px;
-margin:8px 0;
-background:#f7f4fb;
-border-radius:10px">
+    discount:discount,
 
-<b>${escapeHTML(c.code)}</b>
+    minimum:minimum
 
-—
-${c.type==="percent"
-?c.value+"% OFF"
-:"₹"+c.value+" OFF"}
+  });
 
-<button class="red"
-onclick="deleteCoupon(${c.id})">
-Delete
-</button>
 
-</div>
+  localStorage.setItem(
+    COUPON_KEY,
+    JSON.stringify(coupons)
+  );
 
-`).join("");
+
+  document
+  .getElementById("couponCode")
+  .value = "";
+
+  document
+  .getElementById("couponDiscount")
+  .value = "";
+
+  document
+  .getElementById("couponMinimum")
+  .value = "";
+
+
+  renderCoupons();
+
+  updateStats();
 
 }
 
 
-function deleteCoupon(id){
+function renderCoupons(){
 
-const coupons=
-getCoupons().filter(c=>c.id!==id);
+  const coupons =
+    getCoupons();
 
-localStorage.setItem(
-"JC_COUPONS",
-JSON.stringify(coupons)
-);
+  const list =
+    document
+    .getElementById("couponList");
 
-loadCoupons();
+
+  if(!coupons.length){
+
+    list.innerHTML =
+      '<p class="small">No coupons created yet.</p>';
+
+    return;
+
+  }
+
+
+  list.innerHTML =
+    coupons
+    .map(
+      (coupon,index) => `
+
+        <div class="product">
+
+          <div class="productInfo">
+
+            <div class="productName">
+              🎟️ ${escapeHTML(coupon.code)}
+            </div>
+
+            <div class="productMeta">
+              ${coupon.discount}% OFF
+              • Minimum ₹${coupon.minimum}
+            </div>
+
+          </div>
+
+          <button
+            class="btn danger"
+            onclick="deleteCoupon(${index})"
+          >
+            Delete
+          </button>
+
+        </div>
+
+      `
+    )
+    .join("");
+
+}
+
+
+function deleteCoupon(index){
+
+  const coupons =
+    getCoupons();
+
+  coupons.splice(
+    index,
+    1
+  );
+
+  localStorage.setItem(
+    COUPON_KEY,
+    JSON.stringify(coupons)
+  );
+
+  renderCoupons();
+
+  updateStats();
 
 }
 
 
 /* =========================
-   REVIEWS
+   ORDERS
 ========================= */
 
-function loadReviews(){
+function getOrders(){
 
-const reviews=
-JSON.parse(
-localStorage.getItem("JC_REVIEWS") || "[]"
-);
+  try{
 
-const box=
-document.getElementById("reviews");
+    return JSON.parse(
+      localStorage.getItem(
+        ORDER_KEY
+      ) || "[]"
+    );
 
-if(!reviews.length){
+  }catch(e){
 
-box.innerHTML="<p>No reviews yet.</p>";
+    return [];
 
-return;
-
-}
-
-box.innerHTML=reviews.map(r=>`
-
-<div style="
-padding:12px;
-margin:8px 0;
-border:1px solid #eee;
-border-radius:12px">
-
-<strong>
-${escapeHTML(r.name)}
-</strong>
-
-<div>
-${"⭐".repeat(Number(r.rating || 5))}
-</div>
-
-<p>
-${escapeHTML(r.text)}
-</p>
-
-<button class="red"
-onclick="deleteReview(${r.id})">
-Delete
-</button>
-
-</div>
-
-`).join("");
+  }
 
 }
 
 
-function deleteReview(id){
+function renderOrders(){
 
-const reviews=
-JSON.parse(
-localStorage.getItem("JC_REVIEWS") || "[]"
-).filter(r=>r.id!==id);
+  const orders =
+    getOrders();
 
-localStorage.setItem(
-"JC_REVIEWS",
-JSON.stringify(reviews)
-);
+  const list =
+    document
+    .getElementById("orderList");
 
-loadReviews();
+
+  if(!orders.length){
+
+    list.innerHTML =
+      '<div class="empty">No orders found.</div>';
+
+    return;
+
+  }
+
+
+  list.innerHTML =
+    orders
+    .map(
+      order => `
+
+        <div class="product">
+
+          <div class="productInfo">
+
+            <div class="productName">
+              🛍️ Order #${escapeHTML(
+                String(order.id || "")
+              )}
+            </div>
+
+            <div class="productMeta">
+              Customer:
+              ${escapeHTML(
+                order.name || ""
+              )}
+            </div>
+
+            <div class="productMeta">
+              Mobile:
+              ${escapeHTML(
+                order.mobile || ""
+              )}
+            </div>
+
+            <div class="productMeta">
+              Total:
+              ₹${order.total || 0}
+            </div>
+
+            <div class="productMeta">
+              Status:
+              ${escapeHTML(
+                order.status || "New"
+              )}
+            </div>
+
+          </div>
+
+        </div>
+
+      `
+    )
+    .join("");
 
 }
 
 
 /* =========================
-   SECURITY DISPLAY HELPER
+   STATS
+========================= */
+
+function updateStats(){
+
+  document
+  .getElementById("productCount")
+  .textContent =
+    getProducts().length;
+
+  document
+  .getElementById("couponCount")
+  .textContent =
+    getCoupons().length;
+
+  document
+  .getElementById("orderCount")
+  .textContent =
+    getOrders().length;
+
+}
+
+
+/* =========================
+   ESCAPE HTML
 ========================= */
 
 function escapeHTML(value){
 
-return String(value)
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
 
-/* AUTO LOGIN */
+/* =========================
+   AUTO LOGIN
+========================= */
 
 if(
-sessionStorage.getItem("JC_ADMIN")==="true"
+  sessionStorage.getItem(
+    "jcAdminLoggedIn"
+  ) === "1"
 ){
 
-openAdmin();
+  showDashboard();
 
 }
 
