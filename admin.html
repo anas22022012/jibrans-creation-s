@@ -2,312 +2,366 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Jibran's Creations — Admin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jibran's Creations — Admin Panel</title>
 
 <style>
-:root{
-  --pink:#ffd9e8;
-  --purple:#e7ddff;
-  --blue:#d9f1ff;
-  --green:#dcf8e7;
-  --ink:#27223a;
-  --muted:#77718a;
-  --white:#fff;
+*{
+  box-sizing:border-box;
 }
-
-*{box-sizing:border-box}
 
 body{
   margin:0;
-  font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
-  background:#fbf9ff;
-  color:var(--ink);
-}
-
-button,input,textarea,select{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-  border:0;
-}
-
-.top{
-  background:linear-gradient(
-    90deg,
-    var(--pink),
-    var(--purple),
-    var(--blue)
-  );
-  text-align:center;
-  padding:10px;
-  font-size:13px;
-  font-weight:800;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:#f7f4fb;
+  color:#29243b;
 }
 
 .wrap{
-  max-width:1100px;
+  max-width:1200px;
   margin:auto;
-  padding:22px;
-}
-
-.box{
-  background:#fff;
-  border-radius:22px;
-  padding:22px;
-  margin-bottom:18px;
-  box-shadow:0 12px 35px rgba(65,48,90,.12);
-}
-
-h1,h2,h3{
-  margin-top:0;
-}
-
-.small{
-  color:var(--muted);
-  font-size:13px;
-}
-
-input,
-textarea,
-select{
-  width:100%;
-  padding:12px;
-  margin:6px 0 10px;
-  border:1px solid #ddd3e8;
-  border-radius:12px;
-  outline:none;
-  background:white;
-}
-
-input:focus,
-textarea:focus,
-select:focus{
-  border-color:#b79ad9;
-}
-
-textarea{
-  min-height:100px;
-  resize:vertical;
-}
-
-.btn{
-  padding:12px 18px;
-  border-radius:13px;
-  font-weight:800;
-  margin:4px;
-}
-
-.primary{
-  background:var(--ink);
-  color:white;
-}
-
-.soft{
-  background:var(--purple);
-  color:var(--ink);
-}
-
-.pink{
-  background:var(--pink);
-}
-
-.danger{
-  background:#ffe0e0;
-  color:#9c2222;
-}
-
-.hidden{
-  display:none!important;
+  padding:20px;
 }
 
 .login-box{
-  max-width:460px;
-  margin:70px auto;
+  max-width:430px;
+  margin:60px auto;
+  background:white;
+  padding:28px;
+  border-radius:24px;
+  box-shadow:0 15px 45px #0002;
 }
 
-.msg{
-  min-height:22px;
-  color:#b32626;
+.logo{
+  text-align:center;
+  font-size:28px;
+  font-weight:900;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  text-align:center;
+  color:#777;
+  margin-bottom:25px;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  margin:6px 0 14px;
+  font-size:15px;
+  outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:#9b7bea;
+}
+
+textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+label{
+  font-weight:700;
   font-size:14px;
+}
+
+.btn{
+  border:0;
+  border-radius:12px;
+  padding:12px 17px;
+  background:#29243b;
+  color:white;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.btn:hover{
+  opacity:.9;
+}
+
+.btn-pink{
+  background:#d86ca5;
+}
+
+.btn-green{
+  background:#4f9b76;
+}
+
+.btn-red{
+  background:#d9534f;
+}
+
+.btn-blue{
+  background:#587bdc;
+}
+
+.dashboard{
+  display:none;
+}
+
+.header{
+  background:white;
+  border-radius:22px;
+  padding:20px;
+  box-shadow:0 10px 30px #0001;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  margin-bottom:20px;
+}
+
+.header h1{
+  margin:0;
+  font-size:25px;
+}
+
+.header p{
+  margin:5px 0 0;
+  color:#777;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-bottom:20px;
+}
+
+.stat{
+  background:white;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 8px 25px #0001;
+}
+
+.stat strong{
+  display:block;
+  font-size:28px;
+  margin-top:5px;
 }
 
 .grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:18px;
+  gap:20px;
+}
+
+.card{
+  background:white;
+  padding:22px;
+  border-radius:20px;
+  box-shadow:0 10px 30px #0001;
+}
+
+.card h2{
+  margin-top:0;
+}
+
+.photo-box{
+  border:2px dashed #cfc5e9;
+  border-radius:15px;
+  padding:15px;
+  text-align:center;
+  background:#faf8ff;
+  margin-bottom:15px;
+}
+
+.photo-preview{
+  width:150px;
+  height:150px;
+  object-fit:cover;
+  border-radius:15px;
+  display:none;
+  margin:10px auto;
+  border:1px solid #ddd;
+}
+
+.product-list{
+  display:grid;
+  gap:12px;
+  margin-top:15px;
 }
 
 .product{
   display:flex;
+  gap:15px;
   align-items:center;
-  gap:14px;
-  padding:14px 0;
-  border-top:1px solid #eee;
+  padding:12px;
+  border:1px solid #eee;
+  border-radius:15px;
 }
 
-.productEmoji{
-  width:60px;
-  height:60px;
-  border-radius:16px;
-  display:grid;
-  place-items:center;
-  font-size:32px;
-  background:linear-gradient(
-    135deg,
-    var(--pink),
-    var(--blue)
-  );
+.product img{
+  width:75px;
+  height:75px;
+  object-fit:cover;
+  border-radius:12px;
+  background:#f2f2f2;
 }
 
-.productInfo{
+.product-info{
   flex:1;
 }
 
-.productName{
-  font-weight:900;
-  font-size:16px;
+.product-info h3{
+  margin:0 0 5px;
 }
 
-.productMeta{
-  color:var(--muted);
-  font-size:13px;
-  margin-top:4px;
+.product-info p{
+  margin:3px 0;
+  color:#666;
+  font-size:14px;
 }
 
 .actions{
   display:flex;
+  gap:7px;
   flex-wrap:wrap;
-  gap:5px;
+}
+
+.small-btn{
+  padding:8px 10px;
+  border:0;
+  border-radius:9px;
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.coupon-row{
+  display:flex;
+  gap:8px;
+}
+
+.coupon-row input{
+  margin:0;
+}
+
+.coupon{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border:1px solid #eee;
+  padding:12px;
+  border-radius:12px;
+  margin-top:10px;
+}
+
+.order{
+  border:1px solid #eee;
+  padding:14px;
+  border-radius:14px;
+  margin-top:10px;
 }
 
 .empty{
+  color:#888;
   text-align:center;
-  padding:30px;
-  color:var(--muted);
+  padding:20px;
 }
 
-.statGrid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
+.msg{
+  text-align:center;
+  margin-top:10px;
+  font-weight:700;
 }
 
-.stat{
-  border-radius:18px;
-  padding:18px;
-}
-
-.stat:nth-child(1){
-  background:var(--pink);
-}
-
-.stat:nth-child(2){
-  background:var(--purple);
-}
-
-.stat:nth-child(3){
-  background:var(--blue);
-}
-
-.stat b{
-  display:block;
-  font-size:28px;
-}
-
-@media(max-width:700px){
-
+@media(max-width:800px){
   .grid{
     grid-template-columns:1fr;
   }
 
-  .statGrid{
-    grid-template-columns:1fr;
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+
+@media(max-width:500px){
+  .wrap{
+    padding:12px;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
   }
 
   .product{
     align-items:flex-start;
-    flex-wrap:wrap;
   }
 
-  .productInfo{
-    min-width:200px;
+  .product img{
+    width:60px;
+    height:60px;
   }
-
 }
 </style>
 </head>
 
 <body>
 
-<div class="top">
-  🎨 Jibran's Creations — Admin Panel
-</div>
+<!-- ================= LOGIN ================= -->
 
-<div class="wrap">
+<div class="login-box" id="loginBox">
 
-<!-- LOGIN -->
+  <div class="logo">🛍️ Jibran's Creations</div>
 
-<div id="loginBox" class="box login-box">
-
-  <h1>🔐 Admin Login</h1>
-
-  <p class="small">
-    Authorized admin area of Jibran's Creations.
-  </p>
+  <div class="subtitle">
+    🔐 Private Admin Panel
+  </div>
 
   <label>Admin Email</label>
   <input
-    id="adminEmail"
     type="email"
+    id="loginEmail"
     placeholder="Enter admin email"
   >
 
   <label>Password</label>
   <input
-    id="adminPassword"
     type="password"
+    id="loginPassword"
     placeholder="Enter password"
   >
 
-  <button
-    class="btn primary"
-    onclick="adminLogin()"
-  >
-    🔓 Login
+  <button class="btn" style="width:100%" onclick="login()">
+    🔐 Secure Login
   </button>
 
-  <p id="loginMessage" class="msg"></p>
+  <div class="msg" id="loginMsg"></div>
 
 </div>
 
 
-<!-- ADMIN DASHBOARD -->
+<!-- ================= DASHBOARD ================= -->
 
-<div id="dashboard" class="hidden">
+<div class="dashboard" id="dashboard">
 
-  <div class="box">
+<div class="wrap">
 
-    <h1>🎨 Jibran's Creations</h1>
+  <div class="header">
 
-    <p class="small">
-      Welcome to your Admin Panel.
-    </p>
+    <div>
+      <h1>🔐 Jibran's Creations Admin</h1>
+      <p>Manage products, coupons and orders</p>
+    </div>
 
-    <button
-      class="btn soft"
-      onclick="openWebsite()"
-    >
-      🌐 Open Website
-    </button>
-
-    <button
-      class="btn danger"
-      onclick="adminLogout()"
-    >
-      🚪 Logout
+    <button class="btn btn-red" onclick="logout()">
+      Logout
     </button>
 
   </div>
@@ -315,180 +369,222 @@ textarea{
 
   <!-- STATS -->
 
-  <div class="box">
+  <div class="stats">
 
-    <div class="statGrid">
+    <div class="stat">
+      📦 Products
+      <strong id="productCount">0</strong>
+    </div>
 
-      <div class="stat">
-        <span>📦 Products</span>
-        <b id="productCount">0</b>
-      </div>
+    <div class="stat">
+      🎟️ Coupons
+      <strong id="couponCount">0</strong>
+    </div>
 
-      <div class="stat">
-        <span>🎟️ Coupons</span>
-        <b id="couponCount">0</b>
-      </div>
+    <div class="stat">
+      🛍️ Orders
+      <strong id="orderCount">0</strong>
+    </div>
 
-      <div class="stat">
-        <span>🛒 Orders</span>
-        <b id="orderCount">0</b>
-      </div>
-
+    <div class="stat">
+      ⭐ Status
+      <strong>Active</strong>
     </div>
 
   </div>
 
 
-  <!-- PRODUCT + COUPON -->
-
   <div class="grid">
 
-    <!-- PRODUCT -->
 
-    <div class="box">
+    <!-- ================= ADD PRODUCT ================= -->
 
-      <h2>📦 Add Product</h2>
+    <div class="card">
 
-      <input
-        id="productId"
-        type="hidden"
-      >
+      <h2>📦 Add / Edit Product</h2>
+
+      <input type="hidden" id="editId">
 
       <label>Product Name</label>
-
       <input
-        id="productName"
-        placeholder="e.g. DIY Painting Kit"
+        type="text"
+        id="pName"
+        placeholder="Example: DIY Painting Kit"
+      >
+
+      <label>MRP</label>
+      <input
+        type="number"
+        id="pMrp"
+        placeholder="Example: 299"
       >
 
       <label>Selling Price</label>
-
       <input
-        id="productPrice"
         type="number"
-        placeholder="299"
-      >
-
-      <label>MRP / Old Price</label>
-
-      <input
-        id="productOldPrice"
-        type="number"
-        placeholder="319"
+        id="pPrice"
+        placeholder="Example: 249"
       >
 
       <label>Stock</label>
-
       <input
-        id="productStock"
         type="number"
-        placeholder="20"
+        id="pStock"
+        placeholder="Example: 20"
       >
 
       <label>Category</label>
+      <select id="pCategory">
 
-      <input
-        id="productCategory"
-        placeholder="DIY Kits"
-      >
+        <option value="Painting">
+          Painting
+        </option>
 
-      <label>Emoji</label>
+        <option value="DIY">
+          DIY
+        </option>
 
-      <input
-        id="productEmoji"
-        placeholder="🎨"
-      >
+        <option value="Craft">
+          Craft
+        </option>
+
+        <option value="Kids">
+          Kids
+        </option>
+
+        <option value="Art">
+          Art
+        </option>
+
+        <option value="Other">
+          Other
+        </option>
+
+      </select>
+
+
+      <!-- ================= PHOTO UPLOAD ================= -->
+
+      <label>📷 Product Photo</label>
+
+      <div class="photo-box">
+
+        <div>
+          Choose product image
+        </div>
+
+        <input
+          type="file"
+          id="pImage"
+          accept="image/*"
+        >
+
+        <img
+          id="imagePreview"
+          class="photo-preview"
+          alt="Product Preview"
+        >
+
+        <div style="font-size:12px;color:#888">
+          JPG / PNG / WEBP recommended
+        </div>
+
+      </div>
+
 
       <label>Description</label>
 
       <textarea
-        id="productDescription"
+        id="pDescription"
         placeholder="Write product description..."
       ></textarea>
 
-      <button
-        class="btn primary"
-        onclick="saveProduct()"
-      >
-        💾 Save Product
-      </button>
 
-      <button
-        class="btn soft"
-        onclick="clearProductForm()"
-      >
-        Clear
-      </button>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
 
-      <p
-        id="productMessage"
-        class="small"
-      ></p>
+        <button
+          class="btn btn-pink"
+          onclick="saveProduct()"
+        >
+          ➕ Save Product
+        </button>
+
+        <button
+          class="btn"
+          onclick="clearProductForm()"
+        >
+          Clear
+        </button>
+
+      </div>
+
+      <div
+        class="msg"
+        id="productMsg"
+      ></div>
 
     </div>
 
 
-    <!-- COUPON -->
+    <!-- ================= PRODUCTS ================= -->
 
-    <div class="box">
+    <div class="card">
 
-      <h2>🎟️ Add Coupon</h2>
+      <h2>🛍️ Products</h2>
 
-      <label>Coupon Code</label>
+      <div
+        id="productList"
+        class="product-list"
+      ></div>
 
-      <input
-        id="couponCode"
-        placeholder="WELCOME10"
-      >
+    </div>
 
-      <label>Discount %</label>
 
-      <input
-        id="couponDiscount"
-        type="number"
-        placeholder="10"
-      >
+    <!-- ================= COUPONS ================= -->
 
-      <label>Minimum Order</label>
+    <div class="card">
 
-      <input
-        id="couponMinimum"
-        type="number"
-        placeholder="299"
-      >
+      <h2>🎟️ Coupons / Discounts</h2>
 
-      <button
-        class="btn primary"
-        onclick="saveCoupon()"
-      >
-        🎟️ Save Coupon
-      </button>
+      <div class="coupon-row">
+
+        <input
+          type="text"
+          id="couponCode"
+          placeholder="Coupon code"
+        >
+
+        <input
+          type="number"
+          id="couponDiscount"
+          placeholder="%"
+          style="max-width:100px"
+        >
+
+        <button
+          class="btn btn-green"
+          onclick="addCoupon()"
+        >
+          Add
+        </button>
+
+      </div>
 
       <div id="couponList"></div>
 
     </div>
 
-  </div>
 
+    <!-- ================= ORDERS ================= -->
 
-  <!-- PRODUCTS -->
+    <div class="card">
 
-  <div class="box">
+      <h2>📋 Orders</h2>
 
-    <h2>📦 Products</h2>
+      <div id="orderList"></div>
 
-    <div id="productList"></div>
+    </div>
 
-  </div>
-
-
-  <!-- ORDERS -->
-
-  <div class="box">
-
-    <h2>🛍️ Orders</h2>
-
-    <div id="orderList"></div>
 
   </div>
 
@@ -499,186 +595,52 @@ textarea{
 
 <script>
 
-/* =========================
+/* =====================================================
    ADMIN LOGIN
-========================= */
+===================================================== */
 
-const ADMIN_EMAIL =
-"jibran.shahban@gmail.com";
+const ADMIN_EMAIL = "jibran.shahban@gmail.com";
 
-const ADMIN_PASSWORD =
-"AnasAdmin@2026";
+const ADMIN_PASSWORD = "AnasAdmin@2026";
 
 
-/* =========================
-   STORAGE KEYS
-========================= */
-
-const PRODUCT_KEY =
-"jcProductsV1";
-
-const COUPON_KEY =
-"jcCouponsV1";
-
-const ORDER_KEY =
-"jcOrdersV1";
-
-
-/* =========================
-   DEFAULT PRODUCTS
-========================= */
-
-const DEFAULT_PRODUCTS = [
-
-  {
-    id:"p1",
-    name:"DIY Painting Kit",
-    price:299,
-    oldPrice:319,
-    stock:20,
-    category:"DIY Kits",
-    emoji:"🎨",
-    description:"Creative DIY painting activity kit."
-  },
-
-  {
-    id:"p2",
-    name:"Creative Craft Kit",
-    price:349,
-    oldPrice:369,
-    stock:20,
-    category:"Art & Craft",
-    emoji:"🧩",
-    description:"Fun creative craft activity kit."
-  },
-
-  {
-    id:"p3",
-    name:"Mini Building Set",
-    price:399,
-    oldPrice:419,
-    stock:20,
-    category:"Building Toys",
-    emoji:"🧱",
-    description:"Creative mini building set."
-  },
-
-  {
-    id:"p4",
-    name:"DIY Gift Activity Box",
-    price:449,
-    oldPrice:469,
-    stock:20,
-    category:"Gift Ideas",
-    emoji:"🎁",
-    description:"Fun DIY activity gift box."
-  }
-
-];
-
-
-/* =========================
-   STORAGE HELPERS
-========================= */
-
-function getProducts(){
-
-  const data =
-    localStorage.getItem(PRODUCT_KEY);
-
-  if(!data){
-
-    localStorage.setItem(
-      PRODUCT_KEY,
-      JSON.stringify(DEFAULT_PRODUCTS)
-    );
-
-    return DEFAULT_PRODUCTS;
-  }
-
-  try{
-    return JSON.parse(data);
-  }catch(e){
-    return DEFAULT_PRODUCTS;
-  }
-
-}
-
-
-function setProducts(products){
-
-  localStorage.setItem(
-    PRODUCT_KEY,
-    JSON.stringify(products)
-  );
-
-}
-
-
-/* =========================
-   LOGIN
-========================= */
-
-function adminLogin(){
+function login(){
 
   const email =
-    document
-    .getElementById("adminEmail")
-    .value
-    .trim()
-    .toLowerCase();
+    document.getElementById("loginEmail").value.trim();
 
   const password =
-    document
-    .getElementById("adminPassword")
-    .value;
+    document.getElementById("loginPassword").value;
+
+  const msg =
+    document.getElementById("loginMsg");
+
 
   if(
-    email === ADMIN_EMAIL.toLowerCase()
-    &&
+    email === ADMIN_EMAIL &&
     password === ADMIN_PASSWORD
   ){
 
     sessionStorage.setItem(
       "jcAdminLoggedIn",
-      "1"
+      "true"
     );
 
     showDashboard();
 
   }else{
 
-    document
-    .getElementById("loginMessage")
-    .textContent =
-      "❌ Wrong admin email or password.";
+    msg.textContent =
+      "❌ Wrong email or password";
+
+    msg.style.color = "#d9534f";
 
   }
 
 }
 
 
-function showDashboard(){
-
-  document
-  .getElementById("loginBox")
-  .classList
-  .add("hidden");
-
-  document
-  .getElementById("dashboard")
-  .classList
-  .remove("hidden");
-
-  renderProducts();
-  renderCoupons();
-  renderOrders();
-  updateStats();
-
-}
-
-
-function adminLogout(){
+function logout(){
 
   sessionStorage.removeItem(
     "jcAdminLoggedIn"
@@ -689,369 +651,39 @@ function adminLogout(){
 }
 
 
-function openWebsite(){
+function showDashboard(){
 
-  window.location.href =
-    "index.html";
+  document.getElementById(
+    "loginBox"
+  ).style.display = "none";
 
-}
+  document.getElementById(
+    "dashboard"
+  ).style.display = "block";
 
-
-/* =========================
-   PRODUCT FORM
-========================= */
-
-function saveProduct(){
-
-  const name =
-    document
-    .getElementById("productName")
-    .value
-    .trim();
-
-  if(!name){
-
-    alert(
-      "Please enter product name."
-    );
-
-    return;
-  }
-
-
-  let products =
-    getProducts();
-
-  const existingId =
-    document
-    .getElementById("productId")
-    .value;
-
-
-  const product = {
-
-    id:
-      existingId ||
-      "p_" + Date.now(),
-
-    name:name,
-
-    price:
-      Number(
-        document
-        .getElementById("productPrice")
-        .value
-      ) || 0,
-
-    oldPrice:
-      Number(
-        document
-        .getElementById("productOldPrice")
-        .value
-      ) || 0,
-
-    stock:
-      Number(
-        document
-        .getElementById("productStock")
-        .value
-      ) || 0,
-
-    category:
-      document
-      .getElementById("productCategory")
-      .value
-      .trim() ||
-      "Products",
-
-    emoji:
-      document
-      .getElementById("productEmoji")
-      .value
-      .trim() ||
-      "🎨",
-
-    description:
-      document
-      .getElementById("productDescription")
-      .value
-      .trim()
-
-  };
-
-
-  const index =
-    products.findIndex(
-      p => p.id === product.id
-    );
-
-
-  if(index >= 0){
-
-    products[index] =
-      product;
-
-  }else{
-
-    products.push(product);
-
-  }
-
-
-  setProducts(products);
-
-  clearProductForm();
-
-  renderProducts();
-
-  updateStats();
-
-  document
-  .getElementById("productMessage")
-  .textContent =
-    "✅ Product saved successfully.";
+  loadAll();
 
 }
 
 
-/* =========================
-   EDIT PRODUCT
-========================= */
+/* =====================================================
+   PRODUCT DATA
+===================================================== */
 
-function editProduct(id){
+const PRODUCT_KEY = "jcProductsV1";
 
-  const product =
-    getProducts()
-    .find(p => p.id === id);
+const COUPON_KEY = "jcCouponsV1";
 
-  if(!product) return;
+const ORDER_KEY = "jcOrders";
 
 
-  document
-  .getElementById("productId")
-  .value =
-    product.id;
-
-  document
-  .getElementById("productName")
-  .value =
-    product.name;
-
-  document
-  .getElementById("productPrice")
-  .value =
-    product.price;
-
-  document
-  .getElementById("productOldPrice")
-  .value =
-    product.oldPrice;
-
-  document
-  .getElementById("productStock")
-  .value =
-    product.stock;
-
-  document
-  .getElementById("productCategory")
-  .value =
-    product.category;
-
-  document
-  .getElementById("productEmoji")
-  .value =
-    product.emoji;
-
-  document
-  .getElementById("productDescription")
-  .value =
-    product.description || "";
-
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-/* =========================
-   DELETE PRODUCT
-========================= */
-
-function deleteProduct(id){
-
-  if(
-    !confirm(
-      "Delete this product?"
-    )
-  ){
-
-    return;
-
-  }
-
-
-  const products =
-    getProducts()
-    .filter(
-      p => p.id !== id
-    );
-
-  setProducts(products);
-
-  renderProducts();
-
-  updateStats();
-
-}
-
-
-/* =========================
-   CLEAR PRODUCT
-========================= */
-
-function clearProductForm(){
-
-  document
-  .getElementById("productId")
-  .value = "";
-
-  document
-  .getElementById("productName")
-  .value = "";
-
-  document
-  .getElementById("productPrice")
-  .value = "";
-
-  document
-  .getElementById("productOldPrice")
-  .value = "";
-
-  document
-  .getElementById("productStock")
-  .value = "";
-
-  document
-  .getElementById("productCategory")
-  .value = "";
-
-  document
-  .getElementById("productEmoji")
-  .value = "";
-
-  document
-  .getElementById("productDescription")
-  .value = "";
-
-}
-
-
-/* =========================
-   RENDER PRODUCTS
-========================= */
-
-function renderProducts(){
-
-  const products =
-    getProducts();
-
-  const list =
-    document
-    .getElementById("productList");
-
-
-  if(!products.length){
-
-    list.innerHTML =
-      '<div class="empty">No products added.</div>';
-
-    return;
-
-  }
-
-
-  list.innerHTML =
-    products
-    .map(product => `
-
-      <div class="product">
-
-        <div class="productEmoji">
-          ${product.emoji || "🎨"}
-        </div>
-
-        <div class="productInfo">
-
-          <div class="productName">
-            ${escapeHTML(product.name)}
-          </div>
-
-          <div class="productMeta">
-
-            ₹${product.price}
-
-            ${
-              product.oldPrice
-              ?
-              " • MRP ₹" +
-              product.oldPrice
-              :
-              ""
-            }
-
-            • Stock:
-            ${product.stock}
-
-          </div>
-
-          <div class="productMeta">
-            ${escapeHTML(product.category)}
-          </div>
-
-        </div>
-
-        <div class="actions">
-
-          <button
-            class="btn soft"
-            onclick="editProduct('${product.id}')"
-          >
-            ✏️ Edit
-          </button>
-
-          <button
-            class="btn danger"
-            onclick="deleteProduct('${product.id}')"
-          >
-            🗑️ Delete
-          </button>
-
-        </div>
-
-      </div>
-
-    `)
-    .join("");
-
-}
-
-
-/* =========================
-   COUPONS
-========================= */
-
-function getCoupons(){
+function getProducts(){
 
   try{
 
     return JSON.parse(
-      localStorage.getItem(
-        COUPON_KEY
-      ) || "[]"
-    );
+      localStorage.getItem(PRODUCT_KEY)
+    ) || [];
 
   }catch(e){
 
@@ -1062,19 +694,237 @@ function getCoupons(){
 }
 
 
-function saveCoupon(){
+function saveProducts(products){
 
-  const code =
-    document
-    .getElementById("couponCode")
-    .value
-    .trim()
-    .toUpperCase();
+  localStorage.setItem(
+    PRODUCT_KEY,
+    JSON.stringify(products)
+  );
 
-  if(!code){
+}
+
+
+/* =====================================================
+   IMAGE UPLOAD
+===================================================== */
+
+let selectedImage = "";
+
+
+document
+  .getElementById("pImage")
+  .addEventListener("change", function(e){
+
+    const file = e.target.files[0];
+
+    if(!file){
+      return;
+    }
+
+
+    if(!file.type.startsWith("image/")){
+
+      alert("Please select an image file.");
+
+      this.value = "";
+
+      return;
+
+    }
+
+
+    /*
+      Image size limit
+    */
+
+    if(file.size > 3 * 1024 * 1024){
+
+      alert(
+        "Image is too large. Please choose an image below 3MB."
+      );
+
+      this.value = "";
+
+      return;
+
+    }
+
+
+    const reader = new FileReader();
+
+
+    reader.onload = function(event){
+
+      selectedImage =
+        event.target.result;
+
+
+      const preview =
+        document.getElementById(
+          "imagePreview"
+        );
+
+      preview.src =
+        selectedImage;
+
+      preview.style.display =
+        "block";
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+  });
+
+
+/* =====================================================
+   SAVE PRODUCT
+===================================================== */
+
+function saveProduct(){
+
+  const name =
+    document.getElementById("pName")
+    .value.trim();
+
+  const mrp =
+    Number(
+      document.getElementById("pMrp")
+      .value
+    );
+
+  const price =
+    Number(
+      document.getElementById("pPrice")
+      .value
+    );
+
+  const stock =
+    Number(
+      document.getElementById("pStock")
+      .value
+    );
+
+  const category =
+    document.getElementById("pCategory")
+    .value;
+
+  const description =
+    document.getElementById("pDescription")
+    .value.trim();
+
+  const editId =
+    document.getElementById("editId")
+    .value;
+
+
+  if(!name){
+
+    alert("Please enter product name.");
+
+    return;
+
+  }
+
+
+  if(!price){
+
+    alert("Please enter selling price.");
+
+    return;
+
+  }
+
+
+  let products =
+    getProducts();
+
+
+  /*
+    EDIT PRODUCT
+  */
+
+  if(editId){
+
+    const index =
+      products.findIndex(
+        p => String(p.id) === String(editId)
+      );
+
+
+    if(index !== -1){
+
+      products[index] = {
+
+        ...products[index],
+
+        name:name,
+
+        mrp:mrp,
+
+        price:price,
+
+        stock:stock,
+
+        category:category,
+
+        description:description,
+
+        image:
+          selectedImage ||
+          products[index].image ||
+          ""
+
+      };
+
+    }
+
+  }
+
+
+  /*
+    ADD NEW PRODUCT
+  */
+
+  else{
+
+    const product = {
+
+      id:
+        Date.now(),
+
+      name:name,
+
+      mrp:mrp,
+
+      price:price,
+
+      stock:stock,
+
+      category:category,
+
+      description:description,
+
+      image:
+        selectedImage || ""
+
+    };
+
+
+    products.unshift(product);
+
+  }
+
+
+  try{
+
+    saveProducts(products);
+
+  }catch(e){
 
     alert(
-      "Enter coupon code."
+      "Storage full. Please use a smaller product image."
     );
 
     return;
@@ -1082,20 +932,344 @@ function saveCoupon(){
   }
 
 
+  document.getElementById(
+    "productMsg"
+  ).textContent =
+    editId
+      ? "✅ Product updated successfully!"
+      : "✅ Product added successfully!";
+
+
+  document.getElementById(
+    "productMsg"
+  ).style.color =
+    "#4f9b76";
+
+
+  clearProductForm();
+
+  renderProducts();
+
+  updateStats();
+
+}
+
+
+/* =====================================================
+   CLEAR FORM
+===================================================== */
+
+function clearProductForm(){
+
+  document.getElementById(
+    "editId"
+  ).value = "";
+
+  document.getElementById(
+    "pName"
+  ).value = "";
+
+  document.getElementById(
+    "pMrp"
+  ).value = "";
+
+  document.getElementById(
+    "pPrice"
+  ).value = "";
+
+  document.getElementById(
+    "pStock"
+  ).value = "";
+
+  document.getElementById(
+    "pCategory"
+  ).value = "Painting";
+
+  document.getElementById(
+    "pDescription"
+  ).value = "";
+
+  document.getElementById(
+    "pImage"
+  ).value = "";
+
+  selectedImage = "";
+
+  const preview =
+    document.getElementById(
+      "imagePreview"
+    );
+
+  preview.src = "";
+
+  preview.style.display =
+    "none";
+
+}
+
+
+/* =====================================================
+   RENDER PRODUCTS
+===================================================== */
+
+function renderProducts(){
+
+  const box =
+    document.getElementById(
+      "productList"
+    );
+
+  const products =
+    getProducts();
+
+
+  if(!products.length){
+
+    box.innerHTML =
+      '<div class="empty">No products added yet.</div>';
+
+    return;
+
+  }
+
+
+  box.innerHTML =
+    products.map(p => `
+
+      <div class="product">
+
+        <img
+          src="${p.image || ''}"
+          onerror="this.style.visibility='hidden'"
+          alt=""
+        >
+
+        <div class="product-info">
+
+          <h3>
+            ${escapeHtml(p.name)}
+          </h3>
+
+          <p>
+            ₹${Number(p.price || 0)}
+            ${p.mrp
+              ? ` <del>₹${Number(p.mrp)}</del>`
+              : ""
+            }
+          </p>
+
+          <p>
+            📦 Stock: ${Number(p.stock || 0)}
+          </p>
+
+          <p>
+            🏷️ ${escapeHtml(p.category || "Other")}
+          </p>
+
+        </div>
+
+        <div class="actions">
+
+          <button
+            class="small-btn btn-blue"
+            onclick="editProduct('${p.id}')"
+          >
+            Edit
+          </button>
+
+          <button
+            class="small-btn btn-red"
+            onclick="deleteProduct('${p.id}')"
+          >
+            Delete
+          </button>
+
+        </div>
+
+      </div>
+
+    `).join("");
+
+}
+
+
+/* =====================================================
+   EDIT PRODUCT
+===================================================== */
+
+function editProduct(id){
+
+  const products =
+    getProducts();
+
+  const product =
+    products.find(
+      p => String(p.id) === String(id)
+    );
+
+
+  if(!product){
+    return;
+  }
+
+
+  document.getElementById(
+    "editId"
+  ).value =
+    product.id;
+
+  document.getElementById(
+    "pName"
+  ).value =
+    product.name || "";
+
+  document.getElementById(
+    "pMrp"
+  ).value =
+    product.mrp || "";
+
+  document.getElementById(
+    "pPrice"
+  ).value =
+    product.price || "";
+
+  document.getElementById(
+    "pStock"
+  ).value =
+    product.stock || "";
+
+  document.getElementById(
+    "pCategory"
+  ).value =
+    product.category || "Other";
+
+  document.getElementById(
+    "pDescription"
+  ).value =
+    product.description || "";
+
+
+  selectedImage =
+    product.image || "";
+
+
+  const preview =
+    document.getElementById(
+      "imagePreview"
+    );
+
+
+  if(selectedImage){
+
+    preview.src =
+      selectedImage;
+
+    preview.style.display =
+      "block";
+
+  }
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =====================================================
+   DELETE PRODUCT
+===================================================== */
+
+function deleteProduct(id){
+
+  if(
+    !confirm(
+      "Delete this product?"
+    )
+  ){
+    return;
+  }
+
+
+  let products =
+    getProducts();
+
+
+  products =
+    products.filter(
+      p =>
+        String(p.id) !== String(id)
+    );
+
+
+  saveProducts(products);
+
+  renderProducts();
+
+  updateStats();
+
+}
+
+
+/* =====================================================
+   COUPONS
+===================================================== */
+
+function getCoupons(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(COUPON_KEY)
+    ) || [];
+
+  }catch(e){
+
+    return [];
+
+  }
+
+}
+
+
+function saveCoupons(coupons){
+
+  localStorage.setItem(
+    COUPON_KEY,
+    JSON.stringify(coupons)
+  );
+
+}
+
+
+function addCoupon(){
+
+  const code =
+    document.getElementById(
+      "couponCode"
+    ).value
+    .trim()
+    .toUpperCase();
+
   const discount =
     Number(
-      document
-      .getElementById("couponDiscount")
-      .value
-    ) || 0;
+      document.getElementById(
+        "couponDiscount"
+      ).value
+    );
 
 
-  const minimum =
-    Number(
-      document
-      .getElementById("couponMinimum")
-      .value
-    ) || 0;
+  if(!code || !discount){
+
+    alert(
+      "Enter coupon code and discount."
+    );
+
+    return;
+
+  }
 
 
   const coupons =
@@ -1104,32 +1278,25 @@ function saveCoupon(){
 
   coupons.push({
 
+    id:Date.now(),
+
     code:code,
 
-    discount:discount,
-
-    minimum:minimum
+    discount:discount
 
   });
 
 
-  localStorage.setItem(
-    COUPON_KEY,
-    JSON.stringify(coupons)
-  );
+  saveCoupons(coupons);
 
 
-  document
-  .getElementById("couponCode")
-  .value = "";
+  document.getElementById(
+    "couponCode"
+  ).value = "";
 
-  document
-  .getElementById("couponDiscount")
-  .value = "";
-
-  document
-  .getElementById("couponMinimum")
-  .value = "";
+  document.getElementById(
+    "couponDiscount"
+  ).value = "";
 
 
   renderCoupons();
@@ -1141,74 +1308,72 @@ function saveCoupon(){
 
 function renderCoupons(){
 
+  const box =
+    document.getElementById(
+      "couponList"
+    );
+
   const coupons =
     getCoupons();
-
-  const list =
-    document
-    .getElementById("couponList");
 
 
   if(!coupons.length){
 
-    list.innerHTML =
-      '<p class="small">No coupons created yet.</p>';
+    box.innerHTML =
+      '<div class="empty">No coupons added.</div>';
 
     return;
 
   }
 
 
-  list.innerHTML =
-    coupons
-    .map(
-      (coupon,index) => `
+  box.innerHTML =
+    coupons.map(c => `
 
-        <div class="product">
+      <div class="coupon">
 
-          <div class="productInfo">
+        <div>
 
-            <div class="productName">
-              🎟️ ${escapeHTML(coupon.code)}
-            </div>
+          <strong>
+            ${escapeHtml(c.code)}
+          </strong>
 
-            <div class="productMeta">
-              ${coupon.discount}% OFF
-              • Minimum ₹${coupon.minimum}
-            </div>
+          <br>
 
-          </div>
-
-          <button
-            class="btn danger"
-            onclick="deleteCoupon(${index})"
-          >
-            Delete
-          </button>
+          <small>
+            ${Number(c.discount)}% OFF
+          </small>
 
         </div>
 
-      `
-    )
-    .join("");
+        <button
+          class="small-btn btn-red"
+          onclick="deleteCoupon('${c.id}')"
+        >
+          Delete
+        </button>
+
+      </div>
+
+    `).join("");
 
 }
 
 
-function deleteCoupon(index){
+function deleteCoupon(id){
 
-  const coupons =
+  let coupons =
     getCoupons();
 
-  coupons.splice(
-    index,
-    1
-  );
 
-  localStorage.setItem(
-    COUPON_KEY,
-    JSON.stringify(coupons)
-  );
+  coupons =
+    coupons.filter(
+      c =>
+        String(c.id) !== String(id)
+    );
+
+
+  saveCoupons(coupons);
 
   renderCoupons();
 
@@ -1217,19 +1382,17 @@ function deleteCoupon(index){
 }
 
 
-/* =========================
+/* =====================================================
    ORDERS
-========================= */
+===================================================== */
 
 function getOrders(){
 
   try{
 
     return JSON.parse(
-      localStorage.getItem(
-        ORDER_KEY
-      ) || "[]"
-    );
+      localStorage.getItem(ORDER_KEY)
+    ) || [];
 
   }catch(e){
 
@@ -1242,131 +1405,50 @@ function getOrders(){
 
 function renderOrders(){
 
+  const box =
+    document.getElementById(
+      "orderList"
+    );
+
   const orders =
     getOrders();
-
-  const list =
-    document
-    .getElementById("orderList");
 
 
   if(!orders.length){
 
-    list.innerHTML =
-      '<div class="empty">No orders found.</div>';
+    box.innerHTML =
+      '<div class="empty">No orders yet.</div>';
 
     return;
 
   }
 
 
-  list.innerHTML =
-    orders
-    .map(
-      order => `
+  box.innerHTML =
+    orders.map((o,i) => `
 
-        <div class="product">
+      <div class="order">
 
-          <div class="productInfo">
+        <strong>
+          Order #${i+1}
+        </strong>
 
-            <div class="productName">
-              🛍️ Order #${escapeHTML(
-                String(order.id || "")
-              )}
-            </div>
+        <p>
+          ${escapeHtml(
+            o.name ||
+            o.customerName ||
+            "Customer"
+          )}
+        </p>
 
-            <div class="productMeta">
-              Customer:
-              ${escapeHTML(
-                order.name || ""
-              )}
-            </div>
+        <p>
+          ₹${Number(
+            o.total ||
+            o.amount ||
+            0
+          )}
+        </p>
 
-            <div class="productMeta">
-              Mobile:
-              ${escapeHTML(
-                order.mobile || ""
-              )}
-            </div>
-
-            <div class="productMeta">
-              Total:
-              ₹${order.total || 0}
-            </div>
-
-            <div class="productMeta">
-              Status:
-              ${escapeHTML(
-                order.status || "New"
-              )}
-            </div>
-
-          </div>
-
-        </div>
-
-      `
-    )
-    .join("");
-
-}
-
-
-/* =========================
-   STATS
-========================= */
-
-function updateStats(){
-
-  document
-  .getElementById("productCount")
-  .textContent =
-    getProducts().length;
-
-  document
-  .getElementById("couponCount")
-  .textContent =
-    getCoupons().length;
-
-  document
-  .getElementById("orderCount")
-  .textContent =
-    getOrders().length;
-
-}
-
-
-/* =========================
-   ESCAPE HTML
-========================= */
-
-function escapeHTML(value){
-
-  return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-
-/* =========================
-   AUTO LOGIN
-========================= */
-
-if(
-  sessionStorage.getItem(
-    "jcAdminLoggedIn"
-  ) === "1"
-){
-
-  showDashboard();
-
-}
-
-</script>
-
-</body>
-</html>
+        <small>
+          ${escapeHtml(
+         
